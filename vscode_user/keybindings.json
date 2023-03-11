@@ -1,0 +1,38 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "alt+v alt+v",
+        "command": "toggleVim"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "extension.vim_navigateCtrlL",
+        "when": "editorTextFocus && vim.active && vim.use<C-l> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "-extension.vim_navigateCtrlL",
+        "when": "editorTextFocus && vim.active && vim.use<C-l> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+k s",
+        "command": "dendron.createScratchNote",
+        "when": "dendron:pluginActive && shellExecutionSupported && editorTextFocus"
+    },
+    {
+        "key": "ctrl+k s",
+        "command": "-dendron.createScratchNote",
+        "when": "dendron:pluginActive && shellExecutionSupported"
+    },
+    {
+    "key": "ctrl+s",
+    "command": "searchEditorApplyChanges.apply",
+    "when": "inSearchEditor"
+    },
+    {
+        "key": "ctrl+alt+f t",
+        "command": "workbench.action.findInFiles",
+        "args": {"query": "- \\[[w>x ]\\]|- \\[\\s*\\]"}
+        //"args": {"query": "- \[[w>x ]\]|- \[\s*\]"}
+    }
+]
