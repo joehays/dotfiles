@@ -18,20 +18,23 @@ function install {
 }
 
 # Basics
-#install awscli
-#install chrome-gnome-shell
-#install curl
-#install exfat-utils
-#install file
+install curl
 install git
 install htop
+install vim
+install tldr
+install wget
+#install awscli
+#install chrome-gnome-shell
+#install exfat-utils
+#install file
 #install jq
 #install yq
 #install nmap
 #install openvpn
 #install tree
-install vim
-install wget
+
+# networking
 
 # Image processing
 #install gimp
