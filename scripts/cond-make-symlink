@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Explanation:
+# 
+# [[ -e ${link_name} || -L ${link_name} ]]:
+# 
+# Checks if a file or symbolic link with the name ${link_name} exists (-e), or if a symbolic link exists (-L). This will be true if either a regular file or a symbolic link with that name is present.
+# if [[ -e ${link_name} ]]; then:
+# 
+# Inside this conditional block, if a regular file exists with the name ${link_name}, it renames it by appending "_bak" to the name using mv.
+# ln -s "${link_target}" "${link_name}":
+# 
+# If the name is now available, it proceeds to create the symbolic link.
+# This way, the script checks for the existence of a file or symbolic link with the specified name, renames it if necessary, and then creates the symbolic link.
+
+echo " "
+link_target=$(readlink -f "${1}")
+link_name="${2}"
+echo "${link_target}"
+echo "${link_name}"
+
+#if [[ -e ${link_name} || -L ${link_name} ]]; then
+if [[ -e ${link_name} ]]; then
+    if [[ -e ${link_name} ]]; then
+        mv "${link_name}" "${link_name}_bak"
+        echo "Existing file or directory renamed to ${link_name}_bak."
+    fi
+fi
+if [[ ! -L ${link_name} ]]; then
+    echo "Creating symbolic link..."
+    ln -s "${link_target}" "${link_name}"
+    echo "Symbolic link created."
+fi

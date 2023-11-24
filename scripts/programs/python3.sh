@@ -1,37 +1,34 @@
 #!/bin/bash
 
-function install {
-  which $1 &> /dev/null
+CDW=$(pwd)
 
-  if [ $? -ne 0 ]; then
-    echo "Installing: ${1}..."
-    sudo apt install -y $1
-  else
-    echo "Already installed: ${1}"
-  fi
-}
+# get my own absolute path
+SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"; ));
+APT_INSTALL="${SCRIPT_ABS_DIR}/../cond-apt-install"
+COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
 
-echo "🐍 Installing Python"
+echo "Installing Required Packages"
 # https://realpython.com/intro-to-pyenv/#installing-pyenv
-install make
-install build-essential 
-install libssl-dev 
-install zlib1g-dev
-install libbz2-dev 
-install libreadline-dev 
-install libsqlite3-dev 
-install wget 
-install curl 
-install llvm 
-install libncurses5-dev
-install libncursesw5-dev 
-install xz-utils 
-install tk-dev 
-install libffi-dev 
-install liblzma-dev 
-install python-openssl
+${APT_INSTALL} make
+${APT_INSTALL} build-essential 
+${APT_INSTALL} libssl-dev 
+${APT_INSTALL} zlib1g-dev
+${APT_INSTALL} libbz2-dev 
+${APT_INSTALL} libreadline-dev 
+${APT_INSTALL} libsqlite3-dev 
+${APT_INSTALL} wget 
+${APT_INSTALL} curl 
+${APT_INSTALL} llvm 
+${APT_INSTALL} libncurses5-dev
+${APT_INSTALL} libncursesw5-dev 
+${APT_INSTALL} xz-utils 
+${APT_INSTALL} tk-dev 
+${APT_INSTALL} libffi-dev 
+${APT_INSTALL} liblzma-dev 
+${APT_INSTALL} python-openssl
 
 
+echo "🐍 Installing PyEnv"
 which pyenv &> /dev/null
 
 if [ $? -ne 0 ]; then
@@ -46,21 +43,18 @@ else
   pyenv update
 fi
 
-# now update .bashrc
-#string_to_add="export MY_VAR=my_value"
-#export PATH="$HOME/.pyenv/bin:$PATH"
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
-#
-## Check if the string already exists in the .bashrc file
-#if grep -Fxq "$string_to_add" ~/.bashrc
-#then
-#    echo "The string is already present in the .bashrc file"
-#else
-#    # Add the string to the .bashrc file
-#    echo "$string_to_add" >> ~/.bashrc
-#    echo "The string has been added to the .bashrc file"
-#fi
-#
-#exec "$SHELL" # Or just restart your terminal
 
+grep -qxF "export PYENV_ROOT=${PYENV_ROOT}" ${FILE} || $(sed -Ei -e "/^([^#]|$)/ {a \export PYENV_ROOT=${PYENV_ROOT}" -e ':a' -e '$!{n;ba};}' ${FILE})
+new_string="Joe Hays" 
+FILE="test"
+grep -qxF "${new_string}" ${FILE} || $(sed -Ei -e "/^([^#]|$)/ {a \${new_string}" -e ':a' -e '$!{n;ba};}' ${FILE})
+
+# now update .bashrc
+${COND_INSERT} 'eval \"$(pyenv virtualenv-init -)\"' ${HOME}/.bashrc 
+${COND_INSERT} 'eval \"$(pyenv init -)\"' ${HOME}/.bashrc 
+${COND_INSERT} 'export PATH=\"${HOME}/.pyenv/bin:${PATH}\"' ${HOME}/.bashrc 
+
+#exec "$SHELL" # Or just restart your terminal
+# or, better yet, source ~/.bashrc at the end of all installs
+
+cd ${CDW}

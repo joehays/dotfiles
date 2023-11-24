@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# If you want to modify the script to insert the string at the end of the file, you can simplify the sed command. Here's the modified version:
+# 
+# grep -qxF "${new_string}" "${FILE}" || echo "${new_string}" >> "${FILE}"
+# In this version:
+# 
+# grep -qxF "${new_string}" "${FILE}": This part remains the same; it checks if ${new_string} exists in the ${FILE}.
+# 
+# ||: If the grep command fails (i.e., the string is not found), the following command is executed.
+# 
+# echo "${new_string}" >> "${FILE}": This command appends (>>) the ${new_string} to the end of the ${FILE}.
+# 
+# This way, if the string is not found in the file, it gets added to the end of the file. The sed command is not necessary for this specific case where you want to insert the string at the end of the file.
+
+
+STRING="$1"
+FILE="$2"
+grep -qxF "${STRING}" "${FILE}" || echo "${STRING}" >> "${FILE}"
