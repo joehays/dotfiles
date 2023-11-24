@@ -16,6 +16,7 @@ alias mkdir='mkdir -pv'
 alias mv='mv -v'
 alias wget='wget -c'
 alias tree="tree -aI 'test*|.git|node_modules|resources'"
+alias tldr="tldr -t ocean"
 
 if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
@@ -47,11 +48,10 @@ function cd () {
 
 # Golang install or upgrade
 function getgolang () {
-    if [ $# -eq 0 ]
-        then
-            firefox https://go.dev/doc/install
-            echo "Please provide the latest version!"
-            return 1
+    if [ $# -eq 0 ]; then
+        firefox https://go.dev/doc/install
+        echo "Please provide the latest version!"
+        return 1
     fi
     sudo rm -rf /usr/local/go
     wget -q -P tmp/ https://dl.google.com/go/go"$@".linux-amd64.tar.gz
@@ -88,14 +88,14 @@ function mlc () {
 }
 
 # Go
-export PATH=$PATH:/usr/local/bin:/usr/local/go/bin:~/.local/bin:$GOPATH/bin
 export GOPATH=~/go
+export PATH=$PATH:/usr/local/bin:/usr/local/go/bin:~/.local/bin:$GOPATH/bin
 
 # Vim for life
 export EDITOR=/usr/bin/vim
 
 # Bash completion
-source ~/.git-completion.bash
+source ~/.git-completion.bash  # DUP
 
 # Color prompt
 export TERM=xterm-256color
@@ -160,11 +160,8 @@ export PS1="${pathC}\w ${gitC}\$(gitBranch) ${pointerC}\$${normalC} "
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
-
-# For Go
-#export PATH=$PATH:/usr/local/go/bin
+#export GEM_HOME="$HOME/gems"
+#export PATH="$HOME/gems/bin:$PATH"
 
 eval \"$(pyenv virtualenv-init -)\"
 eval \"$(pyenv init -)\"
