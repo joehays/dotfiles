@@ -21,8 +21,12 @@ function install {
 # https://code.visualstudio.com/docs/editor/settings-sync
 
 # https://stackoverflow.com/questions/35773299/how-can-you-export-the-visual-studio-code-extension-list
-## [linux export] `code --list-extensions | xargs -L 1 echo code --install-extension`
-## [windows export] `code --list-extensions | % { "code --install-extension $_" }` 
+## [linux export] `code --list-extensions | xargs -L 1 echo code --install-extension`, or,
+## [linux export] `code --list-extensions > vscode-extensions.list`
+## [linux install] `cat vscode-extensions.list | xargs -L 1 code --install-extension`
+## [windows export] `code --list-extensions | % { "code --install-extension $_" }`, or,
+## [windows export] `code --list-extensions > vscode-extensions.list`
+## [windows install] `Get-Content vscode_extensions.list | ForEach-Object { code --install-extension $_ }`
 
 
 # unique at home
