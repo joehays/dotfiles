@@ -17,6 +17,7 @@ ${MAKE_SYMLINK} .fonts ${HOME}/.fonts
 ${MAKE_SYMLINK} .git-completion.bash ${HOME}/.git-completion.bash
 ${MAKE_SYMLINK} .git-rundown.sh ${HOME}/.git-rundown.sh
 ${MAKE_SYMLINK} .vimrc ${HOME}/.vimrc
+${MAKE_SYMLINK} .gitconfig_global ${HOME}/.gitconfig
 
 #cp .gitconfig ${HOME}
 #cp .gitignore ${HOME}

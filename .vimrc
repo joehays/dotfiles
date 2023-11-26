@@ -54,6 +54,7 @@ set showcmd
 set modeline
 set ruler
 set number
+set rnu " set relative numbers
 "set notitle noicon
 set titlestring=%t
 " Persist color scheme in tmux
