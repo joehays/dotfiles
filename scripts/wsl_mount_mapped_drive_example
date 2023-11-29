@@ -1,0 +1,1 @@
+sudo mount -t cifs //132.250.192.91/Users$/joehays/Private /mnt/w -o user=joehays,uid=$(id -u),gid=$(id -g)
