@@ -14,7 +14,7 @@
 
 [core]
 
-  editor = GIT_EDITOR
+  editor = vim
   excludesfile = ~/.cvsignore
   attributesfile = ~/.gitattributes
   autocrlf = input
