@@ -1,0 +1,119 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+alt+f5",
+        "command": "python.execInTerminal"
+    },
+    {
+        "key": "alt+v alt+v",
+        "command": "toggleVim"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "editor.action.clipboardCopyAction"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "-editor.action.clipboardCopyAction"
+    },
+    {
+        "key": "ctrl+shift+alt+t",
+        "command": "workbench.action.terminal.openNativeConsole",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "-workbench.action.terminal.openNativeConsole",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+alt+v",
+        "command": "markdown.extension.togglePreview",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+v",
+        "command": "-markdown.extension.togglePreview",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "escape",
+        "command": "-language-julia.clearCurrentInlineResult",
+        "when": "editorLangId == 'juliamarkdown' || editorLangId == 'markdown' || editorTextFocus && juliaHasInlineResult && !editorHasSelection && !findWidgetVisible && !inSnippetMode && !isInEmbeddedEditor && !markerNavigationVisible && !onTypeRenameInputVisible && !parameterHintsVisible && !renameInputVisible && !suggestWidgetVisible && editorLangId == 'julia'"
+    },
+    {
+        "key": "escape",
+        "command": "-language-julia.clearCurrentInlineResult",
+        "when": "editorLangId == 'juliamarkdown' || editorTextFocus && juliaHasInlineResult && !editorHasSelection && !findWidgetVisible && !inSnippetMode && !isInEmbeddedEditor && !markerNavigationVisible && !onTypeRenameInputVisible && !parameterHintsVisible && !renameInputVisible && !suggestWidgetVisible && editorLangId == 'julia'"
+    },
+    {
+        "key": "ctrl+shift+d m",
+        "command": "dendron.createMeetingNote",
+        "when": "dendron:pluginActive && shellExecutionSupported"
+    },
+    {
+        "key": "ctrl+shift+d n",
+        "command": "dendron.createJournalNote",
+        "when": "dendron:pluginActive && shellExecutionSupported"
+    },
+    {
+        "key": "ctrl+shift+j",
+        "command": "-dendron.createJournalNote",
+        "when": "dendron:pluginActive && shellExecutionSupported"
+    },
+    {
+        "key": "ctrl+shift+d j",
+        "command": "dendron.createDailyJournalNote",
+        "when": "dendron:pluginActive && shellExecutionSupported"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "-dendron.createDailyJournalNote",
+        "when": "dendron:pluginActive && shellExecutionSupported"
+    },
+    {
+        "key": "ctrl+shift+d s",
+        "command": "dendron.createScratchNote",
+        "when": "dendron:pluginActive && shellExecutionSupported"
+    },
+    {
+        "key": "ctrl+k s",
+        "command": "-dendron.createScratchNote",
+        "when": "dendron:pluginActive && shellExecutionSupported"
+    },
+    {
+        "key": "ctrl+shift+d t",
+        "command": "dendron.createTask",
+        "when": "dendron:pluginActive && shellExecutionSupported"
+    },
+    {
+        "key": "ctrl+shift+d g",
+        "command": "dendron.goto",
+        "when": "dendron:pluginActive"
+    },
+    {
+        "key": "ctrl+shift+d e",
+        "command": "dendron.moveSelectionTo",
+        "when": "editorTextFocus && dendron:pluginActive "
+    },
+    {
+        "key": "ctrl+shift+d r",
+        "command": "dendron.reloadIndex",
+        "when": "dendron:pluginActive "
+    },
+    {
+        "key": "ctrl+d r",
+        "command": "dendron.renameNote",
+        "when": "editorTextFocus && dendron:pluginActive "
+    },
+    {
+        "key": "ctrl+l",
+        "command": "dendron.lookupNote",
+        "when": "dendron:pluginActive && editorFocus"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "-dendron.lookupNote",
+        "when": "dendron:pluginActive"
+    }
+]
