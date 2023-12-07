@@ -1,6 +1,7 @@
 # `cd` to the folder that you want to clone all these repos then run,
-# grep -v "^#" <dotfiles_repo_dir>/repos.list | xargs -n1 echo
+# grep -v "^#" <dotfiles_repo_dir>/repos.list | xargs -n2 git clone 
 git@github.com:joehays/dotfiles.git
 git@github.com:joehays/org-joe.git
 git@github.com:joehays/org-scripture-power.git
 git@github.com:joehays/org-tech.git
+https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

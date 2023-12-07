@@ -17,8 +17,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'jez/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
 " use plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " use Git plugin not hosted on GitHub
@@ -63,10 +63,10 @@ set background=dark
 set laststatus=2
 
 " Airline status line config
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline_theme='bubblegum'
+"let g:airline_powerline_fonts = 1
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+"let g:airline_theme='bubblegum'
 
 " Turn on syntax highlighting.
 syntax on

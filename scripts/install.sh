@@ -10,7 +10,8 @@ APT_INSTALL="${SCRIPT_ABS_DIR}/cond-apt-install"
 NPM_INSTALL="${SCRIPT_ABS_DIR}/cond-npm-install"
 
 # Copy dotfiles
-#./copy.sh
+./copy.sh
+vim +BundleInstall +qall  # this installs all vim extensions defined in the .vimrc file
 
 # Update Ubuntu and get standard repository programs
 
@@ -23,6 +24,15 @@ ${APT_INSTALL} git
 ${APT_INSTALL} htop
 ${APT_INSTALL} vim
 ${APT_INSTALL} wget
+${APT_INSTALL} x11-apps
+${APT_INSTALL} trash-cli
+${APT_INSTALL} tree
+${APT_INSTALL} libnss3 # needed by electron (ubuntu jammy)
+${APT_INSTALL} libatk-bridge2.0-0 # needed by electron (ubuntu jammy)
+${APT_INSTALL} libcups2 # needed by electron (ubuntu jammy)
+${APT_INSTALL} libgtk-3-0 # needed by electron (ubuntu jammy)
+${APT_INSTALL} libgbm1 # needed by electron (ubuntu jammy)
+${APT_INSTALL} libasound2 # needed by electron (ubuntu jammy)
 #install awscli
 #install chrome-gnome-shell
 #install exfat-utils
@@ -31,7 +41,6 @@ ${APT_INSTALL} wget
 #install yq
 #install nmap
 #install openvpn
-#install tree
 
 # networking
 
