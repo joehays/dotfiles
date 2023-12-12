@@ -1,0 +1,3 @@
+[submodule "vscode-user"]
+	path = vscode-user
+	url = git@github.com:joehays/vscode-user.git
