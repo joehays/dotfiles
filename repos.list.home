@@ -1,26 +1,66 @@
-# `cd` to the folder that you want to clone all these repos then run,
-# grep -v "^#" <dotfiles_repo_dir>/repos.list | xargs -n2 git clone 
+# list of git repos to clone
+# list is defined by "<src> <dest>"
+# NOTE: all SSH keys must be setup ahead of time for this script to work
 
-# git@github.com:joehays/dotfiles.git ~/dev/dotfiles
-
-## Vim Package Manager
-git@github.com:VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+DEV_DIR="${HOME}/dev"
 
 ## Joe's ORG Stuff
-git@github.com:joehays/org-joe.git ~/dev/org-joe
-git@github.com:joehays/org-scripture-power.git ~/dev/org-scripture-power
-git@github.com:joehays/org-tech.git ~/dev/org-tech
+DENDRON_DIR="${HOME}/dendron"
+org=( \
+      "git@github.com:joehays/dendron.git ${DENDRON_DIR}"  \
+      "git@github.com:joehays/org-joe.git ${DENDRON_DIR}/dependencies/github.com/joehays/org-joe"  \
+      "git@github.com:joehays/org-scripture-power.git ${DENDRON_DIR}/dependencies/github.com/joehays/org-scripture-power"  \
+      "git@github.com:joehays/org-tech.git ${DENDRON_DIR}/dependencies/github.com/joehays/org-tech"  \  
+      "git@github.com:joehays/dotfiles.git ${DEV_DIR}/dotfiles"
+)
+
+## utilities/tools
+utils= ( \
+      "git@github.com:VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim"  
+)
 
 ## Qualitative Data Analytics
-git@github.com:ccbogel/QualCoder.git ~/dev/qualcoder
-git@github.com:joehays/scripture-analytics.git ~/dev/scripture-analytics
+qual=( \
+      "git@github.com:ccbogel/QualCoder.git ${DEV_DIR}/qualcoder"  \
+      "git@github.com:joehays/scripture-analytics.git ${DEV_DIR}/scripture-analytics"
+)
 
 ## Markdown Scriptures
-git@github.com:wordtreefoundation/bomdb.git ~/dev/markdown-scriptures/bomdb
-git@github.com:amonrperes/lds-datahouse-api.git ~/dev/markdown-scriptures/lds-datahouse-api
-git@github.com:mdjasper/lds-scripture-nlp-query-parser.git ~/dev/markdown-scriptures/lds-scripture-nlp-query-parser
-git@github.com:awerkamp/markdown-scriptures-standard-works-church-of-jesus-christ.git ~/dev/markdown-scriptures/markdown-scriptures-standard-works-church-of-jesus-christ
-git@github.com:samuelbradshaw/python-scripture-scraper.git ~/dev/markdown-scriptures/python-scripture-scraper
-git@github.com:jlconlin/scripture2url.git ~/dev/markdown-scriptures/scripture2url
-git@github.com:digitalbias/scripture_extractor.git ~/dev/markdown-scriptures/scripture_extractor
+MDS_DIR="${DEV_DIR}/markdown-scriptures"
+md_scriptures=( \
+      "git@github.com:wordtreefoundation/bomdb.git ${MDS_DIR}/bomdb"   \
+      "git@github.com:amonrperes/lds-datahouse-api.git ${MDS_DIR}/lds-datahouse-api"   \
+      "git@github.com:mdjasper/lds-scripture-nlp-query-parser.git ${MDS_DIR}/lds-scripture-nlp-query-parser"   \
+      "git@github.com:awerkamp/markdown-scriptures-standard-works-church-of-jesus-christ.git ${MDS_DIR}/markdown-scriptures-standard-works-church-of-jesus-christ"   \
+      "git@github.com:samuelbradshaw/python-scripture-scraper.git ${MDS_DIR}/python-scripture-scraper"   \
+      "git@github.com:jlconlin/scripture2url.git ${MDS_DIR}/scripture2url"   \
+      "git@github.com:digitalbias/scripture_extractor.git ${MDS_DIR}/scripture_extractor"   \
+)      
 
+## combine all repo lists...
+repos=( \
+    "${org[@]}"  \
+    "${utils[@]} \
+    "${qual[@]} \
+    "${md_scriptures[@]}"
+)
+
+## function to conditionally clone the repo (if it doesn't already exist at the destination)
+function gitClone () {
+  list=("$@")
+  for repo in "${list[@]}"
+  do
+    src="$(echo ${repo} | cut -d ' ' -f 1)"
+    dest="$(echo ${repo} | cut -d ' ' -f 2)"
+    if [[ -d "${dest}" ]]; then 
+      echo "already cloned!"
+    else 
+      echo "now cloning ${src}"
+      git clone ${src} ${dest}
+    fi
+  done
+
+}
+
+## Main script
+gitClone "${repos[@]}"

@@ -1,11 +1,61 @@
-# `cd` to the folder that you want to clone all these repos then run,
-# grep -v "^#" <dotfiles_repo_dir>/repos.list | xargs -n2 git clone 
-
-# git@github.com:joehays/dotfiles.git ~/dev/dotfiles
-
-## Vim Package Manager
-git@github.com:VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# list of git repos to clone
+# list is defined by "<src> <dest>"
+# NOTE: all SSH keys must be setup ahead of time for this script to work
 
 ## Joe's ORG Stuff
-git@github.com:joehays/org-tech.git ~/dev/org-tech
+org=( \
+      "git@sfgitlab.nrl.navy.mil:joehays/dendron.git ${HOME}/dendron"  \
+      "git@github.com:joehays/org-tech.git ${HOME}/dendron/dependencies/github.com/joehays/org-tech" \
+      "git@sfgitlab.nrl.navy.mil:joehays/notes.git  ${HOME}/dendron/dependencies/sfgitlab.nrl.navy.mil/joehays/org-work" \
+      "git@github.com:joehays/dotfiles.git ${HOME}/dev/dotfiles"  \
+      "joehays@scylla:/home/joehays/Documents/joe-docs.git ${HOME}/dev/joe-docs" \
+      "sffs00:/gitrepo/code_8234/team/joe/proposals.git ${HOME}/dev/proposals" 
+)
 
+## Programs
+programs=( \
+      "git@sfgitlab.nrl.navy.mil:code_8234/SafeLifelongMotorLearning/braintorch.git ${HOME}/dev/braintorch"  \
+      "git@github.com:USNavalResearchLaboratory/Deep_ROA.git ${HOME}/dev/deep_roa_sfgitlab"  \
+      "git@sfgitlab.nrl.navy.mil:code_8234/SafeLifelongMotorLearning/function-approximators.git ${HOME}/dev/function-approximators"  \
+      "joehays@sffs00:/gitrepo/code_8234/KinovaG3/kg3-neuro-control.git ${HOME}/dev/kg3-neuro-control"  \
+      "git@sfgitlab.nrl.navy.mil:code_8234/nemo/nemo.git ${HOME}/dev/nemo"  \
+      "git@sfgitlab.nrl.navy.mil:code_8234/SafeLifelongMotorLearning/neuroplast.git ${HOME}/dev/neuroplast"  \
+      "git@sfgitlab.nrl.navy.mil:code_8234/SafeLifelongMotorLearning/sllml.git ${HOME}/dev/sllml"  \
+      "https://www.trmc.osd.mil/bitbucket/scm/${HOME}joe.hays/neuroplast.git ${HOME}/dev/trmc-neuroplast"  
+)
+
+## Third-party tools/dependencies
+third_party=( \
+      "git@github.com:VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim"  \
+      "git@gitlab.com:inivation/dv/dv-processing.git ${HOME}/dev/dv-processing"  \
+      "https://github.com/lava-nc/lava.git ${HOME}/dev/lava/lava"  \
+      "https://github.com/lava-nc/lava-dl.git ${HOME}/dev/lava/lava-dl"  \
+      "git@code.ornl.gov:neuromorphic-computing/framework.git ${HOME}/dev/tennlab/framework"  
+)
+
+## combine all repo lists...
+repos=( \
+    "${org[@]}"  \
+    "${programs[@]}"  \
+    "${third_party[@]}"  
+)
+
+## function to conditionally clone the repo (if it doesn't already exist at the destination)
+function gitClone () {
+  list=("$@")
+  for repo in "${list[@]}"
+  do
+    src="$(echo ${repo} | cut -d ' ' -f 1)"
+    dest="$(echo ${repo} | cut -d ' ' -f 2)"
+    if [[ -d "${dest}" ]]; then 
+      echo "already cloned!"
+    else 
+      echo "now cloning ${src}"
+      git clone ${src} ${dest}
+    fi
+  done
+
+}
+
+## Main script
+gitClone "${repos[@]}"
