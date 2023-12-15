@@ -12,12 +12,10 @@ winget install "Inkscape.Inkscape" --accept-package-agreements --disable-interac
 winget install "Microsoft.AppInstaller" --accept-package-agreements --disable-interactivity
 winget install "Microsoft.OneDrive" --accept-package-agreements --disable-interactivity
 winget install "Microsoft.PowerToys" --accept-package-agreements --disable-interactivity
-winget install "Microsoft.PowerToys" --accept-package-agreements --disable-interactivity
 winget install "Microsoft.Teams.Classic" --accept-package-agreements --disable-interactivity
 winget install "Microsoft.VisualStudioCode" --accept-package-agreements --disable-interactivity
 winget install "Microsoft.WindowsTerminal" --accept-package-agreements --disable-interactivity
 winget install "Mozilla.Firefox" --accept-package-agreements --disable-interactivity
-winget install "Notepad++.Notepad++" --accept-package-agreements --disable-interactivity
 winget install "Notepad++.Notepad++" --accept-package-agreements --disable-interactivity
 winget install "Nvidia.Omniverse"  --accept-package-agreements --disable-interactivity
 winget install "OBSProject.OBSStudio" --accept-package-agreements --disable-interactivity
