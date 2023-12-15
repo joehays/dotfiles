@@ -10,13 +10,13 @@ org=( \
       "git@github.com:joehays/dendron.git ${DENDRON_DIR}"  \
       "git@github.com:joehays/org-joe.git ${DENDRON_DIR}/dependencies/github.com/joehays/org-joe"  \
       "git@github.com:joehays/org-scripture-power.git ${DENDRON_DIR}/dependencies/github.com/joehays/org-scripture-power"  \
-      "git@github.com:joehays/org-tech.git ${DENDRON_DIR}/dependencies/github.com/joehays/org-tech"  \  
+      "git@github.com:joehays/org-tech.git ${DENDRON_DIR}/dependencies/github.com/joehays/org-tech"  \
       "git@github.com:joehays/dotfiles.git ${DEV_DIR}/dotfiles"
 )
 
 ## utilities/tools
-utils= ( \
-      "git@github.com:VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim"  
+utils=( \
+      "git@github.com:VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim"  \
 )
 
 ## Qualitative Data Analytics
@@ -40,20 +40,21 @@ md_scriptures=( \
 ## combine all repo lists...
 repos=( \
     "${org[@]}"  \
-    "${utils[@]} \
-    "${qual[@]} \
+    "${utils[@]}" \
+    "${qual[@]}" \
     "${md_scriptures[@]}"
 )
 
 ## function to conditionally clone the repo (if it doesn't already exist at the destination)
 function gitClone () {
   list=("$@")
+  echo "len(list)=${#list[@]}"
   for repo in "${list[@]}"
   do
     src="$(echo ${repo} | cut -d ' ' -f 1)"
     dest="$(echo ${repo} | cut -d ' ' -f 2)"
     if [[ -d "${dest}" ]]; then 
-      echo "already cloned!"
+      echo "already cloned! (${src}  -->  ${dest})"
     else 
       echo "now cloning ${src}"
       git clone ${src} ${dest}
