@@ -13,6 +13,7 @@ fi
 echo "⌨️  Installing VSCode"
 sudo apt install -y code
 rm microsoft.gpg
+
 function install {
   name="${1}"
   code --install-extension ${name} --force
@@ -27,6 +28,8 @@ function install {
 ## [windows export] `code --list-extensions | % { "code --install-extension $_" }`, or,
 ## [windows export] `code --list-extensions > vscode-extensions.list`
 ## [windows install] `Get-Content vscode_extensions.list | ForEach-Object { code --install-extension $_ }`
+## [windows install] "C:\Program Files\Microsoft VS Code\bin\code" --install-extension vscodevim.vim
+## [windows install from WSL] /mnt/c/Users/jhays/AppData/Local/Programs/Microsoft\ VS\ Code/Code.exe --install-extension 
 
 
 # unique at home

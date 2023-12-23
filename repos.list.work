@@ -20,8 +20,8 @@ programs=( \
       "joehays@sffs00:/gitrepo/code_8234/KinovaG3/kg3-neuro-control.git ${HOME}/dev/kg3-neuro-control"  \
       "git@sfgitlab.nrl.navy.mil:code_8234/nemo/nemo.git ${HOME}/dev/nemo"  \
       "git@sfgitlab.nrl.navy.mil:code_8234/SafeLifelongMotorLearning/neuroplast.git ${HOME}/dev/neuroplast"  \
-      "git@sfgitlab.nrl.navy.mil:code_8234/SafeLifelongMotorLearning/sllml.git ${HOME}/dev/sllml"  \
-      "https://www.trmc.osd.mil/bitbucket/scm/${HOME}joe.hays/neuroplast.git ${HOME}/dev/trmc-neuroplast"  
+      "git@sfgitlab.nrl.navy.mil:code_8234/SafeLifelongMotorLearning/sllml.git ${HOME}/dev/sllml"
+      #"https://www.trmc.osd.mil/bitbucket/scm/${HOME}joe.hays/neuroplast.git ${HOME}/dev/trmc-neuroplast"  
 )
 
 ## Third-party tools/dependencies
@@ -30,7 +30,7 @@ third_party=( \
       "git@gitlab.com:inivation/dv/dv-processing.git ${HOME}/dev/dv-processing"  \
       "https://github.com/lava-nc/lava.git ${HOME}/dev/lava/lava"  \
       "https://github.com/lava-nc/lava-dl.git ${HOME}/dev/lava/lava-dl"  \
-      "git@code.ornl.gov:neuromorphic-computing/framework.git ${HOME}/dev/tennlab/framework"  
+      "git@bitbucket.org:neuromorphic-utk/framework.git ${HOME}/dev/tennlab/framework"  
 )
 
 ## combine all repo lists...

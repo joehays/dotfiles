@@ -44,15 +44,15 @@ else
 fi
 
 
-grep -qxF "export PYENV_ROOT=${PYENV_ROOT}" ${FILE} || $(sed -Ei -e "/^([^#]|$)/ {a \export PYENV_ROOT=${PYENV_ROOT}" -e ':a' -e '$!{n;ba};}' ${FILE})
-new_string="Joe Hays" 
-FILE="test"
-grep -qxF "${new_string}" ${FILE} || $(sed -Ei -e "/^([^#]|$)/ {a \${new_string}" -e ':a' -e '$!{n;ba};}' ${FILE})
+#grep -qxF "export PYENV_ROOT=${PYENV_ROOT}" ${FILE} || $(sed -Ei -e "/^([^#]|$)/ {a \export PYENV_ROOT=${PYENV_ROOT}" -e ':a' -e '$!{n;ba};}' ${FILE})
+#new_string="Joe Hays" 
+#FILE="test"
+#grep -qxF "${new_string}" ${FILE} || $(sed -Ei -e "/^([^#]|$)/ {a \${new_string}" -e ':a' -e '$!{n;ba};}' ${FILE})
 
 # now update .bashrc
+${COND_INSERT} 'export PATH="${HOME}/.pyenv/bin:${PATH}"' ${HOME}/.bashrc 
 ${COND_INSERT} 'eval "$(pyenv init -)"' ${HOME}/.bashrc 
 ${COND_INSERT} 'eval "$(pyenv virtualenv-init -)"' ${HOME}/.bashrc 
-${COND_INSERT} 'export PATH="${HOME}/.pyenv/bin:${PATH}"' ${HOME}/.bashrc 
 
 #exec "$SHELL" # Or just restart your terminal
 # or, better yet, source ~/.bashrc at the end of all installs

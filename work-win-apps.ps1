@@ -8,6 +8,7 @@ winget install "Docker.DockerDesktop" --accept-package-agreements --disable-inte
 winget install "Figma.Figma" --accept-package-agreements --disable-interactivity
 winget install "Figma.FigmaAgent" --accept-package-agreements --disable-interactivity
 winget install "GIMP.GIMP" --accept-package-agreements --disable-interactivity
+winget install "Git.Git" --accept-package-agreements --disable-interactivity
 winget install "Inkscape.Inkscape" --accept-package-agreements --disable-interactivity
 winget install "Microsoft.AppInstaller" --accept-package-agreements --disable-interactivity
 winget install "Microsoft.OneDrive" --accept-package-agreements --disable-interactivity
