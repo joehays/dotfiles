@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # list of git repos to clone
 # list is defined by "<src> <dest>"
 # NOTE: all SSH keys must be setup ahead of time for this script to work
@@ -54,7 +56,7 @@ function gitClone () {
     src="$(echo ${repo} | cut -d ' ' -f 1)"
     dest="$(echo ${repo} | cut -d ' ' -f 2)"
     if [[ -d "${dest}" ]]; then 
-      echo "already cloned! (${src}  -->  ${dest})"
+      echo "'${src}' is already cloned to '${dest}'"
     else 
       echo "now cloning ${src}"
       git clone ${src} ${dest}

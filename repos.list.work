@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # list of git repos to clone
 # list is defined by "<src> <dest>"
 # NOTE: all SSH keys must be setup ahead of time for this script to work
@@ -12,7 +14,7 @@ org=( \
       "sffs00:/gitrepo/code_8234/team/joe/proposals.git ${HOME}/dev/proposals" 
 )
 
-## Programs
+## NRL Programs
 programs=( \
       "git@sfgitlab.nrl.navy.mil:code_8234/SafeLifelongMotorLearning/braintorch.git ${HOME}/dev/braintorch"  \
       "git@github.com:USNavalResearchLaboratory/Deep_ROA.git ${HOME}/dev/deep_roa_sfgitlab"  \
@@ -48,7 +50,7 @@ function gitClone () {
     src="$(echo ${repo} | cut -d ' ' -f 1)"
     dest="$(echo ${repo} | cut -d ' ' -f 2)"
     if [[ -d "${dest}" ]]; then 
-      echo "already cloned!"
+      echo "'${src}' is already cloned to '${dest}'"
     else 
       echo "now cloning ${src}"
       git clone ${src} ${dest}
