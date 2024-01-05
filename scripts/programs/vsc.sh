@@ -1,4 +1,8 @@
 #!/bin/bash
+echo
+echo '============================================================'
+echo 'PROGRAMS/VSC.SH'
+echo '============================================================'
 
 # https://code.visualstudio.com/docs/setup/linux
 if [ ! -f /etc/apt/trusted.gpg.d/microsoft.gpg ]; then
@@ -10,9 +14,12 @@ fi [ ! -f /etc/apt/sources.list.d/vscode.list]; then
   sudo apt update
 fi
 
-echo "⌨️  Installing VSCode"
-sudo apt install -y code
-rm microsoft.gpg
+echo
+echo '------------------------------'
+echo '⌨️  Installing VSCode'
+echo '------------------------------'
+${APT_INSTALL} code
+#rm microsoft.gpg
 
 function install {
   name="${1}"
@@ -32,6 +39,10 @@ function install {
 ## [windows install from WSL] /mnt/c/Users/jhays/AppData/Local/Programs/Microsoft\ VS\ Code/Code.exe --install-extension 
 
 
+echo
+echo '------------------------------'
+echo '⌨️  Installing VSCode EXTENSIONS'
+echo '------------------------------'
 # unique at home
 install johnpapa.vscode-peacock
 install SeyyedKhandon.firacode

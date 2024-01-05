@@ -33,6 +33,7 @@ alias firewood='for remote in `git branch -r`; do git branch --track ${remote#or
 alias remotes='git remote -v'
 alias forgotsubmodules='git submodule update --init'
 alias checkgit='~/.git-rundown.sh'
+alias wsl-vpnkit="sudo VMEXEC_PATH=${HOME}/apps/wsl-vm GVPROXY_PATH=${HOME}/apps/wsl-gvproxy.exe ./wsl-vpnkit"
 
 # Show contents of dir after action
 function cd () {
@@ -163,6 +164,8 @@ export PS1="${pathC}\w ${gitC}\$(gitBranch) ${pointerC}\$${normalC} "
 #export GEM_HOME="$HOME/gems"
 #export PATH="$HOME/gems/bin:$PATH"
 
+# enable PYENV
+export PATH="${HOME}/.pyenv/bin:${PATH}"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-export PATH="${HOME}/.pyenv/bin:${PATH}"
+

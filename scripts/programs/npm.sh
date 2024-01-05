@@ -1,12 +1,14 @@
 #!/bin/bash
+echo
+echo '============================================================'
+echo 'PROGRAMS/NPM.SH'
+echo '============================================================'
 
 CDW=$(pwd)
 
 # get my own absolute path
 SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"; ));
 APT_INSTALL="${SCRIPT_ABS_DIR}/../cond-apt-install"
-
-
 
 ### From: https://github.com/nodesource/distributions/blob/master/README.md
 # Download and import the Nodesource GPG key
@@ -15,17 +17,22 @@ if [ ! -f /etc/apt/keyrings/nodesource.gpg ]; then
     sudo apt-get install -y ca-certificates curl gnupg
     sudo mkdir -p /etc/apt/keyrings
     curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg 
+    echo "added /etc/apt/keyrings/nodesource.gpg"
 fi
 
 # Create deb repository
 if [ ! -f /etc/apt/sources.list.d/nodesource.list ]; then
     NODE_MAJOR=21
     echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+    echo "added /etc/apt/sources.list.d/nodesource.list"
     sudo apt-get update
 fi
 
 # Now install
-echo "sudo apt install nodejs npm"
+echo
+echo '------------------------------'
+echo "Installing APT packages"
+echo '------------------------------'
 ${APT_INSTALL} nodejs
 ${APT_INSTALL} npm 
 

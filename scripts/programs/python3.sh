@@ -1,4 +1,8 @@
 #!/bin/bash
+echo
+echo '============================================================'
+echo 'PROGRAMS/PYTHON3.SH'
+echo '============================================================'
 
 CDW=$(pwd)
 
@@ -7,7 +11,10 @@ SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"; ));
 APT_INSTALL="${SCRIPT_ABS_DIR}/../cond-apt-install"
 COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
 
-echo "Installing Required Packages"
+echo
+echo '------------------------------'
+echo 'Installing PYENV dependencies'
+echo '------------------------------'
 # https://realpython.com/intro-to-pyenv/#installing-pyenv
 ${APT_INSTALL} make
 ${APT_INSTALL} build-essential 
@@ -28,7 +35,10 @@ ${APT_INSTALL} liblzma-dev
 ${APT_INSTALL} python-openssl
 
 
-echo "🐍 Installing PyEnv"
+echo
+echo '------------------------------'
+echo '🐍 Installing PyEnv'
+echo '------------------------------'
 which pyenv &> /dev/null
 
 if [ $? -ne 0 ]; then
@@ -50,6 +60,7 @@ fi
 #grep -qxF "${new_string}" ${FILE} || $(sed -Ei -e "/^([^#]|$)/ {a \${new_string}" -e ':a' -e '$!{n;ba};}' ${FILE})
 
 # now update .bashrc
+echo 'updating .bashrc'
 ${COND_INSERT} 'export PATH="${HOME}/.pyenv/bin:${PATH}"' ${HOME}/.bashrc 
 ${COND_INSERT} 'eval "$(pyenv init -)"' ${HOME}/.bashrc 
 ${COND_INSERT} 'eval "$(pyenv virtualenv-init -)"' ${HOME}/.bashrc 
