@@ -24,6 +24,11 @@ echo '------------------------------'
 #${APT_INSTALL} repo  
 #${APT_INSTALL} ca-certificates
 
+# Ubuntu-Gnome-Desktop (https://ishwarjagdale.github.io/wslWithGUI/)
+${APT_INSTALL} xrdp
+${APT_INSTALL} ubuntu-gnome-desktop
+
+
 # Documents & Editing
 echo 'Documents & Editing'
 ${APT_INSTALL} texlive  
@@ -48,13 +53,13 @@ ${APT_INSTALL} xz-utils
 ${APT_INSTALL} python-openssl  
 
 # Common Access Cards (CAC)
-echo 'Common Access Cards (CAC)'
-${APT_INSTALL} pcsc-tools  
-${APT_INSTALL} pcscd  
-${APT_INSTALL} libccid  
-${APT_INSTALL} opensc  
-${APT_INSTALL} libpcsclite1  
-${APT_INSTALL} coolkey  
+# echo 'Common Access Cards (CAC)'
+# ${APT_INSTALL} pcsc-tools  
+# ${APT_INSTALL} pcscd  
+# ${APT_INSTALL} libccid  
+# ${APT_INSTALL} opensc  
+# ${APT_INSTALL} libpcsclite1  
+# ${APT_INSTALL} coolkey  
 
 
 # Install NPM packages

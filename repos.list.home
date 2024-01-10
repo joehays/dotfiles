@@ -56,9 +56,9 @@ function gitClone () {
     src="$(echo ${repo} | cut -d ' ' -f 1)"
     dest="$(echo ${repo} | cut -d ' ' -f 2)"
     if [[ -d "${dest}" ]]; then 
-      echo "'${src}' is already cloned to '${dest}'"
+      echo "!!!!!! '${src}' is already cloned to '${dest}'"
     else 
-      echo "now cloning ${src}"
+      echo ">>>>>> now cloning ${src}"
       git clone ${src} ${dest}
     fi
   done

@@ -3,6 +3,12 @@
 # list of git repos to clone
 # list is defined by "<src> <dest>"
 # NOTE: all SSH keys must be setup ahead of time for this script to work
+#       SFGITLAB.NRL.NAVY.MIL
+#       SCYLLA.NRL.NAVY.MIL
+#       SFFS00.NRL.NAVY.MIL
+#       GITHUB.COM
+#       GITLAB.COM
+#       BITBUCKET.COM
 
 ## Joe's ORG Stuff
 org=( \
@@ -11,7 +17,7 @@ org=( \
       "git@sfgitlab.nrl.navy.mil:joehays/notes.git  ${HOME}/dendron/dependencies/sfgitlab.nrl.navy.mil/joehays/org-work" \
       "git@github.com:joehays/dotfiles.git ${HOME}/dev/dotfiles"  \
       "joehays@scylla:/home/joehays/Documents/joe-docs.git ${HOME}/dev/joe-docs" \
-      "sffs00:/gitrepo/code_8234/team/joe/proposals.git ${HOME}/dev/proposals" 
+      "joehays@sffs00:/gitrepo/code_8234/team/joe/proposals.git ${HOME}/dev/proposals" 
 )
 
 ## NRL Programs
@@ -19,7 +25,7 @@ programs=( \
       "git@sfgitlab.nrl.navy.mil:code_8234/SafeLifelongMotorLearning/braintorch.git ${HOME}/dev/braintorch"  \
       "git@github.com:USNavalResearchLaboratory/Deep_ROA.git ${HOME}/dev/deep_roa_sfgitlab"  \
       "git@sfgitlab.nrl.navy.mil:code_8234/SafeLifelongMotorLearning/function-approximators.git ${HOME}/dev/function-approximators"  \
-      "joehays@sffs00:/gitrepo/code_8234/KinovaG3/kg3-neuro-control.git ${HOME}/dev/kg3-neuro-control"  \
+      "git@sfgitlab.nrl.navy.mil:code_8234/KinovaG3/kg3-neuro-control.git ${HOME}/dev/kg3-neuro-control" \
       "git@sfgitlab.nrl.navy.mil:code_8234/nemo/nemo.git ${HOME}/dev/nemo"  \
       "git@sfgitlab.nrl.navy.mil:code_8234/SafeLifelongMotorLearning/neuroplast.git ${HOME}/dev/neuroplast"  \
       "git@sfgitlab.nrl.navy.mil:code_8234/SafeLifelongMotorLearning/sllml.git ${HOME}/dev/sllml"
@@ -28,10 +34,10 @@ programs=( \
 
 ## Third-party tools/dependencies
 third_party=( \
-      "git@github.com:VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim"  \
       "git@gitlab.com:inivation/dv/dv-processing.git ${HOME}/dev/dv-processing"  \
-      "https://github.com/lava-nc/lava.git ${HOME}/dev/lava/lava"  \
-      "https://github.com/lava-nc/lava-dl.git ${HOME}/dev/lava/lava-dl"  \
+      "git@github.com:VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim"  \
+      "git@github.com:lava-nc/lava.git ${HOME}/dev/lava/lava"  \
+      "git@github.com:lava-nc/lava-dl.git ${HOME}/dev/lava/lava-dl"  \
       "git@bitbucket.org:neuromorphic-utk/framework.git ${HOME}/dev/tennlab/framework"  
 )
 
@@ -50,9 +56,9 @@ function gitClone () {
     src="$(echo ${repo} | cut -d ' ' -f 1)"
     dest="$(echo ${repo} | cut -d ' ' -f 2)"
     if [[ -d "${dest}" ]]; then 
-      echo "'${src}' is already cloned to '${dest}'"
+      echo "!!!!!!! '${src}' is already cloned to '${dest}'"
     else 
-      echo "now cloning ${src}"
+      echo ">>>>>>>  now cloning ${src}"
       git clone ${src} ${dest}
     fi
   done
