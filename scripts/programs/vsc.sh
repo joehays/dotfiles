@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# TODO
+# Needs updating given this [response](https://github.com/microsoft/vscode/issues/201148#issuecomment-1883326027)
+
+
 echo
 echo '============================================================'
 echo 'PROGRAMS/VSC.SH'

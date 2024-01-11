@@ -24,6 +24,10 @@ echo '------------------------------'
 #${APT_INSTALL} repo  
 #${APT_INSTALL} ca-certificates
 
+# My stuff/needs
+${APT_INSTALL} passwordsafe
+
+
 # Ubuntu-Gnome-Desktop (https://ishwarjagdale.github.io/wslWithGUI/)
 ${APT_INSTALL} xrdp
 ${APT_INSTALL} ubuntu-gnome-desktop

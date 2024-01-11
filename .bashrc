@@ -33,7 +33,7 @@ alias firewood='for remote in `git branch -r`; do git branch --track ${remote#or
 alias remotes='git remote -v'
 alias forgotsubmodules='git submodule update --init'
 alias checkgit='~/.git-rundown.sh'
-alias wsl-vpnkit="sudo VMEXEC_PATH=${HOME}/apps/wsl-vm GVPROXY_PATH=${HOME}/apps/wsl-gvproxy.exe ./wsl-vpnkit"
+alias wsl-vpnkit="sudo VMEXEC_PATH=${HOME}/apps/wsl-vpnkit/wsl-vm GVPROXY_PATH=${HOME}/apps/wsl-vpnkit/wsl-gvproxy.exe ${HOME}/apps/wsl-vpnkit/wsl-vpnkit"
 
 # Show contents of dir after action
 function cd () {

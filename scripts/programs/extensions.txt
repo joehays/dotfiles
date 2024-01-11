@@ -1,8 +1,16 @@
+# My vscode extensions list
 DavidAnson.vscode-markdownlint
-dendron.dendron
-dracula-theme.theme-dracula
 Gruntfuggly.todo-tree
 James-Yu.latex-workshop
+VisualStudioExptTeam.intellicode-api-usage-examples
+VisualStudioExptTeam.vscodeintellicode
+dendron.adjust-heading-level
+dendron.dendron
+dendron.dendron-markdown-preview-enhanced
+dendron.dendron-markdown-shortcuts
+dendron.dendron-paste-image
+dendron.dendron-snippet-maker
+dracula-theme.theme-dracula
 jeff-hykin.better-cpp-syntax
 josetr.cmake-language-support-vscode 
 ms-azuretools.vscode-docker
@@ -10,7 +18,6 @@ ms-dotnettools.vscode-dotnet-runtime
 ms-python.isort
 ms-python.python
 ms-python.vscode-pylance
-# test
 ms-toolsai.jupyter
 ms-toolsai.jupyter-keymap
 ms-toolsai.jupyter-renderers
@@ -26,8 +33,8 @@ ms-vscode.cpptools
 ms-vscode.cpptools-themes
 ms-vscode.remote-explorer
 ms-vscode.remote-server
+redhat.vscode-yaml
 twxs.cmake
-VisualStudioExptTeam.intellicode-api-usage-examples
-VisualStudioExptTeam.vscodeintellicode
 vscodevim.vim
 yzhang.markdown-all-in-one
+
