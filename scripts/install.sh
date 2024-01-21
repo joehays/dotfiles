@@ -25,8 +25,8 @@ vim +BundleInstall +qall  # this installs all vim extensions defined in the .vim
 
 # App installs
 ./install.common
-#./install.HOME
-./install.work
+./install.home
+#./install.work
 
 
 ## Get all upgrades

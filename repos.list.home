@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# TODO: need to be able to optionally specify the location/name of the cloned repo (specifically for /dendron-workspace)
+# TODO: need to make a "common" 'repo-install' between 'home' and 'work'
+
 # list of git repos to clone
 # list is defined by "<src> <dest>"
 # NOTE: all SSH keys must be setup ahead of time for this script to work
@@ -9,6 +12,7 @@ DEV_DIR="${HOME}/dev"
 ## Joe's ORG Stuff
 DENDRON_DIR="${HOME}/dendron"
 org=( \
+      "git@github.com:joehays/dendron-workspace.git ${HOME}" \
       "git@github.com:joehays/dendron.git ${DENDRON_DIR}"  \
       "git@github.com:joehays/org-joe.git ${DENDRON_DIR}/dependencies/github.com/joehays/org-joe"  \
       "git@github.com:joehays/org-scripture-power.git ${DENDRON_DIR}/dependencies/github.com/joehays/org-scripture-power"  \

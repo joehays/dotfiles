@@ -44,6 +44,9 @@ ${APT_INSTALL} gimp
 ${APT_INSTALL} jpegoptim
 ${APT_INSTALL} optipng
 
+# Video processing
+${APT_INSTALL} ffmpeg
+
 
 # Install NPM packages
 #echo '------------------------------'
