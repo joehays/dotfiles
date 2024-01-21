@@ -12,8 +12,8 @@ org=( \
       "git@github.com:joehays/dendron.git ${DENDRON_DIR}"  \
       "git@github.com:joehays/org-joe.git ${DENDRON_DIR}/dependencies/github.com/joehays/org-joe"  \
       "git@github.com:joehays/org-scripture-power.git ${DENDRON_DIR}/dependencies/github.com/joehays/org-scripture-power"  \
-      "git@github.com:joehays/org-tech.git ${DENDRON_DIR}/dependencies/github.com/joehays/org-tech"  \
-      "git@github.com:joehays/dotfiles.git ${DEV_DIR}/dotfiles"
+      "git@github.com:joehays/org-tech.git ${DENDRON_DIR}/dependencies/github.com/joehays/org-tech"  
+      #"git@github.com:joehays/dotfiles.git ${DEV_DIR}/dotfiles"
 )
 
 ## utilities/tools
