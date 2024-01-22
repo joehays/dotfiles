@@ -9,7 +9,7 @@ shopt -s histappend
 # Aliases
 alias cp='cp -Rv'
 alias ls='ls --color=auto -ACF'
-alias ll='ls --color=auto -alF'
+alias ll='ls --color=auto -alFh'
 alias grep='grep --color=auto'
 alias grepw='grep --color=auto -Hrnwi'
 alias mkdir='mkdir -pv'

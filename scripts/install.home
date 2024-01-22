@@ -43,8 +43,12 @@ echo 'Image Processing'
 ${APT_INSTALL} gimp
 ${APT_INSTALL} jpegoptim
 ${APT_INSTALL} optipng
+${APT_INSTALL} imagemagick
+${APT_INSTALL} pngcrush
+${APT_INSTALL} jpegoptim
 
 # Video processing
+echo 'Video Processing'
 ${APT_INSTALL} ffmpeg
 
 
