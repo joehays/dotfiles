@@ -30,13 +30,23 @@ if [ -f ~/.git-completion.bash ]; then
     __git_complete goto _git_checkout
 fi
 
+alias gadd='git add -u'
+alias g.a='git add -u'
 alias gcom='git commit'
+alias g.c='git commit'
 alias gsup='git status'
+alias g.s='git status'
 alias goto='git checkout'
+alias g.co='git checkout'
 alias branches='git branch -v'
+alias g.b='git branch -v'
 alias firewood='for remote in `git branch -r`; do git branch --track ${remote#origin/} $remote; done'
+alias g.ps='git push'
+alias g.pd='git pull'
 alias remotes='git remote -v'
-alias forgotsubmodules='git submodule update --init'
+alias g.r='git remote -v'
+alias forgotsubmodules='git submodule update --init --recursive'
+alias g.subup='git submodule update --init --recursive'
 alias checkgit='~/.git-rundown.sh'
 alias wsl-vpnkit="sudo VMEXEC_PATH=${HOME}/apps/wsl-vpnkit/wsl-vm GVPROXY_PATH=${HOME}/apps/wsl-vpnkit/wsl-gvproxy.exe ${HOME}/apps/wsl-vpnkit/wsl-vpnkit"
 
