@@ -30,8 +30,8 @@ vim +BundleInstall +qall  # this installs all vim extensions defined in the .vim
 
 
 ## Get all upgrades
-#sudo apt upgrade -y
-#sudo apt autoremove -y
+sudo apt upgrade -y
+sudo apt autoremove -y
 
 echo "cd ${CWD}"
 cd ${CWD}
