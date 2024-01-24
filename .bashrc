@@ -8,10 +8,15 @@ shopt -s histappend
 
 # Aliases
 alias cp='cp -Rv'
+alias dff="df --total -h | grep -v snap | grep -v tmpfs"
+alias dun='function dun(){ du -h --max-depth="${1:-1}" | sort -h --reverse; }; dun'
 alias ls='ls --color=auto -ACF'
-alias ll='ls --color=auto -alF'
+alias l='ls'
+alias la='ls -A'
+alias ll='ls -alFh'
 alias grep='grep --color=auto'
 alias grepw='grep --color=auto -Hrnwi'
+alias mkcd='function mkcd(){ mkdir -pv "$1"; cd "$1"; }; mkcd'
 alias mkdir='mkdir -pv'
 alias mv='mv -v'
 alias wget='wget -c'
@@ -34,6 +39,14 @@ alias remotes='git remote -v'
 alias forgotsubmodules='git submodule update --init'
 alias checkgit='~/.git-rundown.sh'
 alias wsl-vpnkit="sudo VMEXEC_PATH=${HOME}/apps/wsl-vpnkit/wsl-vm GVPROXY_PATH=${HOME}/apps/wsl-vpnkit/wsl-gvproxy.exe ${HOME}/apps/wsl-vpnkit/wsl-vpnkit"
+
+################
+# TODO: move to scripts that install these tools
+################
+#alias turbo="/opt/TurboVNC/bin/vncserver -localhost"
+#alias ov=/opt/ov/omniverse-launcher-linux.AppImage
+alias rm="trash"
+################
 
 # Show contents of dir after action
 function cd () {
