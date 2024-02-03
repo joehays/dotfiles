@@ -46,6 +46,10 @@ echo 'Graphics'
 ${APT_INSTALL} mesa-utils  
 ${APT_INSTALL} pavucontrol  
 
+# Video processing
+echo 'Video Processing'
+${APT_INSTALL} ffmpeg
+
 # Networking
 echo 'Networking'
 ${APT_INSTALL} cifs-utils  

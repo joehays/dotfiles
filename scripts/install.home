@@ -48,8 +48,7 @@ ${APT_INSTALL} pngcrush
 ${APT_INSTALL} jpegoptim
 
 # Video processing
-echo 'Video Processing'
-${APT_INSTALL} ffmpeg
+#echo 'Video Processing'
 
 
 # Install NPM packages
