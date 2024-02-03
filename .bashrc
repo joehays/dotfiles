@@ -31,24 +31,55 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 alias gadd='git add -u'
-alias g.a='git add -u'
 alias gcom='git commit'
-alias g.c='git commit'
 alias gsup='git status'
-alias g.s='git status'
 alias goto='git checkout'
-alias g.co='git checkout'
 alias branches='git branch -v'
-alias g.b='git branch -v'
 alias firewood='for remote in `git branch -r`; do git branch --track ${remote#origin/} $remote; done'
-alias g.ps='git push'
-alias g.pd='git pull'
 alias remotes='git remote -v'
-alias g.r='git remote -v'
 alias forgotsubmodules='git submodule update --init --recursive'
-alias g.subup='git submodule update --init --recursive'
 alias checkgit='~/.git-rundown.sh'
 alias wsl-vpnkit="sudo VMEXEC_PATH=${HOME}/apps/wsl-vpnkit/wsl-vm GVPROXY_PATH=${HOME}/apps/wsl-vpnkit/wsl-gvproxy.exe ${HOME}/apps/wsl-vpnkit/wsl-vpnkit"
+
+alias g.a='git add -u'
+alias g.c='git commit'
+alias g.s='git status'
+alias g.co='git checkout'
+alias g.b='git branch -v'
+alias g.ps='git push'
+alias g.pd='git pull'
+alias g.r='git remote -v'
+alias g.subup='git submodule update --init --recursive'
+#  a      = commit --amend
+#  br     = branch -av
+#  ca     = !git add -A && git commit                # Commit all changes.
+#  ci     = commit
+#  co     = checkout
+#  cp     = cherry-pick
+#  d      = diff
+#  dc     = diff --cached
+#  df     = diff --word-diff
+#  g      = log --graph --pretty=custom              # Show custom graph.
+#  l      = log --pretty=custom                      # Show custom log.
+#  ls     = log --pretty=custom                      # Show custom log.
+#  lc     = shortlog --summary --numbered            # List contributors.
+#  ll     = log --pretty=custom --decorate --numstat
+#  p      = push
+#  r      = rebase
+#  rlc    = reset --hard HEAD~1                      # Remove last commit.
+#  sa     = stash apply
+#  sc     = stash clear
+#  sd     = stash drop
+#  sl     = stash list
+#  sp     = stash pop
+#  ss     = stash save
+#  sw     = stash show
+#  st     = status
+#  tags   = tag -l
+#  ulc    = reset --soft HEAD~1                      # Undo last commit.
+#  un     = reset HEAD --
+#  up     = pull upstream master
+#  screwit = !git reset --hard HEAD && git clean -df
 
 ################
 # TODO: move to scripts that install these tools
