@@ -39,6 +39,7 @@ ${APT_INSTALL} texlive
 ${APT_INSTALL} texlive-science  
 ${APT_INSTALL} texlive-fonts-recommended  
 ${APT_INSTALL} texlive-latex-extra  
+${APT_INSTALL} latexmk
 
 # Development
 echo 'Development'

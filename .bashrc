@@ -10,6 +10,7 @@ shopt -s histappend
 alias cp='cp -Rv'
 alias dff="df --total -h | grep -v snap | grep -v tmpfs"
 alias dun='function dun(){ du -h --max-depth="${1:-1}" | sort -h --reverse; }; dun'
+alias h='history'
 alias ls='ls --color=auto -ACF'
 alias l='ls'
 alias la='ls -A'
@@ -19,9 +20,10 @@ alias grepw='grep --color=auto -Hrnwi'
 alias mkcd='function mkcd(){ mkdir -pv "$1"; cd "$1"; }; mkcd'
 alias mkdir='mkdir -pv'
 alias mv='mv -v'
+alias pdf="xdg-open"  #"gio open", or "evince"
 alias wget='wget -c'
 alias tree="tree -aI 'test*|.git|node_modules|resources'"
-alias tldr="tldr -t ocean"
+alias tldr="tldr -t ocean" 
 
 if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
