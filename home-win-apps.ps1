@@ -3,6 +3,7 @@ winget install "7zip.7zip" --accept-package-agreements --disable-interactivity
 winget install "Audacity.Audacity" --accept-package-agreements --disable-interactivity
 winget install "Brave.Brave" --accept-package-agreements --disable-interactivity
 #winget install "Canonical.Ubuntu.2204" --accept-package-agreements --disable-interactivity
+winget install "DiskInternals.LinuxReader" --accept-package-agreements --disable-interactivity
 winget install "Figma.Figma" --accept-package-agreements --disable-interactivity
 winget install "Figma.FigmaAgent" --accept-package-agreements --disable-interactivity
 winget install "GIMP.GIMP" --accept-package-agreements --disable-interactivity
