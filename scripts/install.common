@@ -82,6 +82,7 @@ echo "Installing NPM packages"
 echo '------------------------------'
 #${NPM_INSTALL} <package>
 
+sudo apt autoremove -y
 
 echo "cd ${CWD}"
 cd ${CWD}

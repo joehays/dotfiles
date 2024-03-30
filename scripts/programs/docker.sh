@@ -47,7 +47,10 @@ echo "🐋 Installing Docker"
 echo '------------------------------'
 ${APT_INSTALL} docker-ce 
 ${APT_INSTALL} docker-ce-cli
+${APT_INSTALL} docker-compose
 ${APT_INSTALL} containerd.io
+
+sudo apt autoremove -y
 
 sudo docker run hello-world
 
