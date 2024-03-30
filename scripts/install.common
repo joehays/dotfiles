@@ -71,8 +71,10 @@ echo '------------------------------'
 programs/npm.sh
 programs/tldr.sh
 programs/python3.sh
+programs/turbovnc.sh
 #programs/vsc.sh          # not needed for WSL
 #programs/docker.sh       # not needed for WSL
+
 
 # Install NPM packages
 echo '------------------------------'

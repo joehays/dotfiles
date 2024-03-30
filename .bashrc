@@ -81,10 +81,11 @@ alias g.subup='git submodule update --init --recursive'
 #  up     = pull upstream master
 #  screwit = !git reset --hard HEAD && git clean -df
 
+alias turbo="/opt/TurboVNC/bin/vncserver -localhost"
+
 ################
 # TODO: move to scripts that install these tools
 ################
-#alias turbo="/opt/TurboVNC/bin/vncserver -localhost"
 #alias ov=/opt/ov/omniverse-launcher-linux.AppImage
 alias rm="trash"
 ################
@@ -194,7 +195,8 @@ txtrst='\[\e[0m\]'    # Text Reset
 atC="${txtpur}"
 nameC="${txtblu}"
 hostC="${txtpur}"
-pathC="${txtcyn}"
+#pathC="${txtcyn}"
+pathC="${txtylw}"
 gitC="${txtpur}"
 pointerC="${txtwht}"
 normalC="${txtrst}"
@@ -208,7 +210,7 @@ gitBranch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-export PS1="${pathC}\w ${gitC}\$(gitBranch) ${pointerC}\$${normalC} "
+export PS1="${pathC}\u@\h:\w ${gitC}\$(gitBranch) ${pointerC}\$${normalC}"
 
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
