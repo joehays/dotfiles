@@ -34,12 +34,13 @@ ${APT_INSTALL} ubuntu-gnome-desktop
 
 
 # Documents & Editing
-echo 'Documents & Editing'
-${APT_INSTALL} texlive  
-${APT_INSTALL} texlive-science  
-${APT_INSTALL} texlive-fonts-recommended  
-${APT_INSTALL} texlive-latex-extra  
-${APT_INSTALL} latexmk
+#echo 'Documents & Editing'
+#${APT_INSTALL} texlive  
+#${APT_INSTALL} texlive-science  
+#${APT_INSTALL} texlive-fonts-recommended  
+#${APT_INSTALL} texlive-latex-extra  
+#${APT_INSTALL} latexmk
+programs/texlive.sh
 
 # Development
 echo 'Development'

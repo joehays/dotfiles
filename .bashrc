@@ -20,6 +20,7 @@ alias grepw='grep --color=auto -Hrnwi'
 alias mkcd='function mkcd(){ mkdir -pv "$1"; cd "$1"; }; mkcd'
 alias mkdir='mkdir -pv'
 alias mv='mv -v'
+alias nv='nvim'
 alias pdf="xdg-open"  #"gio open", or "evince"
 alias wget='wget -c'
 alias tree="tree -aI 'test*|.git|node_modules|resources'"
@@ -84,6 +85,8 @@ alias g.subup='git submodule update --init --recursive'
 #  screwit = !git reset --hard HEAD && git clean -df
 
 alias turbo="/opt/TurboVNC/bin/vncserver -localhost"
+alias docps="docker ps --format \"table {{.Names}}\" | grep -v NAMES"
+alias active-users="ps -eo user | sort | uniq | grep -Ev \"USER|avahi|colord|gdm|kernoops|lp|messagebus|root|rtkit|syslog|systemd|whoopsie|xrdp|_rpc|daemon\""
 
 ################
 # TODO: move to scripts that install these tools
@@ -93,16 +96,16 @@ alias rm="trash"
 ################
 
 # Show contents of dir after action
-function cd () {
-    dir="$1"
-    # cd with no argument should go to ~
-    if [[ -z "$dir" ]]; then
-        builtin cd
-    else
-        builtin cd "$dir"
-    fi
-    ls -ACF
-}
+#function cd () {
+#   dir="$1"
+#   # cd with no argument should go to ~
+#   if [[ -z "$dir" ]]; then
+#       builtin cd
+#   else
+#       builtin cd "$dir"
+#   fi
+#   ls -ACF
+#}
 
 # Golang install or upgrade
 function getgolang () {
@@ -212,7 +215,7 @@ gitBranch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-export PS1="${pathC}\u@\h:\w ${gitC}\$(gitBranch) ${pointerC}\$${normalC}"
+export PS1="${pathC}\u@\h:\w ${gitC}\$(gitBranch)${pointerC}\$${normalC}"
 
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -227,3 +230,13 @@ export PATH="${HOME}/.pyenv/bin:${PATH}"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+export JAVA_HOME=/usr/local/openjdk-17
+export PATH=$JAVA_HOME/bin:$PATH
+alias gant=ganttproject
+
+export PATH="/usr/local/cuda-12.4/bin:${PATH}"
+export LD_LIBRARY_PATH="/usr/local/cuda-12.4/lib64:${LD_LIBRARY_PATH}"
+
+export PATH="/usr/local/texlive/bin/x86_64-linux:${PATH}"
+export MANPATH="/usr/local/texlive/texmf-dist/doc/man:${MANPATH}"
+export INFOPATH="/usr/local/texlive/texmf-dist/doc/info:${INFOPATH}"
