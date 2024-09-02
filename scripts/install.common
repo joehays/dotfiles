@@ -35,7 +35,7 @@ ${APT_INSTALL} pandoc
 
 # Development
 echo 'Development'
-${APT_INSTALL} build-essentials
+${APT_INSTALL} build-essential
 ${APT_INSTALL} git  
 git lfs install
 #git config --local core.sshCommand "ssh -i ~/.ssh/id_rsa_scylla_to_sffs00"
