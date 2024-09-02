@@ -44,6 +44,9 @@ sudo tar -C /opt -xzf nvim-linux64.tar.gz
 echo '${COND_INSERT} "export PATH=\"\${PATH}:/opt/nvim-linux64/bin\"" ${HOME}/.bashrc'
 ${COND_INSERT} "export PATH=\"\${PATH}:/opt/nvim-linux64/bin\"" ${HOME}/.bashrc
 
+echo '${COND_INSERT} "alias nv=\"nvim\"" ${HOME}/.bashrc'
+${COND_INSERT} "alias nv=\"nvim\"" ${HOME}/.bashrc
+
 
 # TODO: delete downloaded files
 
