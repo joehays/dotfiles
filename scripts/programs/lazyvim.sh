@@ -6,13 +6,12 @@ echo 'PROGRAMS/LAZYVIM.SH'
 echo '============================================================'
 
 # get my own absolute path
-SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"; ));
+SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"))
 echo "SCRIPT_ABS_DIR = ${SCRIPT_ABS_DIR} "
 
 APT_INSTALL="${SCRIPT_ABS_DIR}/../cond-apt-install"
 COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
 echo "COND_INSERT = ${COND_INSERT} "
-
 
 CWD=$(pwd)
 cd ${HOME}/Downloads
@@ -48,8 +47,10 @@ echo '------------------------------'
 
 # Dependencies
 echo 'installing DEPENDENCIES'
-${APT_INSTALL} ripgrep  # https://github.com/BurntSushi/ripgrep
-${APT_INSTALL} fd-find  # https://github.com/sharkdp/fd
+${APT_INSTALL} ripgrep # https://github.com/BurntSushi/ripgrep
+${APT_INSTALL} fd-find # https://github.com/sharkdp/fd
+${APT_INSTALL} luarocks
+
 #${APT_INSTALL} kitty
 #${APT_INSTALL} wazterm
 
@@ -67,7 +68,12 @@ echo 'This will load all plugins and check if everything is working correctly.
 echo '------------------------------'
 echo
 
+sudo npm install -g neovim
+
 echo '${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.bashrc'
 ${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.bashrc
+
+echo '${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.bashrc'
+${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.bashrc
 
 cd ${CWD}
