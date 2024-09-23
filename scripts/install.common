@@ -84,6 +84,7 @@ echo '------------------------------'
 # Documents & Editing
 echo 'Documents & Editing'
 ${APT_INSTALL} pandoc
+${APT_INSTALL} fzf     # https://github.com/junegunn/fzf
 ${APT_INSTALL} ripgrep # https://github.com/BurntSushi/ripgrep
 ${APT_INSTALL} fd-find # https://github.com/sharkdp/fd
 ${APT_INSTALL} luarocks
