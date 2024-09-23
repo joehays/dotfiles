@@ -6,7 +6,7 @@ echo '=============================='
 CWD=$(pwd)
 
 # get my own absolute path
-SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"; ));
+SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"))
 
 # make function aliases for both APT and NPM install scripts
 APT_INSTALL="${SCRIPT_ABS_DIR}/cond-apt-install"
@@ -21,31 +21,30 @@ echo '------------------------------'
 echo 'BASICS'
 ${APT_INSTALL} curl
 ${APT_INSTALL} htop
-${APT_INSTALL} screen  
-${APT_INSTALL} software-properties-common  
-${APT_INSTALL} terminator  
+${APT_INSTALL} screen
+${APT_INSTALL} software-properties-common
+${APT_INSTALL} terminator
 ${APT_INSTALL} trash-cli && COND_INSERT "alias rm=trash" "${HOME}/.bashrc"
 ${APT_INSTALL} tree
 ${APT_INSTALL} vim
 ${APT_INSTALL} zsh
 ${APT_INSTALL} wget
 
-# Documents & Editing
-echo 'Documents & Editing'
-${APT_INSTALL} pandoc  
-
 # Development
 echo 'Development'
-${APT_INSTALL} build-essentials
-${APT_INSTALL} git  
+${APT_INSTALL} build-essential
+${APT_INSTALL} git
 git lfs install
+programs/lazygit.sh
 #git config --local core.sshCommand "ssh -i ~/.ssh/id_rsa_scylla_to_sffs00"
-${APT_INSTALL} make  
+${APT_INSTALL} make
+programs/kitty.sh
+programs/wezterm.sh
 
 # Graphics
 echo 'Graphics'
-${APT_INSTALL} mesa-utils  
-${APT_INSTALL} pavucontrol  
+${APT_INSTALL} mesa-utils
+${APT_INSTALL} pavucontrol
 
 # Video processing
 echo 'Video Processing'
@@ -53,16 +52,16 @@ ${APT_INSTALL} ffmpeg
 
 # Networking
 echo 'Networking'
-${APT_INSTALL} cifs-utils  
+${APT_INSTALL} cifs-utils
 ${APT_INSTALL} openssh-client
 ${APT_INSTALL} openssh-server
-${APT_INSTALL} x11-utils  
-${APT_INSTALL} x11-apps  
-${APT_INSTALL} nethogs  
-${APT_INSTALL} net-tools  
-${APT_INSTALL} nfs-common  
-${APT_INSTALL} iftop  
-${APT_INSTALL} samba  
+${APT_INSTALL} x11-utils
+${APT_INSTALL} x11-apps
+${APT_INSTALL} nethogs
+${APT_INSTALL} net-tools
+${APT_INSTALL} nfs-common
+${APT_INSTALL} iftop
+${APT_INSTALL} samba
 
 ## Run all scripts in programs/
 #for f in programs/*.sh; do bash "$f" -H; done
@@ -76,15 +75,24 @@ programs/turbovnc.sh
 #programs/vsc.sh          # not needed for WSL
 #programs/docker.sh       # not needed for WSL
 
-
 # Install NPM packages
 echo '------------------------------'
 echo "Installing NPM packages"
 echo '------------------------------'
 #${NPM_INSTALL} <package>
 
+# Documents & Editing
+echo 'Documents & Editing'
+${APT_INSTALL} pandoc
+${APT_INSTALL} ripgrep # https://github.com/BurntSushi/ripgrep
+${APT_INSTALL} fd-find # https://github.com/sharkdp/fd
+${APT_INSTALL} luarocks
+${APT_INSTALL} vim
+programs/nvim.sh
+programs/lazyvim.sh
+programs/texlive.sh
+
 sudo apt autoremove -y
 
 echo "cd ${CWD}"
 cd ${CWD}
-
