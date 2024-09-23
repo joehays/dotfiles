@@ -27,6 +27,7 @@ ${APT_INSTALL} terminator
 ${APT_INSTALL} trash-cli && COND_INSERT "alias rm=trash" "${HOME}/.bashrc"
 ${APT_INSTALL} tree
 ${APT_INSTALL} vim
+${APT_INSTALL} zsh
 ${APT_INSTALL} wget
 
 # Documents & Editing
