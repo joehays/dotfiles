@@ -79,9 +79,6 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -90,7 +87,15 @@ export LANG=en_US.UTF-8
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch $(uname -m)"
+ export ARCHFLAGS="-arch $(uname -m)"
+
+####################################
+
+#export LANGUAGE=(unset),                                                                                                                       │
+#export LC_ALL=(unset),                                                                                                                         │
+export LC_COLLATE=en_US
+export LANG=en_US.UTF-8
+
 
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
@@ -104,13 +109,6 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="$PATH:/opt/nvim-linux64/bin"
-alias nv="nvim"
-
-####################################
-
-# LC_COLLATE defines how 'ls' will sortt it's ooutput. Using 'en_US' separates .dotfiles and upper and lower case files.
-export LC_COLLATE=en_US
 
 
 # enable color support of ls and also add handy aliases
@@ -125,6 +123,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+export PATH="$PATH:/opt/nvim-linux64/bin"
+alias nv="nvim"
+
 
 # some more ls aliases
 alias ll='ls -AlF'
@@ -136,6 +137,17 @@ if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
 
-
 alias lzv="nvim"
+alias lzg="lazygit"
+alias lzd="lazydocker"
 alias fd="fdfind"
+
+# enable PYENV
+export PATH="${HOME}/.pyenv/bin:${PATH}"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# TODO: need to update dotfile scripts to update both .bashrc and .zshrc
+# TODO need to push all .zshrc/.bashrc updates to the owning install scripts
+ 
+
