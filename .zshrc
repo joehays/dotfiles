@@ -137,3 +137,5 @@ if [ -f ~/.zsh_aliases ]; then
 fi
 
 
+alias lzv="nvim"
+alias fd="fdfind"

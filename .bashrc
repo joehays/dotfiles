@@ -253,3 +253,4 @@ alias fd="fdfind"
 
 # LC_COLLATE defines how 'ls' will sortt it's ooutput. Using 'en_US' separates .dotfiles and upper and lower case files.
 export LC_COLLATE=en_US
+alias wt="wezterm"
