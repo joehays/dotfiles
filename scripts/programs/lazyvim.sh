@@ -10,8 +10,13 @@ SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"))
 echo "SCRIPT_ABS_DIR = ${SCRIPT_ABS_DIR} "
 
 APT_INSTALL="${SCRIPT_ABS_DIR}/../cond-apt-install"
+echo "APT_INSTALL = ${APT_INSTALL} "
+
 COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
 echo "COND_INSERT = ${COND_INSERT} "
+
+MAKE_SYMLINK="${SCRIPT_ABS_DIR}/../cond-make-symlink"
+echo "MAKE_SYMLINK = ${MAKE_SYMLINK}"
 
 CWD=$(pwd)
 cd ${HOME}/Downloads
@@ -56,10 +61,14 @@ ${APT_INSTALL} luarocks
 
 echo
 echo '------------------------------'
-echo 'Clone Lazyvim STARTER'
+echo 'Clone git@github.com:joehays/LazyVim-starter'
 echo '------------------------------'
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
+
+# Up two from PROGRAMS dir
+cd ${SCRIPT_ABS_DIR}/..
+${MAKE_SYMLINK} LazyVim-starter ${HOME}/.config/nvim
 
 echo
 echo '------------------------------'
@@ -70,10 +79,12 @@ echo
 
 sudo npm install -g neovim
 
-echo '${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.bashrc'
+echo '${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.bashrc && .zshrc'
 ${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.bashrc
+${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.zshrc
 
-echo '${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.bashrc'
+echo '${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.bashrc && .zshrc'
 ${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.bashrc
+${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.zshrc
 
 cd ${CWD}
