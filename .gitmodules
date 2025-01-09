@@ -1,6 +1,6 @@
 [submodule "vscode-user"]
 	path = vscode-user
 	url = git@github.com:joehays/vscode-user.git
-[submodule "submodules/LazyVim-starter"]
-	path = submodules/LazyVim-starter
+[submodule "LazyVim-starter"]
+	path = LazyVim-starter
 	url = git@github.com:joehays/LazyVim-starter.git
