@@ -6,16 +6,16 @@ echo 'PROGRAMS/LAZYVIM.SH'
 echo '============================================================'
 
 # get my own absolute path
-SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"))
+SCRIPT_ABS_DIR=$(dirname $(dirname $(readlink -f -- "$0")))
 echo "SCRIPT_ABS_DIR = ${SCRIPT_ABS_DIR} "
 
-APT_INSTALL="${SCRIPT_ABS_DIR}/../cond-apt-install"
+APT_INSTALL="${SCRIPT_ABS_DIR}/cond-apt-install"
 echo "APT_INSTALL = ${APT_INSTALL} "
 
-COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
+COND_INSERT="${SCRIPT_ABS_DIR}/cond-insert-string-into-file"
 echo "COND_INSERT = ${COND_INSERT} "
 
-MAKE_SYMLINK="${SCRIPT_ABS_DIR}/../cond-make-symlink"
+MAKE_SYMLINK="${SCRIPT_ABS_DIR}/cond-make-symlink"
 echo "MAKE_SYMLINK = ${MAKE_SYMLINK}"
 
 CWD=$(pwd)
@@ -57,14 +57,14 @@ ${APT_INSTALL} fd-find # https://github.com/sharkdp/fd
 ${APT_INSTALL} luarocks
 
 #${APT_INSTALL} kitty
-#${APT_INSTALL} wazterm
+#${APT_INSTALL} wezterm
 
-echo
-echo '------------------------------'
-echo 'Clone git@github.com:joehays/LazyVim-starter'
-echo '------------------------------'
-git clone https://github.com/LazyVim/starter ~/.config/nvim
-rm -rf ~/.config/nvim/.git
+#echo
+#echo '------------------------------'
+#echo 'Clone git@github.com:joehays/LazyVim-starter'
+#echo '------------------------------'
+#git clone https://github.com/LazyVim/starter ~/.config/nvim
+#rm -rf ~/.config/nvim/.git
 
 # Up two from PROGRAMS dir
 cd ${SCRIPT_ABS_DIR}/..

@@ -141,6 +141,7 @@ alias lzv="nvim"
 alias lzg="lazygit"
 alias lzd="lazydocker"
 alias fd="fdfind"
+alias rm="trash"
 
 # enable PYENV
 export PATH="${HOME}/.pyenv/bin:${PATH}"
@@ -151,3 +152,4 @@ eval "$(pyenv virtualenv-init -)"
 # TODO need to push all .zshrc/.bashrc updates to the owning install scripts
  
 
+export PATH="${PATH}:/opt/nvim-linux-x86_64/bin"
