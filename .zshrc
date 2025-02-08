@@ -143,7 +143,16 @@ alias lzv="nvim"
 alias lzg="lazygit"
 alias lzd="lazydocker"
 alias fd="fdfind"
+<<<<<<< HEAD
 alias dirs="dirs -p"
+=======
+alias rm="trash"
+
+# enable PYENV
+export PATH="${HOME}/.pyenv/bin:${PATH}"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+>>>>>>> 9142b86ff09b327e2443a35c1bc9270dd4471c1a
 
 # TODO: need to update dotfile scripts to update both .bashrc and .zshrc
 # TODO need to push all .zshrc/.bashrc updates to the owning install scripts
@@ -171,3 +180,4 @@ source init.pyenv
 
 #echo ".zshrc[171] >>> ${PATH}"source /home/joehays/.cargo/env
 source /home/joehays/.cargo/env
+export PATH="${PATH}:/opt/nvim-linux-x86_64/bin"

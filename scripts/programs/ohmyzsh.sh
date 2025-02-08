@@ -22,6 +22,8 @@ echo '------------------------------'
 echo 'Installing OHMYZSH'
 echo '------------------------------'
 
+${APT_INSTALL} zsh
+
 which omz &>/dev/null
 
 if [ ! -f ${HOME}/.oh-my-zsh/oh-my-zsh.sh ]; then
