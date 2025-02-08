@@ -123,6 +123,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+#echo ".zshrc[126] >>> ${PATH}"
+
 export PATH="$PATH:/opt/nvim-linux64/bin"
 alias nv="nvim"
 
@@ -141,13 +143,31 @@ alias lzv="nvim"
 alias lzg="lazygit"
 alias lzd="lazydocker"
 alias fd="fdfind"
-
-# enable PYENV
-export PATH="${HOME}/.pyenv/bin:${PATH}"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+alias dirs="dirs -p"
 
 # TODO: need to update dotfile scripts to update both .bashrc and .zshrc
 # TODO need to push all .zshrc/.bashrc updates to the owning install scripts
  
+##########################################
+# [START] Add my custom scripts to the PATH
+##########################################
+my_script_path="${HOME}/dev/dotfiles/scripts"
 
+# Check if the path is already in PATH
+if [[ ":${PATH}:" != *":${my_script_path}:"* ]]; then
+  # Add the path if it's not already there
+  export PATH="${my_script_path}:${PATH}"
+  echo "Added ${my_script_path} to PATH"
+else
+  echo "${my_script_path} is already in PATH"
+fi
+##########################################
+# [END] Add my custom scripts to the PATH
+##########################################
+
+# initialize PYENV &/|| CONDA
+#source init.conda
+source init.pyenv
+
+#echo ".zshrc[171] >>> ${PATH}"source /home/joehays/.cargo/env
+source /home/joehays/.cargo/env

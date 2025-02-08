@@ -247,6 +247,7 @@ alias nv="nvim"
 export PATH="${HOME}/.local/kitty.app/bin:${PATH}"
 alias lzv="nvim"
 alias fd="fdfind"
+alias dirs="dirs -p"
 
 # change terminal colors
 # xrdb -merge -I$HOME ~/.Xresources
