@@ -250,3 +250,4 @@ alias fd="fdfind"
 
 # change terminal colors
 # xrdb -merge -I$HOME ~/.Xresources
+. "$HOME/.cargo/env"
