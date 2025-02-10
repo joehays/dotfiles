@@ -21,7 +21,9 @@ echo 'Downloading NVIM'
 echo '------------------------------'
 
 #version="3.1.1"
-filename="nvim-linux64.tar.gz"
+#filename="nvim-linux64.tar.gz"
+dirname="nvim-linux-x86_64"
+filename="${dirname}.tar.gz"
 url="https://github.com/neovim/neovim/releases/latest/download"
 
 if [ ! -f "./${filename}" ]; then
@@ -38,14 +40,16 @@ echo '------------------------------'
 echo "sudo rm -rf /opt/nvim"
 sudo rm -rf /opt/nvim
 
-echo "sudo tar -C /opt -xzf nvim-linux64.tar.gz"
-sudo tar -C /opt -xzf nvim-linux64.tar.gz
+echo "sudo tar -C /opt -xzf ${filename}"
+sudo tar -C /opt -xzf ${filename}
 
-echo '${COND_INSERT} "export PATH=\"\${PATH}:/opt/nvim-linux64/bin\"" ${HOME}/.bashrc'
-${COND_INSERT} "export PATH=\"\${PATH}:/opt/nvim-linux64/bin\"" ${HOME}/.bashrc
+echo '${COND_INSERT} "export PATH=\"\${PATH}:/opt/${dirname}/bin\"" ${HOME}/.bashrc'
+${COND_INSERT} "export PATH=\"\${PATH}:/opt/${dirname}/bin\"" ${HOME}/.bashrc
+${COND_INSERT} "export PATH=\"\${PATH}:/opt/${dirname}/bin\"" ${HOME}/.zshrc
 
 echo '${COND_INSERT} "alias nv=\"nvim\"" ${HOME}/.bashrc'
 ${COND_INSERT} "alias nv=\"nvim\"" ${HOME}/.bashrc
+${COND_INSERT} "alias nv=\"nvim\"" ${HOME}/.zshrc
 
 
 # TODO: delete downloaded files

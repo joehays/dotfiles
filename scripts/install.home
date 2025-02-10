@@ -47,8 +47,10 @@ ${APT_INSTALL} imagemagick
 ${APT_INSTALL} pngcrush
 ${APT_INSTALL} jpegoptim
 
-# Video processing
-#echo 'Video Processing'
+# Media processing
+#echo 'Media Processing'
+${APT_INSTALL} libimage-exiftool-perl
+${APT_INSTALL} findimagedupes
 
 
 # Install NPM packages

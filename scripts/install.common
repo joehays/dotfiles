@@ -91,6 +91,7 @@ ${APT_INSTALL} luarocks
 ${APT_INSTALL} vim
 programs/nvim.sh
 programs/lazyvim.sh
+programs/ohmyzsh.sh
 programs/texlive.sh
 
 sudo apt autoremove -y
