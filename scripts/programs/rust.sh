@@ -6,7 +6,8 @@ echo 'PROGRAMS/RUST.SH'
 echo '============================================================'
 
 # get my own absolute path
-SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"; ));
+SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"))
+#SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"; ));
 echo "SCRIPT_ABS_DIR = ${SCRIPT_ABS_DIR} "
 
 COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
@@ -17,12 +18,18 @@ cd ${HOME}/Downloads
 
 echo
 echo '------------------------------'
+<<<<<<< HEAD
+echo 'Downloading RUST'
+echo '------------------------------'
+
+#NOTE: taken from, https://wezfurlong.org/wezterm/install/linux.html
+
 echo 'Downloading && Installing RUST'
 echo '------------------------------'
 
 #if [ ! -f "./${downloaded_filename}" ]; then
-  echo "curl --proto '=https' --tlsv1.2 -sSf ${downloaded_filename} https://sh.rustup.rs | sh"
-  #curl --proto '=https' --tlsv1.2 -sSf ${downloaded_filename} https://sh.rustup.rs | sh
+echo "curl --proto '=https' --tlsv1.2 -sSf ${downloaded_filename} https://sh.rustup.rs | sh"
+#curl --proto '=https' --tlsv1.2 -sSf ${downloaded_filename} https://sh.rustup.rs | sh
 
 export RUSTUP_HOME="$HOME/.rustup"
 export CARGO_HOME="$HOME/.cargo"
@@ -38,6 +45,7 @@ ${COND_INSERT} "source ${HOME}/.cargo/env" ${HOME}/.zshrc
 echo "${COND_INSERT} 'source ${HOME}/.cargo/env' ${HOME}/.bashrc"
 ${COND_INSERT} "source ${HOME}/.cargo/env" ${HOME}/.bashrc
 
+# TODO: need to conditionally install rust
 # TODO: delete downloaded files
 
 cd ${CWD}
