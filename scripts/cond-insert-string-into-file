@@ -16,4 +16,8 @@
 
 STRING="$1"
 FILE="$2"
-grep -qxF "${STRING}" "${FILE}" || echo "${STRING}" >> "${FILE}"
+if [ -f "$2" ]; then
+  grep -qxF "${STRING}" "${FILE}" || echo "${STRING}" >> "${FILE}"
+else
+  echo "the file $2 does not exist"
+fi
