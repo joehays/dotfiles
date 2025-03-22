@@ -65,6 +65,9 @@ ${COND_INSERT} 'export PATH="${HOME}/.pyenv/bin:${PATH}"' ${HOME}/.bashrc
 ${COND_INSERT} 'eval "$(pyenv init -)"' ${HOME}/.bashrc 
 ${COND_INSERT} 'eval "$(pyenv virtualenv-init -)"' ${HOME}/.bashrc 
 
+# install python packages
+pip install -r ${SCRIPT_ABS_DIR}/python_packages
+
 #exec "$SHELL" # Or just restart your terminal
 # or, better yet, source ~/.bashrc at the end of all installs
 
