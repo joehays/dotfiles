@@ -50,6 +50,10 @@ ${APT_INSTALL} jpegoptim
 # Video processing
 #echo 'Video Processing'
 
+# Networking
+echo 'Networking'
+${APT_INSTALL} samba 
+
 
 # Install NPM packages
 #echo '------------------------------'
