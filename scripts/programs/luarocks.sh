@@ -10,6 +10,7 @@ SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"; ));
 echo "SCRIPT_ABS_DIR = ${SCRIPT_ABS_DIR} "
 
 COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
+APT_INSTALL="${SCRIPT_ABS_DIR}/../cond-apt-install"
 echo "COND_INSERT = ${COND_INSERT} "
 
 #${SCRIPT_ABS_DIR}/lua.sh

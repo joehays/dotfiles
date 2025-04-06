@@ -5,16 +5,20 @@ echo '============================================================'
 echo 'PROGRAMS/WEZTERM.SH'
 echo '============================================================'
 
+./rust.sh
+
 # get my own absolute path
 SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"))
 echo "SCRIPT_ABS_DIR = ${SCRIPT_ABS_DIR} "
 
 COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
 echo "COND_INSERT = ${COND_INSERT} "
+APT_INSTALL="${SCRIPT_ABS_DIR}/../cond-apt-install"
 
 CWD=$(pwd)
 apps_dir="${HOME}/apps"
 wezterm_dir="${apps_dir}/wezterm"
+mkdir -p ${apps_dir}
 cd "${apps_dir}"
 
 echo
@@ -52,3 +56,4 @@ cargo build --release
 ##cargo run --release --bin wezterm -- start
 
 cd ${CWD}
+
