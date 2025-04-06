@@ -164,7 +164,7 @@
   # annotated tags when pushing branches out.
   followTags = true
 
-  default = simple
+	default = current
 
 [include]
 

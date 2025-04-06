@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# How to backup
+rsync -av --exclude="storage" $HOME/ $HOME/storage/termux_bak
+pkg list-installed > $HOME/storage/installed_packages
+
+# How to restore
+rsync -av storage/termux_bak $HOME/
+xargs pkg install < $HOME/storage/termux_bak
+

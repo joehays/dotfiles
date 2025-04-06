@@ -23,6 +23,7 @@ winget install "Nvidia.Omniverse"  --accept-package-agreements --disable-interac
 winget install "OBSProject.OBSStudio" --accept-package-agreements --disable-interactivity
 winget install "Oracle.JavaRuntimeEnvironment" --accept-package-agreements --disable-interactivity
 winget install "PuTTY.PuTTY" --accept-package-agreements --disable-interactivity
+winget install "Rufus.Rufus" --accept-package-agreements --disable-interactivity
 winget install "VideoLAN.VLC" --accept-package-agreements --disable-interactivity
 winget install "VirtualGL.TurboVNC" --accept-package-agreements --disable-interactivity
 winget install "WinSCP.WinSCP" --accept-package-agreements --disable-interactivity
