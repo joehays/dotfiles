@@ -177,3 +177,43 @@ source init.pyenv
 
 source /home/joehays/.cargo/env
 export PATH="${PATH}:/opt/nvim-linux-x86_64/bin"
+
+# Make nvim the default text editor
+export EDITOR=nvim
+export VISUAL=nvim
+
+# Make VI the default terminal navigation mode (options: -v, -e)
+#
+#  Emacs Mode (Default)
+#
+#  Ctrl + A → Move to the beginning of the line
+#  Ctrl + E → Move to the end of the line
+#  Alt + B → Move back one word
+#  Alt + F → Move forward one word
+#
+#  Vi Mode
+#  
+#  Press Esc to enter command mode
+#  h / l → Move left / right
+#  b / w → Move back / forward one word
+#  0 / $ → Jump to the start / end of the line
+#  i → Switch to insert mode (to type normally)
+#
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+
+###############
+alias l='ls -CF'
+alias ls="ls --color"
+alias ll='ls -alF'
+alias la='ls -A'
+#alias ll="ls -al"
+alias turbo="/opt/TurboVNC/bin/vncserver -localhost"
+alias du1="du -hx --max-depth=1 | sort -h --reverse"
+alias dff="df --total -h | grep -v snap | grep -v tmpfs"
+alias rm="trash"
+alias docps="docker ps --format \"table {{.Names}}\" | grep -v NAMES"
+alias active-users="ps -eo user | sort | uniq | grep -Ev \"USER|avahi|colord|gdm|kernoops|lp|messagebus|root|rtkit|syslog|systemd|whoopsie|xrdp|_rpc|daemon\""
+alias nv="nvim"
+###############
+
