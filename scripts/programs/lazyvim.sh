@@ -55,6 +55,8 @@ echo 'installing DEPENDENCIES'
 ${APT_INSTALL} ripgrep # https://github.com/BurntSushi/ripgrep
 ${APT_INSTALL} fd-find # https://github.com/sharkdp/fd
 ${APT_INSTALL} luarocks
+${APT_INSTALL} fzf 
+${APT_INSTALL} tree-sitter
 
 #${APT_INSTALL} kitty
 #${APT_INSTALL} wezterm
@@ -67,6 +69,7 @@ ${APT_INSTALL} luarocks
 #rm -rf ~/.config/nvim/.git
 
 # Up two from PROGRAMS dir
+mkdir -p ~/.config
 cd ${SCRIPT_ABS_DIR}/..
 ${MAKE_SYMLINK} LazyVim-starter ${HOME}/.config/nvim
 
@@ -77,7 +80,7 @@ echo 'This will load all plugins and check if everything is working correctly.
 echo '------------------------------'
 echo
 
-sudo npm install -g neovim
+#sudo npm install -g neovim
 
 echo '${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.bashrc && .zshrc'
 ${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.bashrc

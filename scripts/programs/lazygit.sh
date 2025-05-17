@@ -6,7 +6,7 @@ echo 'PROGRAMS/LAZYGIT.SH'
 echo '============================================================'
 
 # get my own absolute path
-SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"; ));
+SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"))
 echo "SCRIPT_ABS_DIR = ${SCRIPT_ABS_DIR} "
 
 COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
@@ -30,10 +30,10 @@ downloaded_filename="lazygit.tar.gz"
 url="https://github.com/jesseduffield/lazygit/releases/latest/download"
 
 if [ ! -f "./${downloaded_filename}" ]; then
-    echo "curl -Lo ${downloaded_filename} \"${url}/${filename}\""
-    curl -Lo ${downloaded_filename} "${url}/${filename}"
+  echo "curl -Lo ${downloaded_filename} \"${url}/${filename}\""
+  curl -Lo ${downloaded_filename} "${url}/${filename}"
 else
-    echo "ALREADY DOWNLOADED: ${url}/${downloaded_filename}" 
+  echo "ALREADY DOWNLOADED: ${url}/${downloaded_filename}"
 fi
 
 echo
@@ -50,7 +50,8 @@ echo "tar xf ./lazygit.tar.gz --directory=${HOME}/apps"
 tar xf ./lazygit.tar.gz --directory=${HOME}/apps
 
 echo "sudo install \${HOME}/apps/lazygit /usr/local/bin"
-sudo install ${HOME}/apps/lazygit /usr/local/bin
+#sudo install ${HOME}/apps/lazygit /usr/local/bin
+${COND_INSERT} "alias PATH=\${HOME}/apps:$PATH" ${HOME}/.bashrc
 
 ${COND_INSERT} "alias lzg=\"lazygit\"" ${HOME}/.bashrc
 

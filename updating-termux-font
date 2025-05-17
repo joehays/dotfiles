@@ -1,0 +1,5 @@
+# Notes for updating fonts in Termux
+
+Termux only recognizes a single font found at: ~/.termux/font.ttf
+
+For some reason, it won't accept symbolic links. So, you must copy the .ttf file there.

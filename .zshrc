@@ -142,7 +142,7 @@ fi
 alias lzv="nvim"
 alias lzg="lazygit"
 alias lzd="lazydocker"
-alias fd="fdfind"
+#alias fd="fdfind"
 #alias dirs="dirs -p"
 alias rm="trash"
 

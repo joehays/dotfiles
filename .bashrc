@@ -93,7 +93,9 @@ alias active-users="ps -eo user | sort | uniq | grep -Ev \"USER|avahi|colord|gdm
 # TODO: move to scripts that install these tools
 ################
 #alias ov=/opt/ov/omniverse-launcher-linux.AppImage
-alias rm="trash"
+if [ ! -z ${TERMUX_VERSION} ]; then
+  alias rm="trash"
+fi
 ################
 
 # Show contents of dir after action
@@ -256,7 +258,7 @@ alias lzd="lazydocker"
 alias nv="nvim"
 export PATH="${HOME}/.local/kitty.app/bin:${PATH}"
 alias lzv="nvim"
-alias fd="fdfind"
+#alias fd="fdfind"
 alias dirs="dirs -p"
 
 # change terminal colors
@@ -268,3 +270,5 @@ alias dirs="dirs -p"
 export LC_COLLATE=en_US
 alias wt="wezterm"
 export PATH="${PATH}:/opt/nvim-linux-x86_64/bin"
+
+export TERMUX_FONT_SIZE=24
