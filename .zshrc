@@ -146,10 +146,12 @@ alias lzd="lazydocker"
 #alias dirs="dirs -p"
 alias rm="trash"
 
-# enable PYENV
-export PATH="${HOME}/.pyenv/bin:${PATH}"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if [ -z ${TERMUX_VERSION} ]; then
+  # enable PYENV
+  export PATH="${HOME}/.pyenv/bin:${PATH}"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi 
 
 # TODO: need to update dotfile scripts to update both .bashrc and .zshrc
 # TODO need to push all .zshrc/.bashrc updates to the owning install scripts
@@ -172,10 +174,14 @@ fi
 ##########################################
 
 # initialize PYENV &/|| CONDA
-#source init.conda
-source init.pyenv
+if [ -z ${TERMUX_VERSION} ]; then
+  #source init.conda
+  source init.pyenv
+fi
 
-source /home/joehays/.cargo/env
+if [ -d ${HOME}/.cargo/env ]; then
+  source ${HOME}/.cargo/env
+fi
 export PATH="${PATH}:/opt/nvim-linux-x86_64/bin"
 
 # Make nvim the default text editor

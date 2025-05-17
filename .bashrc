@@ -243,10 +243,12 @@ export PS1="${pathC}\u@\h${nameC}:\w ${gitC}\$(gitBranch)${pointerC}\$${normalC}
 #export PATH="$HOME/gems/bin:$PATH"
 
 # enable PYENV
-export PATH="${HOME}/.pyenv/bin:${PATH}"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-#export PATH=${PYENV_ROOT}/bin:${PATH}
+if [ -z ${TERMUX_VERSION} ]; then
+  export PATH="${HOME}/.pyenv/bin:${PATH}"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+  #export PATH=${PYENV_ROOT}/bin:${PATH}
+fi
 
 export JAVA_HOME=/usr/local/openjdk-17
 export PATH=$JAVA_HOME/bin:$PATH
