@@ -178,7 +178,12 @@ txtylw='\[\e[38;5;222m\]' # Pale Gold
 #txtblu='\[\e[0;36m\]' # Light Blue
 txtblu='\[\e[1;34m\]' # Bright Blue
 #txtblu='\[\e[38;5;117;34m\]' # Light Sky Blue
-txtpur='\[\e[0;35m\]' # Purple
+#txtpur='\[\e[0;35m\]' # Purple/Magenta
+#txtpur='\[\e[38;5;219m\]' # Light Purple
+#txtpur='\[\e[38;5;216m\]' # Thistle (Light Purple)
+#txtpur='\[\e[38;5;213m\]' # Light Purple
+txtpur='\[\e[38;5;183m\]' # Plum
+#txtpur='\[\e[38;5;177m\]' # Violet
 txtcyn='\[\e[0;96m\]' # Cyan
 txtwht='\[\e[0;37m\]' # White
 bldblk='\[\e[1;30m\]' # Black - Bold
@@ -241,6 +246,7 @@ export PS1="${pathC}\u@\h${nameC}:\w ${gitC}\$(gitBranch)${pointerC}\$${normalC}
 export PATH="${HOME}/.pyenv/bin:${PATH}"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+#export PATH=${PYENV_ROOT}/bin:${PATH}
 
 export JAVA_HOME=/usr/local/openjdk-17
 export PATH=$JAVA_HOME/bin:$PATH
@@ -270,5 +276,3 @@ alias dirs="dirs -p"
 export LC_COLLATE=en_US
 alias wt="wezterm"
 export PATH="${PATH}:/opt/nvim-linux-x86_64/bin"
-
-export TERMUX_FONT_SIZE=24
