@@ -62,6 +62,7 @@ ${APT_INSTALL} net-tools
 ${APT_INSTALL} nfs-common
 ${APT_INSTALL} iftop
 ${APT_INSTALL} samba
+${APT_INSTALL} dnsutils
 
 ## Run all scripts in programs/
 #for f in programs/*.sh; do bash "$f" -H; done

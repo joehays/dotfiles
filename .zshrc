@@ -142,14 +142,16 @@ fi
 alias lzv="nvim"
 alias lzg="lazygit"
 alias lzd="lazydocker"
-alias fd="fdfind"
+#alias fd="fdfind"
 #alias dirs="dirs -p"
 alias rm="trash"
 
-# enable PYENV
-export PATH="${HOME}/.pyenv/bin:${PATH}"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if [ -z ${TERMUX_VERSION} ]; then
+  # enable PYENV
+  export PATH="${HOME}/.pyenv/bin:${PATH}"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi 
 
 # TODO: need to update dotfile scripts to update both .bashrc and .zshrc
 # TODO need to push all .zshrc/.bashrc updates to the owning install scripts
@@ -172,11 +174,55 @@ fi
 ##########################################
 
 # initialize PYENV &/|| CONDA
-#source init.conda
-source init.pyenv
+if [ -z ${TERMUX_VERSION} ]; then
+  #source init.conda
+  source init.pyenv
+fi
 
-source /home/joehays/.cargo/env
+if [ -d ${HOME}/.cargo/env ]; then
+  source ${HOME}/.cargo/env
+fi
 export PATH="${PATH}:/opt/nvim-linux-x86_64/bin"
 export PATH="/home/haysfamily/dev/dotfiles/scripts/programs/lua-5.4.7/bin:${PATH}"
 export PATH="/home/haysfamily/apps/lua-5.4.7/bin:${PATH}"
 export PATH="/home/haysfamily/apps/luarocks-3.11.1/bin:${PATH}"
+
+# Make nvim the default text editor
+export EDITOR=nvim
+export VISUAL=nvim
+
+# Make VI the default terminal navigation mode (options: -v, -e)
+#
+#  Emacs Mode (Default)
+#
+#  Ctrl + A → Move to the beginning of the line
+#  Ctrl + E → Move to the end of the line
+#  Alt + B → Move back one word
+#  Alt + F → Move forward one word
+#
+#  Vi Mode
+#  
+#  Press Esc to enter command mode
+#  h / l → Move left / right
+#  b / w → Move back / forward one word
+#  0 / $ → Jump to the start / end of the line
+#  i → Switch to insert mode (to type normally)
+#
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+
+###############
+alias l='ls -CF'
+alias ls="ls --color"
+alias ll='ls -alF'
+alias la='ls -A'
+#alias ll="ls -al"
+alias turbo="/opt/TurboVNC/bin/vncserver -localhost"
+alias du1="du -hx --max-depth=1 | sort -h --reverse"
+alias dff="df --total -h | grep -v snap | grep -v tmpfs"
+alias rm="trash"
+alias docps="docker ps --format \"table {{.Names}}\" | grep -v NAMES"
+alias active-users="ps -eo user | sort | uniq | grep -Ev \"USER|avahi|colord|gdm|kernoops|lp|messagebus|root|rtkit|syslog|systemd|whoopsie|xrdp|_rpc|daemon\""
+alias nv="nvim"
+###############
+

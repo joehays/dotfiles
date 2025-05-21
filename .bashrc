@@ -53,6 +53,7 @@ alias g.ps='git push'
 alias g.pd='git pull'
 alias g.r='git remote -v'
 alias g.subup='git submodule update --init --recursive'
+alias g.lo="git log --oneline --format=\"%h %as [%an] -- %s\""
 #  a      = commit --amend
 #  br     = branch -av
 #  ca     = !git add -A && git commit                # Commit all changes.
@@ -92,7 +93,9 @@ alias active-users="ps -eo user | sort | uniq | grep -Ev \"USER|avahi|colord|gdm
 # TODO: move to scripts that install these tools
 ################
 #alias ov=/opt/ov/omniverse-launcher-linux.AppImage
-alias rm="trash"
+if [ ! -z ${TERMUX_VERSION} ]; then
+  alias rm="trash"
+fi
 ################
 
 # Show contents of dir after action
@@ -165,9 +168,22 @@ export TERM=xterm-256color
 txtblk='\[\e[0;30m\]' # Black - Regular
 txtred='\[\e[0;31m\]' # Red
 txtgrn='\[\e[0;32m\]' # Green
-txtylw='\[\e[0;93m\]' # Yellow
-txtblu='\[\e[0;34m\]' # Blue
-txtpur='\[\e[0;35m\]' # Purple
+#txtylw='\[\e[0;93m\]' # Yellow
+#txtylw='\[\e[0;33m\]' # Yellow
+#txtylw='\[\e[38;5;229m\]' # Light Yellow
+#txtylw='\[\e[38;5;228m\]' # Light Yellow
+#txtylw='\[\e[38;5;226m\]' # Light Yellow
+txtylw='\[\e[38;5;222m\]' # Pale Gold
+#txtblu='\[\e[0;34m\]' # Blue
+#txtblu='\[\e[0;36m\]' # Light Blue
+txtblu='\[\e[1;34m\]' # Bright Blue
+#txtblu='\[\e[38;5;117;34m\]' # Light Sky Blue
+#txtpur='\[\e[0;35m\]' # Purple/Magenta
+#txtpur='\[\e[38;5;219m\]' # Light Purple
+#txtpur='\[\e[38;5;216m\]' # Thistle (Light Purple)
+#txtpur='\[\e[38;5;213m\]' # Light Purple
+txtpur='\[\e[38;5;183m\]' # Plum
+#txtpur='\[\e[38;5;177m\]' # Violet
 txtcyn='\[\e[0;96m\]' # Cyan
 txtwht='\[\e[0;37m\]' # White
 bldblk='\[\e[1;30m\]' # Black - Bold
@@ -202,6 +218,7 @@ nameC="${txtblu}"
 hostC="${txtpur}"
 #pathC="${txtcyn}"
 pathC="${txtylw}"
+#pathC="${txtgrn}"
 gitC="${txtpur}"
 pointerC="${txtwht}"
 normalC="${txtrst}"
@@ -215,7 +232,7 @@ gitBranch() {
   git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-export PS1="${pathC}\u@\h:\w ${gitC}\$(gitBranch)${pointerC}\$${normalC}"
+export PS1="${pathC}\u@\h${nameC}:\w ${gitC}\$(gitBranch)${pointerC}\$${normalC}"
 
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -226,9 +243,12 @@ export PS1="${pathC}\u@\h:\w ${gitC}\$(gitBranch)${pointerC}\$${normalC}"
 #export PATH="$HOME/gems/bin:$PATH"
 
 # enable PYENV
-export PATH="${HOME}/.pyenv/bin:${PATH}"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if [ -z ${TERMUX_VERSION} ]; then
+  export PATH="${HOME}/.pyenv/bin:${PATH}"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+  #export PATH=${PYENV_ROOT}/bin:${PATH}
+fi
 
 export JAVA_HOME=/usr/local/openjdk-17
 export PATH=$JAVA_HOME/bin:$PATH
@@ -246,7 +266,7 @@ alias lzd="lazydocker"
 alias nv="nvim"
 export PATH="${HOME}/.local/kitty.app/bin:${PATH}"
 alias lzv="nvim"
-alias fd="fdfind"
+#alias fd="fdfind"
 alias dirs="dirs -p"
 
 # change terminal colors
