@@ -11,15 +11,18 @@ echo "SCRIPT_ABS_DIR = ${SCRIPT_ABS_DIR} "
 
 COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
 echo "COND_INSERT = ${COND_INSERT} "
+APT_INSTALL="${SCRIPT_ABS_DIR}/../cond-apt-install"
 
 CWD=$(pwd)
+mkdir -p ${HOME}/apps
 cd ${HOME}/apps
 
 echo "installing 'binutils'"
 if command -v termux-info >/dev/null 2>&1; then
-  pkg install binutils
+  pkg install binutils clang -y
 else
-  apt install binutils
+  sudo ${APT_INSTALL} binutils
+  sudo ${APT_INSTALL} clang 
 fi
 
 echo

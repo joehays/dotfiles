@@ -278,3 +278,6 @@ alias dirs="dirs -p"
 export LC_COLLATE=en_US
 alias wt="wezterm"
 export PATH="${PATH}:/opt/nvim-linux-x86_64/bin"
+export PATH="/home/haysfamily/dev/dotfiles/scripts/programs/lua-5.4.7/bin:${PATH}"
+export PATH="/home/haysfamily/apps/lua-5.4.7/bin:${PATH}"
+export PATH="/home/haysfamily/apps/luarocks-3.11.1/bin:${PATH}"

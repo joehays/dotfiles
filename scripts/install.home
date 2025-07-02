@@ -52,6 +52,10 @@ ${APT_INSTALL} jpegoptim
 ${APT_INSTALL} libimage-exiftool-perl
 ${APT_INSTALL} findimagedupes
 
+# Networking
+echo 'Networking'
+${APT_INSTALL} samba 
+
 
 # Install NPM packages
 #echo '------------------------------'
