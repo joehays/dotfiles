@@ -281,3 +281,9 @@ export PATH="${PATH}:/opt/nvim-linux-x86_64/bin"
 export PATH="/home/haysfamily/dev/dotfiles/scripts/programs/lua-5.4.7/bin:${PATH}"
 export PATH="/home/haysfamily/apps/lua-5.4.7/bin:${PATH}"
 export PATH="/home/haysfamily/apps/luarocks-3.11.1/bin:${PATH}"
+#alias PATH=${HOME}/apps:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/apps/platform-tools_r33.0.0-windows:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Vim/vim90:/mnt/c/Program Files (x86)/PharosSystems/Core:/mnt/c/Program Files/WezTerm:/mnt/c/Users/HaysFamily/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/HaysFamily/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
+export PATH="${HOME}/.pyenv/bin:${PATH}"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+alias fd="fdfind"
+source /home/haysfamily/.cargo/env

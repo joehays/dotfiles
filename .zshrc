@@ -127,6 +127,7 @@ fi
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 alias nv="nvim"
+alias glow="glow -p"
 
 
 # some more ls aliases
@@ -182,7 +183,6 @@ fi
 if [ -d ${HOME}/.cargo/env ]; then
   source ${HOME}/.cargo/env
 fi
-export PATH="${PATH}:/opt/nvim-linux-x86_64/bin"
 export PATH="/home/haysfamily/dev/dotfiles/scripts/programs/lua-5.4.7/bin:${PATH}"
 export PATH="/home/haysfamily/apps/lua-5.4.7/bin:${PATH}"
 export PATH="/home/haysfamily/apps/luarocks-3.11.1/bin:${PATH}"
@@ -223,6 +223,11 @@ alias dff="df --total -h | grep -v snap | grep -v tmpfs"
 alias rm="trash"
 alias docps="docker ps --format \"table {{.Names}}\" | grep -v NAMES"
 alias active-users="ps -eo user | sort | uniq | grep -Ev \"USER|avahi|colord|gdm|kernoops|lp|messagebus|root|rtkit|syslog|systemd|whoopsie|xrdp|_rpc|daemon\""
-alias nv="nvim"
 ###############
 
+alias fd="fdfind"
+source /home/haysfamily/.cargo/env
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

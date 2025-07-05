@@ -1,3 +1,3 @@
 #/bin/bash
 
-./install.main >install_log.out
+./install.main 2>&1 | tee install_log.out

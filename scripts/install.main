@@ -20,7 +20,7 @@ COND_INSERT="${SCRIPT_ABS_DIR}/cond-insert-string-into-file"
 
 # Copy dotfiles
 ./copy.sh
-vim +BundleInstall +qall  # this installs all vim extensions defined in the .vimrc file
+#vim +BundleInstall +qall  # this installs all vim extensions defined in the .vimrc file
 
 
 # App installs
