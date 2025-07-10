@@ -107,8 +107,9 @@ programs/ohmyzsh.sh
 ${APT_INSTALL} pandoc
 
 ${APT_INSTALL} fzf # https://github.com/junegunn/fzf
-omz plugin fzf enable
-omz plugin load fzf
+omz plugin enable fzf cp docker history pip node podman python conda pyenv poetry pre-commit ubuntu zsh-navigation-tools vscode ufw systemadmin repo man gitignore aliases conda-env systemd ssh ros npm helm eza fig command-not-found sudo rsync nvm git-lfs git-commit common-aliases git-auto-fetch uv tldr pylint copypath
+omz plugin load fzf cp docker history pip node podman python conda pyenv poetry pre-commit ubuntu zsh-navigation-tools vscode ufw systemadmin repo man gitignore aliases conda-env systemd ssh ros npm helm eza fig command-not-found sudo rsync nvm git-lfs git-commit common-aliases git-auto-fetch uv tldr pylint copypath
+
 ${COND_INSERT} 'omz plugin load fzf' "${HOME}/.bashrc"
 ${COND_INSERT} 'omz plugin load fzf' "${HOME}/.zshrc"
 

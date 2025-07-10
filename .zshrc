@@ -71,7 +71,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf)
+plugins=(git fzf cp docker history pip node podman python conda pyenv poetry pre-commit ubuntu zsh-navigation-tools vscode ufw systemadmin repo man gitignore aliases conda-env systemd ssh ros npm helm eza fig command-not-found sudo rsync nvm git-lfs git-commit common-aliases git-auto-fetch uv tldr pylint copypath)
 
 source $ZSH/oh-my-zsh.sh
 
