@@ -6,6 +6,12 @@ HISTFILESIZE=2000
 # append to the history file instead of overwrite
 shopt -s histappend
 
+#export LANGUAGE=(unset),                                                                                                                       │
+#export LC_ALL=(unset),                                                                                                                         │
+#export LC_ALL=en_US.UTF-8
+export LC_COLLATE=en_US
+export LANG=en_US.UTF-8
+
 # Aliases
 alias cp='cp -Rv'
 alias dff="df --total -h | grep -v snap | grep -v tmpfs"
@@ -285,5 +291,19 @@ export PATH="/home/haysfamily/apps/luarocks-3.11.1/bin:${PATH}"
 export PATH="${HOME}/.pyenv/bin:${PATH}"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-alias fd="fdfind"
 source /home/haysfamily/.cargo/env
+alias bat="batcat --color=always"
+alias eza="eza --icons"
+omz plugin load fzf
+
+#EDITOR="nvim"
+s() {
+  fzf --ansi --disabled \
+    --bind "change:reload:command \
+          rg --line-number --no-heading --color=always --smart-case {q} \
+          || :" \
+    --bind "enter:execute(${EDITOR:-nvim} +{2} {1})" \
+    --delimiter ":" \
+    --preview "command batcat -p --color=always {1} --highlight-line {2}" \
+    --preview-window 'up:80%,border-bottom,~3,+{2}+3/3'
+}

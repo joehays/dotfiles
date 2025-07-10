@@ -5,6 +5,7 @@ echo '=============================='
 
 CWD=$(pwd)
 
+
 # get my own absolute path
 SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"))
 echo "SCRIPT_ABS_DIR='${SCRIPT_ABS_DIR}'"
@@ -19,14 +20,20 @@ echo '------------------------------'
 echo "Installing APT packages"
 echo '------------------------------'
 
+# System 
+${APT_INSTALL} locales
+sudo locale-gen en_US.UTF-8
+sudo update-locale LANG=en_US.UTF-8
+
 # Basics
 echo 'BASICS'
+${APT_INSTALL} bat && ${COND_INSERT} 'alias bat="batcat"' "${HOME}/.bashrc" && ${COND_INSERT} 'alias bat="batcat"' "${HOME}/.zshrc"
 ${APT_INSTALL} curl
 ${APT_INSTALL} htop
 ${APT_INSTALL} screen
 ${APT_INSTALL} software-properties-common
 ${APT_INSTALL} terminator
-${APT_INSTALL} trash-cli && COND_INSERT "alias rm=trash" "${HOME}/.bashrc"
+${APT_INSTALL} trash-cli && ${COND_INSERT} "alias rm=trash" "${HOME}/.bashrc" && ${COND_INSERT} "alias rm=trash" "${HOME}/.zshrc"
 ${APT_INSTALL} tree
 ${APT_INSTALL} vim
 ${APT_INSTALL} zsh
@@ -46,6 +53,11 @@ programs/rust.sh
 programs/lua.sh
 programs/luarocks.sh
 programs/wezterm.sh
+
+# Install through CARGO
+cargo install eza
+${COND_INSERT} 'alias eza="eza --icons"' "${HOME}/.bashrc"
+${COND_INSERT} 'alias eza="eza --icons"' "${HOME}/.zshrc"
 
 # Graphics
 echo 'Graphics'
@@ -91,15 +103,20 @@ echo '------------------------------'
 
 # Documents & Editing
 echo 'Documents & Editing'
+programs/ohmyzsh.sh
 ${APT_INSTALL} pandoc
-${APT_INSTALL} fzf     # https://github.com/junegunn/fzf
+
+${APT_INSTALL} fzf # https://github.com/junegunn/fzf
+omz plugin fzf enable
+omz plugin load fzf
+${COND_INSERT} 'omz plugin load fzf' "${HOME}/.bashrc"
+${COND_INSERT} 'omz plugin load fzf' "${HOME}/.zshrc"
+
 ${APT_INSTALL} ripgrep # https://github.com/BurntSushi/ripgrep
 ${APT_INSTALL} fd-find # https://github.com/sharkdp/fd
 ${APT_INSTALL} luarocks
-${APT_INSTALL} vim
 programs/nvim.sh
 programs/lazyvim.sh
-programs/ohmyzsh.sh
 programs/texlive.sh
 
 sudo apt autoremove -y

@@ -71,7 +71,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -93,6 +93,7 @@ source $ZSH/oh-my-zsh.sh
 
 #export LANGUAGE=(unset),                                                                                                                       │
 #export LC_ALL=(unset),                                                                                                                         │
+export LC_ALL=en_US.UTF-8
 export LC_COLLATE=en_US
 export LANG=en_US.UTF-8
 
@@ -125,7 +126,8 @@ fi
 
 #echo ".zshrc[126] >>> ${PATH}"
 
-export PATH="$PATH:/opt/nvim-linux64/bin"
+#export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 alias nv="nvim"
 alias glow="glow -p"
 
@@ -225,9 +227,23 @@ alias docps="docker ps --format \"table {{.Names}}\" | grep -v NAMES"
 alias active-users="ps -eo user | sort | uniq | grep -Ev \"USER|avahi|colord|gdm|kernoops|lp|messagebus|root|rtkit|syslog|systemd|whoopsie|xrdp|_rpc|daemon\""
 ###############
 
-alias fd="fdfind"
 source /home/haysfamily/.cargo/env
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+alias bat="batcat --color=always"
+alias eza="eza --icons"
+omz plugin load fzf
+
+#EDITOR="nvim"
+s() {
+  fzf --ansi --disabled \
+    --bind "change:reload:command \
+          rg --line-number --no-heading --color=always --smart-case {q} \
+          || :" \
+    --bind "enter:execute(${EDITOR:-nvim} +{2} {1})" \
+    --delimiter ":" \
+    --preview "command batcat -p --color=always {1} --highlight-line {2}" \
+    --preview-window 'up:80%,border-bottom,~3,+{2}+3/3'
+}

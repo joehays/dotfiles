@@ -55,7 +55,7 @@ echo 'installing DEPENDENCIES'
 ${APT_INSTALL} ripgrep # https://github.com/BurntSushi/ripgrep
 ${APT_INSTALL} fd-find # https://github.com/sharkdp/fd
 ${APT_INSTALL} luarocks
-${APT_INSTALL} fzf 
+${APT_INSTALL} fzf
 ${APT_INSTALL} tree-sitter
 
 #${APT_INSTALL} kitty
@@ -86,8 +86,8 @@ echo '${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.bashrc && .zshrc'
 ${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.bashrc
 ${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.zshrc
 
-echo '${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.bashrc && .zshrc'
-${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.bashrc
-${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.zshrc
+#echo '${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.bashrc && .zshrc'
+#${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.bashrc
+#${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.zshrc
 
 cd ${CWD}
