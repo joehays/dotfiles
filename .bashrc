@@ -6,6 +6,9 @@ HISTFILESIZE=2000
 # append to the history file instead of overwrite
 shopt -s histappend
 
+# set command line editting to EMACS
+set -o emacs
+
 #export LANGUAGE=(unset),                                                                                                                       │
 #export LC_ALL=(unset),                                                                                                                         │
 #export LC_ALL=en_US.UTF-8

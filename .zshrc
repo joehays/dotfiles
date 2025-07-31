@@ -91,6 +91,7 @@ source $ZSH/oh-my-zsh.sh
 
 ####################################
 
+
 #export LANGUAGE=(unset),                                                                                                                       │
 #export LC_ALL=(unset),                                                                                                                         │
 export LC_ALL=en_US.UTF-8
@@ -210,7 +211,7 @@ export VISUAL=nvim
 #  0 / $ → Jump to the start / end of the line
 #  i → Switch to insert mode (to type normally)
 #
-bindkey -v
+bindkey -e
 bindkey '^R' history-incremental-search-backward
 
 ###############

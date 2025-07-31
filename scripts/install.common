@@ -5,7 +5,6 @@ echo '=============================='
 
 CWD=$(pwd)
 
-
 # get my own absolute path
 SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"))
 echo "SCRIPT_ABS_DIR='${SCRIPT_ABS_DIR}'"
@@ -20,14 +19,17 @@ echo '------------------------------'
 echo "Installing APT packages"
 echo '------------------------------'
 
-# System 
+# System
+echo 'System'
 ${APT_INSTALL} locales
 sudo locale-gen en_US.UTF-8
 sudo update-locale LANG=en_US.UTF-8
 
 # Basics
 echo 'BASICS'
-${APT_INSTALL} bat && ${COND_INSERT} 'alias bat="batcat"' "${HOME}/.bashrc" && ${COND_INSERT} 'alias bat="batcat"' "${HOME}/.zshrc"
+${APT_INSTALL} bat
+sudo ln -s "$(which batcat)" "$(dirname $(which batcat))/bat"
+
 ${APT_INSTALL} curl
 ${APT_INSTALL} htop
 ${APT_INSTALL} screen
@@ -52,12 +54,8 @@ ${APT_INSTALL} make
 programs/rust.sh
 programs/lua.sh
 programs/luarocks.sh
+${APT_INSTALL} luajit
 programs/wezterm.sh
-
-# Install through CARGO
-cargo install eza
-${COND_INSERT} 'alias eza="eza --icons"' "${HOME}/.bashrc"
-${COND_INSERT} 'alias eza="eza --icons"' "${HOME}/.zshrc"
 
 # Graphics
 echo 'Graphics'
@@ -74,6 +72,7 @@ echo 'Networking'
 ${APT_INSTALL} cifs-utils
 ${APT_INSTALL} openssh-client
 ${APT_INSTALL} openssh-server
+${APT_INSTALL} sshfs
 ${APT_INSTALL} x11-utils
 ${APT_INSTALL} x11-apps
 ${APT_INSTALL} nethogs
@@ -100,6 +99,14 @@ echo '------------------------------'
 echo "Installing NPM packages"
 echo '------------------------------'
 #${NPM_INSTALL} <package>
+
+# Install Apps through Cargo
+echo '------------------------------'
+echo "Installing Apps through 'cargo'"
+echo '------------------------------'
+cargo install eza
+${COND_INSERT} 'alias eza="eza --icons"' "${HOME}/.bashrc"
+${COND_INSERT} 'alias eza="eza --icons"' "${HOME}/.zshrc"
 
 # Documents & Editing
 echo 'Documents & Editing'

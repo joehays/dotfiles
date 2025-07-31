@@ -193,4 +193,6 @@
 [merge]
 	conflictStyle = zdiff3
 [oh-my-zsh]
-	git-commit-alias = 3e7ef0182f59c7990a52cf6ec2981adb56d5b368
+	git-commit-alias = 13d4176a686507678ffd1b889838356f95f217e0
+[url "git@github.com:"]
+	insteadOf = https://github.com/
