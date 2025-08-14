@@ -1,3 +1,21 @@
+# Add my custom scripts to the PATH
+my_script_path="${HOME}/dev/dotfiles/scripts"
+add_to_path "${my_script_path}"
+
+##########################################
+# Mapping `oh-my-zsh` enabled plugin aliases to bash
+##########################################
+${my_script_path}/generate_bash_aliases.sh
+# Add to your .bashrc
+if [ -f ~/.bash_aliases_from_zsh ]; then
+    # Try to source it with error handling
+    {
+        source ~/.bash_aliases_from_zsh
+    } 2>/dev/null || {
+        echo "Warning: Some aliases from zsh couldn't be loaded due to compatibility issues."
+    }
+fi
+
 ##########################################
 # Custom Functions
 ##########################################
@@ -55,11 +73,6 @@ get_gpu_procs () {
    done
 }
 
-# Add my custom scripts to the PATH
-my_script_path="${HOME}/dev/dotfiles/scripts"
-add_to_path "${my_script_path}"
-
-
 #----------------------------------------
 # Start of Config
 #----------------------------------------
@@ -83,29 +96,30 @@ export LANG=en_US.UTF-8
 #alias ov=/opt/ov/omniverse-launcher-linux.AppImage
 alias active-users="ps -eo user | sort | uniq | grep -Ev \"USER|avahi|colord|gdm|kernoops|lp|messagebus|root|rtkit|syslog|systemd|whoopsie|xrdp|_rpc|daemon\""
 alias bat="batcat --color=always"
-alias cp='cp -Rv'
+#alias cp='cp -Rv'
 alias dff="df --total -h | grep -v snap | grep -v tmpfs"
 alias dirs="dirs -p"
 alias docker-root="DOCKER_HOST=unix:///var/run/docker.sock docker"
 alias docker-rootless="DOCKER_HOST=unix:///run/user/10227/docker.sock docker"
 alias docps="docker ps --format \"table {{.Names}}\" | grep -v NAMES"
 alias du1="du -hx --max-depth=1 | sort -h --reverse"
-alias eza="eza --icons"
-alias forgotsubmodules='git submodule update --init --recursive'
+#alias eza="eza --icons"
+alias gsui='git submodule update --init'
+alias gsuir='git submodule update --init --recursive'
 alias gant=ganttproject
 alias glow="glow -p"
-alias grep='grep --color=auto'
+#alias grep='grep --color=auto'
 alias grepw='grep --color=auto -Hrnwi'
 alias h='history'
-alias l='ls -CF'
-alias la='ls -AF'
-alias ll='ls -alhF --color'
-alias ls='ls --color=auto -aCF'
+#alias l='ls -CF'
+#alias la='ls -AF'
+#alias ll='ls -alhF --color'
+#alias ls='ls --color=auto -aCF'
 alias lzd="lazydocker"
 alias lzg="lazygit"
 alias lzv="nvim"
-alias mkdir='mkdir -pv'
-alias mv='mv -v'
+#alias mkdir='mkdir -pv'
+alias mv='mv -v' #(overriding 'oh-my-zsh')
 alias nv='nvim'
 alias pdf="xdg-open" #"gio open", or "evince"
 alias tree="tree -aI 'test*|.git|node_modules|resources'"
@@ -114,71 +128,8 @@ alias wget='wget -c'
 alias wsl-vpnkit="sudo VMEXEC_PATH=${HOME}/apps/wsl-vpnkit/wsl-vm GVPROXY_PATH=${HOME}/apps/wsl-vpnkit/wsl-gvproxy.exe ${HOME}/apps/wsl-vpnkit/wsl-vpnkit"
 alias wt="wezterm"
 if [ ! -z ${TERMUX_VERSION} ]; then
-  alias rm="trash"
+  alias rm="trash" #(overriding 'oh-my-zsh')
 fi
-
-## enable color support of ls and also add handy aliases
-#if [ -x /usr/bin/dircolors ]; then
-#    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-#    alias ls='ls --color=auto'
-#    #alias dir='dir --color=auto'
-#    #alias vdir='vdir --color=auto'
-#
-#    alias grep='grep --color=auto'
-#    alias fgrep='fgrep --color=auto'
-#    alias egrep='egrep --color=auto'
-#fi
-
-#########
-
-#alias branches='git branch -v'
-#alias checkgit='~/.git-rundown.sh'
-#alias remotes='git remote -v'
-#alias gadd='git add -u'
-#alias gcom='git commit'
-#alias gsup='git status'
-#alias goto='git checkout'
-#alias g.a='git add -u'
-#alias g.c='git commit'
-#alias g.s='git status'
-#alias g.co='git checkout'
-#alias g.b='git branch -v'
-#alias g.ps='git push'
-#alias g.pd='git pull'
-#alias g.r='git remote -v'
-#alias g.subup='git submodule update --init --recursive'
-#alias g.lo="git log --oneline --format=\"%h %as [%an] -- %s\""
-#  a      = commit --amend
-#  br     = branch -av
-#  ca     = !git add -A && git commit                # Commit all changes.
-#  ci     = commit
-#  co     = checkout
-#  cp     = cherry-pick
-#  d      = diff
-#  dc     = diff --cached
-#  df     = diff --word-diff
-#  g      = log --graph --pretty=custom              # Show custom graph.
-#  l      = log --pretty=custom                      # Show custom log.
-#  ls     = log --pretty=custom                      # Show custom log.
-#  lc     = shortlog --summary --numbered            # List contributors.
-#  ll     = log --pretty=custom --decorate --numstat
-#  p      = push
-#  r      = rebase
-#  rlc    = reset --hard HEAD~1                      # Remove last commit.
-#  sa     = stash apply
-#  sc     = stash clear
-#  sd     = stash drop
-#  sl     = stash list
-#  sp     = stash pop
-#  ss     = stash save
-#  sw     = stash show
-#  st     = status
-#  tags   = tag -l
-#  ulc    = reset --soft HEAD~1                      # Undo last commit.
-#  un     = reset HEAD --
-#  up     = pull upstream master
-#  screwit = !git reset --hard HEAD && git clean -df
-
 
 #######################################
 # Git Completion Support

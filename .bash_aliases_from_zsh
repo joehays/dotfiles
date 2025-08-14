@@ -1,0 +1,1188 @@
+# Automatically generated bash aliases from oh-my-zsh plugins
+# Last updated: Thu 14 Aug 2025 04:49:39 PM EDT
+
+# Aliases from git plugin
+alias grt='cd "$(git rev-parse --show-toplevel || echo .)"'
+alias ggpur='ggu'
+alias g='git'
+alias ga='git add'
+alias gaa='git add --all'
+alias gapa='git add --patch'
+alias gau='git add --update'
+alias gav='git add --verbose'
+alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign --message "--wip-- [skip ci]"'
+alias gam='git am'
+alias gama='git am --abort'
+alias gamc='git am --continue'
+alias gamscp='git am --show-current-patch'
+alias gams='git am --skip'
+alias gap='git apply'
+alias gapt='git apply --3way'
+alias gbs='git bisect'
+alias gbsb='git bisect bad'
+alias gbsg='git bisect good'
+alias gbsn='git bisect new'
+alias gbso='git bisect old'
+alias gbsr='git bisect reset'
+alias gbss='git bisect start'
+alias gbl='git blame -w'
+alias gb='git branch'
+alias gba='git branch --all'
+alias gbd='git branch --delete'
+alias gbD='git branch --delete --force'
+alias gbgd='LANG=C git branch --no-color -vv | grep ": gone\]" | cut -c 3- | awk '"'"'{print $1}'"'"' | xargs git branch -d'
+alias gbgD='LANG=C git branch --no-color -vv | grep ": gone\]" | cut -c 3- | awk '"'"'{print $1}'"'"' | xargs git branch -D'
+alias gbm='git branch --move'
+alias gbnm='git branch --no-merged'
+alias gbr='git branch --remote'
+alias ggsup='git branch --set-upstream-to=origin/$(git_current_branch)'
+alias gbg='LANG=C git branch -vv | grep ": gone\]"'
+alias gco='git checkout'
+alias gcor='git checkout --recurse-submodules'
+alias gcb='git checkout -b'
+alias gcB='git checkout -B'
+alias gcd='git checkout $(git_develop_branch)'
+alias gcm='git checkout $(git_main_branch)'
+alias gcp='git cherry-pick'
+alias gcpa='git cherry-pick --abort'
+alias gcpc='git cherry-pick --continue'
+alias gclean='git clean --interactive -d'
+alias gcl='git clone --recurse-submodules'
+alias gclf='git clone --recursive --shallow-submodules --filter=blob:none --also-filter-submodules'
+alias gcam='git commit --all --message'
+alias gcas='git commit --all --signoff'
+alias gcasm='git commit --all --signoff --message'
+alias gcs='git commit --gpg-sign'
+alias gcss='git commit --gpg-sign --signoff'
+alias gcssm='git commit --gpg-sign --signoff --message'
+alias gcmsg='git commit --message'
+alias gcsm='git commit --signoff --message'
+alias gc='git commit --verbose'
+alias gca='git commit --verbose --all'
+alias gca!='git commit --verbose --all --amend'
+alias gcan!='git commit --verbose --all --no-edit --amend'
+alias gcans!='git commit --verbose --all --signoff --no-edit --amend'
+alias gcann!='git commit --verbose --all --date=now --no-edit --amend'
+alias gc!='git commit --verbose --amend'
+alias gcn='git commit --verbose --no-edit'
+alias gcn!='git commit --verbose --no-edit --amend'
+alias gcf='git config --list'
+alias gcfu='git commit --fixup'
+alias gdct='git describe --tags $(git rev-list --tags --max-count=1)'
+alias gd='git diff'
+alias gdca='git diff --cached'
+alias gdcw='git diff --cached --word-diff'
+alias gds='git diff --staged'
+alias gdw='git diff --word-diff'
+alias gdup='git diff @{upstream}'
+alias gdt='git diff-tree --no-commit-id --name-only -r'
+alias gf='git fetch'
+alias gfo='git fetch origin'
+alias gg='git gui citool'
+alias gga='git gui citool --amend'
+alias ghh='git help'
+alias glgg='git log --graph'
+alias glgga='git log --graph --decorate --all'
+alias glgm='git log --graph --max-count=10'
+alias glods='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset" --date=short'
+alias glod='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset"'
+alias glola='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" --all'
+alias glols='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" --stat'
+alias glol='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"'
+alias glo='git log --oneline --decorate'
+alias glog='git log --oneline --decorate --graph'
+alias gloga='git log --oneline --decorate --graph --all'
+alias glp='_git_log_prettily'
+alias glg='git log --stat'
+alias glgp='git log --stat --patch'
+alias gignored='git ls-files -v | grep "^[[:lower:]]"'
+alias gfg='git ls-files | grep'
+alias gm='git merge'
+alias gma='git merge --abort'
+alias gmc='git merge --continue'
+alias gms="git merge --squash"
+alias gmff="git merge --ff-only"
+alias gmom='git merge origin/$(git_main_branch)'
+alias gmum='git merge upstream/$(git_main_branch)'
+alias gmtl='git mergetool --no-prompt'
+alias gmtlvim='git mergetool --no-prompt --tool=vimdiff'
+alias gl='git pull'
+alias gpr='git pull --rebase'
+alias gprv='git pull --rebase -v'
+alias gpra='git pull --rebase --autostash'
+alias gprav='git pull --rebase --autostash -v'
+alias gprom='git pull --rebase origin $(git_main_branch)'
+alias gpromi='git pull --rebase=interactive origin $(git_main_branch)'
+alias gprum='git pull --rebase upstream $(git_main_branch)'
+alias gprumi='git pull --rebase=interactive upstream $(git_main_branch)'
+alias ggpull='git pull origin "$(git_current_branch)"'
+alias gluc='git pull upstream $(git_current_branch)'
+alias glum='git pull upstream $(git_main_branch)'
+alias gp='git push'
+alias gpd='git push --dry-run'
+alias gpf!='git push --force'
+alias gpsup='git push --set-upstream origin $(git_current_branch)'
+alias gpv='git push --verbose'
+alias gpoat='git push origin --all && git push origin --tags'
+alias gpod='git push origin --delete'
+alias ggpush='git push origin "$(git_current_branch)"'
+alias gpu='git push upstream'
+alias grb='git rebase'
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+alias grbi='git rebase --interactive'
+alias grbo='git rebase --onto'
+alias grbs='git rebase --skip'
+alias grbd='git rebase $(git_develop_branch)'
+alias grbm='git rebase $(git_main_branch)'
+alias grbom='git rebase origin/$(git_main_branch)'
+alias grbum='git rebase upstream/$(git_main_branch)'
+alias grf='git reflog'
+alias gr='git remote'
+alias grv='git remote --verbose'
+alias gra='git remote add'
+alias grrm='git remote remove'
+alias grmv='git remote rename'
+alias grset='git remote set-url'
+alias grup='git remote update'
+alias grh='git reset'
+alias gru='git reset --'
+alias grhh='git reset --hard'
+alias grhk='git reset --keep'
+alias grhs='git reset --soft'
+alias gpristine='git reset --hard && git clean --force -dfx'
+alias gwipe='git reset --hard && git clean --force -df'
+alias groh='git reset origin/$(git_current_branch) --hard'
+alias grs='git restore'
+alias grss='git restore --source'
+alias grst='git restore --staged'
+alias gunwip='git rev-list --max-count=1 --format="%s" HEAD | grep -q "\--wip--" && git reset HEAD~1'
+alias grev='git revert'
+alias greva='git revert --abort'
+alias grevc='git revert --continue'
+alias grm='git rm'
+alias grmc='git rm --cached'
+alias gcount='git shortlog --summary --numbered'
+alias gsh='git show'
+alias gsps='git show --pretty=short --show-signature'
+alias gstall='git stash --all'
+alias gstaa='git stash apply'
+alias gstc='git stash clear'
+alias gstd='git stash drop'
+alias gstl='git stash list'
+alias gstp='git stash pop'
+alias gsts='git stash show --patch'
+alias gst='git status'
+alias gss='git status --short'
+alias gsb='git status --short --branch'
+alias gsi='git submodule init'
+alias gsu='git submodule update'
+alias gsd='git svn dcommit'
+alias git-svn-dcommit-push='git svn dcommit && git push github $(git_main_branch):svntrunk'
+alias gsr='git svn rebase'
+alias gsw='git switch'
+alias gswc='git switch --create'
+alias gswd='git switch $(git_develop_branch)'
+alias gswm='git switch $(git_main_branch)'
+alias gta='git tag --annotate'
+alias gts='git tag --sign'
+alias gtv='git tag | sort -V'
+alias gignore='git update-index --assume-unchanged'
+alias gunignore='git update-index --no-assume-unchanged'
+alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
+alias gwt='git worktree'
+alias gwta='git worktree add'
+alias gwtls='git worktree list'
+alias gwtmv='git worktree move'
+alias gwtrm='git worktree remove'
+alias gstu='gsta --include-untracked'
+alias gtl='gtl(){ git tag --sort=-v:refname -n --list "${1}*" }; noglob gtl'
+alias gk='\gitk --all --branches &!'
+alias gke='\gitk --all $(git log --walk-reflogs --pretty=%h) &!'
+
+# Functions from git plugin
+function current_branch() {
+  git_current_branch
+}
+
+
+function git_develop_branch() {
+  command git rev-parse --git-dir &>/dev/null || return
+  local branch
+  for branch in dev devel develop development; do
+    if command git show-ref -q --verify refs/heads/$branch; then
+      echo $branch
+      return 0
+    fi
+  done
+
+  echo develop
+  return 1
+}
+
+
+function git_main_branch() {
+  command git rev-parse --git-dir &>/dev/null || return
+  local ref
+  for ref in refs/{heads,remotes/{origin,upstream}}/{main,trunk,mainline,default,stable,master}; do
+    if command git show-ref -q --verify $ref; then
+      echo ${ref:t}
+      return 0
+    fi
+  done
+
+  # If no main branch was found, fall back to master but return error
+  echo master
+  return 1
+}
+
+
+function grename() {
+  if [[ -z "$1" || -z "$2" ]]; then
+    echo "Usage: $0 old_branch new_branch"
+    return 1
+  fi
+
+  # Rename branch locally
+  git branch -m "$1" "$2"
+  # Rename branch in origin remote
+  if git push origin :"$1"; then
+    git push --set-upstream origin "$2"
+  fi
+}
+
+
+function gunwipall() {
+  local _commit=$(git log --grep='--wip--' --invert-grep --max-count=1 --format=format:%H)
+
+  # Check if a commit without "--wip--" was found and it's not the same as HEAD
+  if [[ "$_commit" != "$(git rev-parse HEAD)" ]]; then
+    git reset $_commit || return 1
+  fi
+}
+
+
+function work_in_progress() {
+  command git -c log.showSignature=false log -n 1 2>/dev/null | grep -q -- "--wip--" && echo "WIP!!"
+}
+
+
+function ggpnp() {
+  if [[ "$#" == 0 ]]; then
+    ggl && ggp
+  else
+    ggl "${*}" && ggp "${*}"
+  fi
+}
+
+
+function gbda() {
+  git branch --no-color --merged | command grep -vE "^([+*]|\s*($(git_main_branch)|$(git_develop_branch))\s*$)" | command xargs git branch --delete 2>/dev/null
+}
+
+
+function gbds() {
+  local default_branch=$(git_main_branch)
+  (( ! $? )) || default_branch=$(git_develop_branch)
+
+  git for-each-ref refs/heads/ "--format=%(refname:short)" | \
+    while read branch; do
+      local merge_base=$(git merge-base $default_branch $branch)
+      if [[ $(git cherry $default_branch $(git commit-tree $(git rev-parse $branch\^{tree}) -p $merge_base -m _)) = -* ]]; then
+        git branch -D $branch
+      fi
+    done
+}
+
+
+function gccd() {
+  setopt localoptions extendedglob
+
+  # get repo URI from args based on valid formats: https://git-scm.com/docs/git-clone#URLS
+  local repo="${${@[(r)(ssh://*|git://*|ftp(s)#://*|http(s)#://*|*@*)(.git/#)#]}:-$_}"
+
+  # clone repository and exit if it fails
+  command git clone --recurse-submodules "$@" || return
+
+  # if last arg passed was a directory, that's where the repo was cloned
+  # otherwise parse the repo URI and use the last part as the directory
+  [[ -d "$_" ]] && cd "$_" || cd "${${repo:t}%.git/#}"
+}
+
+
+function gdv() { git diff -w "$@" | view - }
+
+
+function gdnolock() {
+  git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock"
+}
+
+
+function ggu() {
+  [[ "$#" != 1 ]] && local b="$(git_current_branch)"
+  git pull --rebase origin "${b:=$1}"
+}
+
+
+function ggl() {
+  if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
+    git pull origin "${*}"
+  else
+    [[ "$#" == 0 ]] && local b="$(git_current_branch)"
+    git pull origin "${b:=$1}"
+  fi
+}
+
+
+function ggf() {
+  [[ "$#" != 1 ]] && local b="$(git_current_branch)"
+  git push --force origin "${b:=$1}"
+}
+
+
+function ggfl() {
+  [[ "$#" != 1 ]] && local b="$(git_current_branch)"
+  git push --force-with-lease origin "${b:=$1}"
+}
+
+
+function ggp() {
+  if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
+    git push origin "${*}"
+  else
+    [[ "$#" == 0 ]] && local b="$(git_current_branch)"
+    git push origin "${b:=$1}"
+  fi
+}
+
+
+
+# Aliases from fzf plugin
+
+# Functions from fzf plugin
+function fzf_setup_using_fzf() {
+  (( ${+commands[fzf]} )) || return 1
+
+  # we remove "fzf " prefix, this fixes really old fzf versions behaviour
+  # see https://github.com/ohmyzsh/ohmyzsh/issues/12387
+  local fzf_ver=${"$(fzf --version)"#fzf }
+
+  autoload -Uz is-at-least
+  is-at-least 0.48.0 ${${(s: :)fzf_ver}[1]} || return 1
+
+  eval "$(fzf --zsh)"
+}
+
+
+function fzf_setup_using_base_dir() {
+  local fzf_base fzf_shell fzfdirs dir
+
+  test -d "${FZF_BASE}" && fzf_base="${FZF_BASE}"
+
+  if [[ -z "${fzf_base}" ]]; then
+    fzfdirs=(
+      "${HOME}/.fzf"
+      "${HOME}/.nix-profile/share/fzf"
+      "${XDG_DATA_HOME:-$HOME/.local/share}/fzf"
+      "${MSYSTEM_PREFIX}/share/fzf"
+      "/usr/local/opt/fzf"
+      "/opt/homebrew/opt/fzf"
+      "/usr/share/fzf"
+      "/usr/local/share/examples/fzf"
+    )
+    for dir in ${fzfdirs}; do
+      if [[ -d "${dir}" ]]; then
+        fzf_base="${dir}"
+        break
+      fi
+    done
+
+    if [[ -z "${fzf_base}" ]]; then
+      if (( ${+commands[fzf-share]} )) && dir="$(fzf-share)" && [[ -d "${dir}" ]]; then
+        fzf_base="${dir}"
+      elif (( ${+commands[brew]} )) && dir="$(brew --prefix fzf 2>/dev/null)"; then
+        if [[ -d "${dir}" ]]; then
+          fzf_base="${dir}"
+        fi
+      fi
+    fi
+  fi
+
+  if [[ ! -d "${fzf_base}" ]]; then
+    return 1
+  fi
+
+  # Fix fzf shell directory for Arch Linux, NixOS or Void Linux packages
+  if [[ ! -d "${fzf_base}/shell" ]]; then
+    fzf_shell="${fzf_base}"
+  else
+    fzf_shell="${fzf_base}/shell"
+  fi
+
+  # Setup fzf binary path
+  if (( ! ${+commands[fzf]} )) && [[ "$PATH" != *$fzf_base/bin* ]]; then
+    export PATH="$PATH:$fzf_base/bin"
+  fi
+
+  # Auto-completion
+  if [[ -o interactive && "$DISABLE_FZF_AUTO_COMPLETION" != "true" ]]; then
+    source "${fzf_shell}/completion.zsh" 2> /dev/null
+  fi
+
+  # Key bindings
+  if [[ "$DISABLE_FZF_KEY_BINDINGS" != "true" ]]; then
+    source "${fzf_shell}/key-bindings.zsh"
+  fi
+}
+
+
+function fzf_setup_using_debian() {
+  if (( ! $+commands[apt] && ! $+commands[apt-get] )); then
+    # Not a debian based distro
+    return 1
+  fi
+
+  # NOTE: There is no need to configure PATH for debian package, all binaries
+  # are installed to /usr/bin by default
+
+  local completions key_bindings
+
+  case $PREFIX in
+    *com.termux*)
+      if [[ ! -f "${PREFIX}/bin/fzf" ]]; then
+        # fzf not installed
+        return 1
+      fi
+      # Support Termux package
+      completions="${PREFIX}/share/fzf/completion.zsh"
+      key_bindings="${PREFIX}/share/fzf/key-bindings.zsh"
+      ;;
+    *)
+      if [[ ! -d /usr/share/doc/fzf/examples ]]; then
+        # fzf not installed
+        return 1
+      fi
+      # Determine completion file path: first bullseye/sid, then buster/stretch
+      completions="/usr/share/doc/fzf/examples/completion.zsh"
+      [[ -f "$completions" ]] || completions="/usr/share/zsh/vendor-completions/_fzf"
+      key_bindings="/usr/share/doc/fzf/examples/key-bindings.zsh"
+      ;;
+  esac
+
+  # Auto-completion
+  if [[ -o interactive && "$DISABLE_FZF_AUTO_COMPLETION" != "true" ]]; then
+    source $completions 2> /dev/null
+  fi
+
+  # Key bindings
+  if [[ ! "$DISABLE_FZF_KEY_BINDINGS" == "true" ]]; then
+    source $key_bindings
+  fi
+
+  return 0
+}
+
+
+function fzf_setup_using_opensuse() {
+  # OpenSUSE installs fzf in /usr/bin/fzf
+  # If the command is not found, the package isn't installed
+  (( $+commands[fzf] )) || return 1
+
+  # The fzf-zsh-completion package installs the auto-completion in
+  local completions="/usr/share/zsh/site-functions/_fzf"
+  # The fzf-zsh-completion package installs the key-bindings file in
+  local key_bindings="/etc/zsh_completion.d/fzf-key-bindings"
+
+  # If these are not found: (1) maybe we're not on OpenSUSE, or
+  # (2) maybe the fzf-zsh-completion package isn't installed.
+  if [[ ! -f "$completions" || ! -f "$key_bindings" ]]; then
+    return 1
+  fi
+
+  # Auto-completion
+  if [[ -o interactive && "$DISABLE_FZF_AUTO_COMPLETION" != "true" ]]; then
+    source "$completions" 2>/dev/null
+  fi
+
+  # Key bindings
+  if [[ "$DISABLE_FZF_KEY_BINDINGS" != "true" ]]; then
+    source "$key_bindings" 2>/dev/null
+  fi
+
+  return 0
+}
+
+
+function fzf_setup_using_fedora() {
+  (( $+commands[fzf] )) || return 1
+
+  local completions="/usr/share/zsh/site-functions/fzf"
+  local key_bindings="/usr/share/fzf/shell/key-bindings.zsh"
+
+  if [[ ! -f "$completions" || ! -f "$key_bindings" ]]; then
+    return 1
+  fi
+
+  if [[ -o interactive && "$DISABLE_FZF_AUTO_COMPLETION" != "true" ]]; then
+    source "$completions" 2>/dev/null
+  fi
+
+  if [[ "$DISABLE_FZF_KEY_BINDINGS" != "true" ]]; then
+    source "$key_bindings" 2>/dev/null
+  fi
+
+  return 0
+}
+
+
+function fzf_setup_using_openbsd() {
+  # openBSD installs fzf in /usr/local/bin/fzf
+  if [[ "$OSTYPE" != openbsd* ]] || (( ! $+commands[fzf] )); then
+    return 1
+  fi
+
+  # The fzf package installs the auto-completion in
+  local completions="/usr/local/share/zsh/site-functions/_fzf_completion"
+  # The fzf package installs the key-bindings file in
+  local key_bindings="/usr/local/share/zsh/site-functions/_fzf_key_bindings"
+
+  # Auto-completion
+  if [[ -o interactive && "$DISABLE_FZF_AUTO_COMPLETION" != "true" ]]; then
+    source "$completions" 2>/dev/null
+  fi
+
+  # Key bindings
+  if [[ "$DISABLE_FZF_KEY_BINDINGS" != "true" ]]; then
+    source "$key_bindings" 2>/dev/null
+  fi
+
+  return 0
+}
+
+
+function fzf_setup_using_cygwin() {
+  # Cygwin installs fzf in /usr/local/bin/fzf
+  if [[ "$OSTYPE" != cygwin* ]] || (( ! $+commands[fzf] )); then
+    return 1
+  fi
+
+  # The fzf-zsh-completion package installs the auto-completion in
+  local completions="/etc/profile.d/fzf-completion.zsh"
+  # The fzf-zsh package installs the key-bindings file in
+  local key_bindings="/etc/profile.d/fzf.zsh"
+
+  # Auto-completion
+  if [[ -o interactive && "$DISABLE_FZF_AUTO_COMPLETION" != "true" ]]; then
+    source "$completions" 2>/dev/null
+  fi
+
+  # Key bindings
+  if [[ "$DISABLE_FZF_KEY_BINDINGS" != "true" ]]; then
+    source "$key_bindings" 2>/dev/null
+  fi
+
+  return 0
+}
+
+
+function fzf_setup_using_macports() {
+  # If the command is not found, the package isn't installed
+  (( $+commands[fzf] )) || return 1
+
+  # The fzf-zsh-completion package installs the auto-completion in
+  local completions="/opt/local/share/fzf/shell/completion.zsh"
+  # The fzf-zsh-completion package installs the key-bindings file in
+  local key_bindings="/opt/local/share/fzf/shell/key-bindings.zsh"
+
+  if [[ ! -f "$completions" || ! -f "$key_bindings" ]]; then
+    return 1
+  fi
+
+  # Auto-completion
+  if [[ -o interactive && "$DISABLE_FZF_AUTO_COMPLETION" != "true" ]]; then
+    source "$completions" 2>/dev/null
+  fi
+
+  # Key bindings
+  if [[ "$DISABLE_FZF_KEY_BINDINGS" != "true" ]]; then
+    source "$key_bindings" 2>/dev/null
+  fi
+
+  return 0
+}
+
+
+function fzf_setup_error() {
+  cat >&2 <<'EOF'
+[oh-my-zsh] fzf plugin: Cannot find fzf installation directory.
+Please add `export FZF_BASE=/path/to/fzf/install/dir` to your .zshrc
+EOF
+}
+
+
+
+# Aliases from cp plugin
+
+# Functions from cp plugin
+
+# Aliases from docker plugin
+alias dbl='docker build'
+alias dcin='docker container inspect'
+alias dcls='docker container ls'
+alias dclsa='docker container ls -a'
+alias dib='docker image build'
+alias dii='docker image inspect'
+alias dils='docker image ls'
+alias dipu='docker image push'
+alias dipru='docker image prune -a'
+alias dirm='docker image rm'
+alias dit='docker image tag'
+alias dlo='docker container logs'
+alias dnc='docker network create'
+alias dncn='docker network connect'
+alias dndcn='docker network disconnect'
+alias dni='docker network inspect'
+alias dnls='docker network ls'
+alias dnrm='docker network rm'
+alias dpo='docker container port'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias dpu='docker pull'
+alias dr='docker container run'
+alias drit='docker container run -it'
+alias drm='docker container rm'
+alias 'drm!'='docker container rm -f'
+alias dst='docker container start'
+alias drs='docker container restart'
+alias dsta='docker stop $(docker ps -q)'
+alias dstp='docker container stop'
+alias dsts='docker stats'
+alias dtop='docker top'
+alias dvi='docker volume inspect'
+alias dvls='docker volume ls'
+alias dvprune='docker volume prune'
+alias dxc='docker container exec'
+alias dxcit='docker container exec -it'
+
+# Functions from docker plugin
+
+# Aliases from history plugin
+alias h='history'
+alias hl='history | less'
+alias hs='history | grep'
+alias hsi='history | grep -i'
+
+# Functions from history plugin
+
+# Aliases from pip plugin
+alias pipi="pip install"
+alias pipu="pip install --upgrade"
+alias pipun="pip uninstall"
+alias pipgi="pip freeze | grep"
+alias piplo="pip list -o"
+alias pipreq="pip freeze > requirements.txt"
+alias pipir="pip install -r requirements.txt"
+
+# Functions from pip plugin
+
+# Aliases from python plugin
+alias pyfind='find . -name "*.py"'
+alias pygrep='grep -nr --include="*.py"'
+alias pyserver="python3 -m http.server"
+
+# Functions from python plugin
+function pyclean() {
+  find "${@:-.}" -type f -name "*.py[co]" -delete
+  find "${@:-.}" -type d -name "__pycache__" -delete
+  find "${@:-.}" -depth -type d -name ".mypy_cache" -exec rm -r "{}" +
+  find "${@:-.}" -depth -type d -name ".pytest_cache" -exec rm -r "{}" +
+}
+
+
+function pyuserpaths() {
+  setopt localoptions extendedglob
+
+  # Check for a non-standard install directory.
+  local user_base="${PYTHONUSERBASE:-"${HOME}/.local"}"
+
+  local python version site_pkgs
+  for python in python2 python3; do
+    # Check if command exists
+    (( ${+commands[$python]} )) || continue
+
+    # Get minor release version.
+    # The patch version is variable length, truncate it.
+    version=${(M)${"$($python -V 2>&1)":7}#[^.]##.[^.]##}
+
+    # Add version specific path, if:
+    # - it exists in the filesystem
+    # - it isn't in $PYTHONPATH already.
+    site_pkgs="${user_base}/lib/python${version}/site-packages"
+    [[ -d "$site_pkgs" && ! "$PYTHONPATH" =~ (^|:)"$site_pkgs"(:|$) ]] || continue
+    export PYTHONPATH="${site_pkgs}${PYTHONPATH+":${PYTHONPATH}"}"
+  done
+}
+
+
+function vrun() {
+  if [[ -z "$1" ]]; then
+    local name
+    for name in $PYTHON_VENV_NAMES; do
+      local venvpath="${name:P}"
+      if [[ -d "$venvpath" ]]; then
+        vrun "$name"
+        return $?
+      fi
+    done
+    echo >&2 "Error: no virtual environment found in current directory"
+  fi
+
+  local name="${1:-$PYTHON_VENV_NAME}"
+  local venvpath="${name:P}"
+
+  if [[ ! -d "$venvpath" ]]; then
+    echo >&2 "Error: no such venv in current directory: $name"
+    return 1
+  fi
+
+  if [[ ! -f "${venvpath}/bin/activate" ]]; then
+    echo >&2 "Error: '${name}' is not a proper virtual environment"
+    return 1
+  fi
+
+  . "${venvpath}/bin/activate" || return $?
+  echo "Activated virtual environment ${name}"
+}
+
+
+function mkv() {
+  local name="${1:-$PYTHON_VENV_NAME}"
+  local venvpath="${name:P}"
+
+  python3 -m venv "${name}" || return
+  echo >&2 "Created venv in '${venvpath}'"
+  vrun "${name}"
+}
+
+
+
+# Aliases from pre-commit plugin
+alias prc='pre-commit'
+alias prcau='pre-commit autoupdate'
+alias prcr='pre-commit run'
+alias prcra='pre-commit run --all-files'
+alias prcrf='pre-commit run --files'
+
+# Functions from pre-commit plugin
+
+# Aliases from ubuntu plugin
+alias acs='apt-cache search'
+alias afs='apt-file search --regexp'
+alias acp='apt-cache policy'
+alias agli='apt list --installed'
+alias aglu='apt list --upgradable'
+alias acsp='apt-cache showpkg'
+alias afu='sudo apt-file update'
+alias ppap='sudo ppa-purge'
+alias age="sudo $APT"
+alias aga="sudo $APT autoclean"
+alias agb="sudo $APT build-dep"
+alias agc="sudo $APT clean"
+alias agd="sudo $APT dselect-upgrade"
+alias agi="sudo $APT install"
+alias agp="sudo $APT purge"
+alias agr="sudo $APT remove"
+alias agu="sudo $APT update"
+alias agud="sudo $APT update && sudo $APT dist-upgrade"
+alias agug="sudo $APT upgrade"
+alias aguu="sudo $APT update && sudo $APT upgrade"
+alias agar="sudo $APT autoremove"
+alias kclean='sudo aptitude remove -P ?and(~i~nlinux-(ima|hea) ?not(~n`uname -r`))'
+alias allpkgs='dpkg --get-selections | grep -v deinstall'
+alias mydeb='time dpkg-buildpackage -rfakeroot -us -uc'
+
+# Functions from ubuntu plugin
+function aar() {
+	if [ -n "$2" ]; then
+		PACKAGE=$2
+	else
+		read "PACKAGE?Type in the package name to install/upgrade with this ppa [${1##*/}]: "
+	fi
+
+	if [ -z "$PACKAGE" ]; then
+		PACKAGE=${1##*/}
+	fi
+
+	sudo apt-add-repository $1 && sudo $APT update
+	sudo $APT install $PACKAGE
+}
+
+
+function kerndeb() {
+  # temporarily unset MAKEFLAGS ( '-j3' will fail )
+  MAKEFLAGS=$( print - $MAKEFLAGS | perl -pe 's/-j\s*[\d]+//g' )
+  print '$MAKEFLAGS set to '"'$MAKEFLAGS'"
+  appendage='-custom' # this shows up in $(uname -r)
+  revision=$(date +"%Y%m%d") # this shows up in the .deb file name
+
+  make-kpkg clean
+
+  time fakeroot make-kpkg --append-to-version "$appendage" --revision \
+      "$revision" kernel_image kernel_headers
+}
+
+
+
+# Aliases from zsh-navigation-tools plugin
+alias naliases=n-aliases ncd=n-cd nenv=n-env nfunctions=n-functions nhistory=n-history
+alias nkill=n-kill noptions=n-options npanelize=n-panelize nhelp=n-help
+
+# Functions from zsh-navigation-tools plugin
+
+# Aliases from vscode plugin
+alias vsca="$VSCODE --add"
+alias vscd="$VSCODE --diff"
+alias vscg="$VSCODE --goto"
+alias vscn="$VSCODE --new-window"
+alias vscr="$VSCODE --reuse-window"
+alias vscw="$VSCODE --wait"
+alias vscu="$VSCODE --user-data-dir"
+alias vscp="$VSCODE --profile"
+alias vsced="$VSCODE --extensions-dir"
+alias vscie="$VSCODE --install-extension"
+alias vscue="$VSCODE --uninstall-extension"
+alias vscv="$VSCODE --verbose"
+alias vscl="$VSCODE --log"
+alias vscde="$VSCODE --disable-extensions"
+
+# Functions from vscode plugin
+
+# Aliases from systemadmin plugin
+alias ping='ping -c 5'
+alias ping6='ping6 -c 5'
+alias clr='clear; echo Currently logged in on $TTY, as $USERNAME in directory $PWD.'
+alias path='print -l $path'
+alias mkdir='mkdir -pv'
+alias psmem='ps -e -orss=,args= | sort -b -k1 -nr'
+alias psmem10='ps -e -orss=,args= | sort -b -k1 -nr | head -n 10'
+alias pscpu='ps -e -o pcpu,cpu,nice,state,cputime,args | sort -k1,1n -nr'
+alias pscpu10='ps -e -o pcpu,cpu,nice,state,cputime,args | sort -k1,1n -nr | head -n 10'
+alias hist10='print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
+
+# Functions from systemadmin plugin
+function retlog() {
+  if [[ -z $1 ]];then
+    echo '/var/log/nginx/access.log'
+  else
+    echo $1
+  fi
+}
+
+
+function ip() {
+  if [ -t 1 ]; then
+    command ip -color "$@"
+  else
+    command ip "$@"
+  fi
+}
+
+
+function dls() {
+  print -l *(/)
+}
+
+
+function psgrep() {
+  ps aux | grep "${1:-.}" | grep -v grep
+}
+
+
+function killit() {
+  ps aux | grep -v "grep" | grep "$@" | awk '{print $2}' | xargs sudo kill
+}
+
+
+function sortcons() {
+  {
+    LANG= ss -nat | awk 'NR > 1 {print $1}' \
+    || LANG= netstat -nat | awk 'NR > 2 {print $6}'
+  } | sort | uniq -c | sort -rn
+}
+
+
+function con80() {
+  {
+    LANG= ss -nat || LANG= netstat -nat
+  } | grep -E ":80[^0-9]" | wc -l
+}
+
+
+function sortconip() {
+  {
+    LANG= ss -ntu | awk 'NR > 1 {print $6}' \
+    || LANG= netstat -ntu | awk 'NR > 2 {print $5}'
+  } | cut -d: -f1 | sort | uniq -c | sort -n
+}
+
+
+function req20() {
+  {
+    LANG= ss -tn | awk '$4 ~ /:80$/ {print $5}' \
+    || LANG= netstat -tn | awk '$4 ~ /:80$/ {print $5}'
+  } | awk -F: '{print $1}' | sort | uniq -c | sort -nr | head -n 20
+}
+
+
+function http20() {
+  sudo tcpdump -i eth0 -tnn dst port 80 -c 1000 | awk -F"." '{print $1"."$2"."$3"."$4}' | sort | uniq -c | sort -nr | head -n 20
+}
+
+
+function timewait20() {
+  {
+    LANG= ss -nat | awk 'NR > 1 && /TIME-WAIT/ {print $5}' \
+    || LANG= netstat -nat | awk 'NR > 2 && /TIME_WAIT/ {print $5}'
+  } | sort | uniq -c | sort -rn | head -n 20
+}
+
+
+function syn20() {
+  {
+    LANG= ss -an | awk '/SYN/ {print $5}' \
+    || LANG= netstat -an | awk '/SYN/ {print $5}'
+  } | awk -F: '{print $1}' | sort | uniq -c | sort -nr | head -n20
+}
+
+
+function port_pro() {
+  LANG= ss -ntlp | awk "NR > 1 && /:${1:-}/ {print \$6}" | sed 's/.*pid=\([^,]*\).*/\1/' \
+  || LANG= netstat -ntlp | awk "NR > 2 && /:${1:-}/ {print \$7}" | cut -d/ -f1
+}
+
+
+function accessip10() {
+  awk '{counts[$(11)]+=1}; END {for(url in counts) print counts[url], url}' "$(retlog)"
+}
+
+
+function visitpage20() {
+  awk '{print $11}' "$(retlog)" | sort | uniq -c | sort -nr | head -n 20
+}
+
+
+function consume100() {
+  awk '($NF > 60 && $7~/\.php/){print $7}' "$(retlog)" | sort -n | uniq -c | sort -nr | head -n 100
+  # if django website or other website make by no suffix language
+  # awk '{print $7}' "$(retlog)" | sort -n | uniq -c | sort -nr | head -n 100
+}
+
+
+function webtraffic() {
+  awk "{sum+=$10} END {print sum/1024/1024/1024}" "$(retlog)"
+}
+
+
+function c404() {
+  awk '($9 ~ /404/)' "$(retlog)" | awk '{print $9,$7}' | sort
+}
+
+
+function httpstatus() {
+  awk '{counts[$(9)]+=1}; END {for(code in counts) print code, counts[code]}' "$(retlog)"
+}
+
+
+function d0() {
+  find "${1:-.}" -type f -size 0 -exec rm -rf {} \;
+}
+
+
+function geteip() {
+  curl -s -S -4 https://icanhazip.com
+
+  # handle case when there is no IPv6 external IP, which shows error
+  # curl: (7) Couldn't connect to server
+  curl -s -S -6 https://icanhazip.com 2>/dev/null
+  local ret=$?
+  (( ret == 7 )) && print -P -u2 "%F{red}error: no IPv6 route to host%f"
+  return $ret
+}
+
+
+function getip() {
+  if (( ${+commands[ip]} )); then
+    ip addr | awk '/inet /{print $2}' | command grep -v 127.0.0.1
+  else
+    ifconfig | awk '/inet /{print $2}' | command grep -v 127.0.0.1
+  fi
+}
+
+
+function clrz() {
+  ps -eal | awk '{ if ($2 == "Z") {print $4}}' | kill -9
+}
+
+
+function conssec() {
+  awk '{if($9~/200|30|404/)COUNT[$4]++}END{for( a in COUNT) print a,COUNT[a]}' "$(retlog)" | sort -k 2 -nr | head -n10
+}
+
+
+
+# Aliases from man plugin
+
+# Functions from man plugin
+
+# Aliases from gitignore plugin
+
+# Functions from gitignore plugin
+function gi() { curl -fLw '\n' https://www.toptal.com/developers/gitignore/api/"${(j:,:)@}" }
+
+
+
+# Aliases from aliases plugin
+
+# Functions from aliases plugin
+
+# Aliases from systemd plugin
+alias sc-enable-now="sc-enable --now"
+alias sc-disable-now="sc-disable --now"
+alias sc-mask-now="sc-mask --now"
+alias scu-enable-now="scu-enable --now"
+alias scu-disable-now="scu-disable --now"
+alias scu-mask-now="scu-mask --now"
+alias scu-failed='systemctl --user --failed'
+alias sc-failed='systemctl --failed'
+
+# Functions from systemd plugin
+
+# Aliases from ssh plugin
+
+# Functions from ssh plugin
+function ssh_load_key() {
+  local key="$1"
+  if [[ -z "$key" ]]; then return; fi
+  local keyfile="$HOME/.ssh/$key"
+  local keysig=$(ssh-keygen -l -f "$keyfile")
+  if ( ! ssh-add -l | grep -q "$keysig" ); then
+    ssh-add "$keyfile"
+  fi
+}
+
+
+
+# Aliases from fig plugin
+
+# Functions from fig plugin
+
+# Aliases from command-not-found plugin
+
+# Functions from command-not-found plugin
+
+# Aliases from sudo plugin
+
+# Functions from sudo plugin
+
+# Aliases from rsync plugin
+alias rsync-copy="rsync -avz --progress -h"
+alias rsync-move="rsync -avz --progress -h --remove-source-files"
+alias rsync-update="rsync -avzu --progress -h"
+alias rsync-synchronize="rsync -avzu --delete --progress -h"
+
+# Functions from rsync plugin
+
+# Aliases from git-lfs plugin
+alias glfsi='git lfs install'
+alias glfst='git lfs track'
+alias glfsls='git lfs ls-files'
+alias glfsmi='git lfs migrate import --include='
+
+# Functions from git-lfs plugin
+function gplfs() {
+  local b="$(git_current_branch)"
+  git lfs push origin "$b" --all
+}
+
+
+
+# Aliases from git-commit plugin
+
+# Functions from git-commit plugin
+
+# Aliases from common-aliases plugin
+alias l='ls -lFh'     #size,show type,human readable
+alias la='ls -lAFh'   #long list,show almost all,show type,human readable
+alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
+alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
+alias ll='ls -l'      #long list
+alias ldot='ls -ld .*'
+alias lS='ls -1FSsh'
+alias lart='ls -1Fcart'
+alias lrt='ls -1Fcrt'
+alias lsr='ls -lARFh' #Recursive list of files and directories
+alias lsn='ls -1'     #A column contains name of files and directories
+alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
+alias grep='grep --color'
+alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
+alias t='tail -f'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g L="| less"
+alias -g M="| most"
+alias -g LL="2>&1 | less"
+alias -g CA="2>&1 | cat -A"
+alias -g NE="2> /dev/null"
+alias -g NUL="> /dev/null 2>&1"
+alias -g P="2>&1| pygmentize -l pytb"
+alias dud='du -d 1 -h'
+alias ff='find . -type f -name'
+alias h='history'
+alias hgrep="fc -El 0 | grep"
+alias help='man'
+alias p='ps -f'
+alias sortnr='sort -n -r'
+alias unexport='unset'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# Functions from common-aliases plugin
+
+# Aliases from git-auto-fetch plugin
+
+# Functions from git-auto-fetch plugin
+
+# Aliases from uv plugin
+alias uv="noglob uv"
+alias uva='uv add'
+alias uvexp='uv export --format requirements-txt --no-hashes --output-file requirements.txt --quiet'
+alias uvl='uv lock'
+alias uvlr='uv lock --refresh'
+alias uvlu='uv lock --upgrade'
+alias uvp='uv pip'
+alias uvpy='uv python'
+alias uvr='uv run'
+alias uvrm='uv remove'
+alias uvs='uv sync'
+alias uvsr='uv sync --refresh'
+alias uvsu='uv sync --upgrade'
+alias uvup='uv self update'
+alias uvv='uv venv'
+
+# Functions from uv plugin
+
+# Aliases from tldr plugin
+
+# Functions from tldr plugin
+
+# Aliases from pylint plugin
+alias pylint-quick='pylint --reports=n'
+
+# Functions from pylint plugin
+
+# Aliases from copypath plugin
+
+# Functions from copypath plugin
+
