@@ -1,7 +1,14 @@
+# source all common settings
+source .common_shrc
+#source .common_home_shrc
+#source .common_work_shrc
+#source .work_zshrc
+#source .home_zshrc
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your Oh My Zsh installation.
+## Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -71,7 +78,9 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf cp docker history pip node podman python conda pyenv poetry pre-commit ubuntu zsh-navigation-tools vscode ufw systemadmin repo man gitignore aliases conda-env systemd ssh ros npm helm eza fig command-not-found sudo rsync nvm git-lfs git-commit common-aliases git-auto-fetch uv tldr pylint copypath)
+
+#plugins=(git fzf cp docker history pip node podman python conda pyenv poetry pre-commit ubuntu zsh-navigation-tools vscode ufw systemadmin repo man gitignore aliases conda-env systemd ssh ros npm helm eza fig command-not-found sudo rsync nvm git-lfs git-commit common-aliases git-auto-fetch uv tldr pylint copypath)
+plugins=(git fzf cp docker history pip python pre-commit ubuntu zsh-navigation-tools vscode ufw systemadmin man gitignore aliases systemd ssh fig command-not-found sudo rsync git-lfs git-commit common-aliases git-auto-fetch uv tldr pylint copypath)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,16 +96,10 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 # Compilation flags
- export ARCHFLAGS="-arch $(uname -m)"
+
+export ARCHFLAGS="-arch $(uname -m)"
 
 ####################################
-
-
-#export LANGUAGE=(unset),                                                                                                                       │
-#export LC_ALL=(unset),                                                                                                                         │
-export LC_ALL=en_US.UTF-8
-export LC_COLLATE=en_US
-export LANG=en_US.UTF-8
 
 
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
@@ -112,90 +115,25 @@ export LANG=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-#echo ".zshrc[126] >>> ${PATH}"
-
-#export PATH="$PATH:/opt/nvim-linux64/bin"
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-alias nv="nvim"
-alias glow="glow -p"
-
-
-# some more ls aliases
-alias ll='ls -AlF'
-alias la='ls -A'
-alias l='ls -CF'
-
-
 if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
 
-alias lzv="nvim"
-alias lzg="lazygit"
-alias lzd="lazydocker"
-#alias fd="fdfind"
-#alias dirs="dirs -p"
-alias rm="trash"
+# History control
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
 
-if [ -z ${TERMUX_VERSION} ]; then
-  # enable PYENV
-  export PATH="${HOME}/.pyenv/bin:${PATH}"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi 
+# Set history file and size
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 
-# TODO: need to update dotfile scripts to update both .bashrc and .zshrc
-# TODO need to push all .zshrc/.bashrc updates to the owning install scripts
- 
-##########################################
-# [START] Add my custom scripts to the PATH
-##########################################
-my_script_path="${HOME}/dev/dotfiles/scripts"
 
-# Check if the path is already in PATH
-if [[ ":${PATH}:" != *":${my_script_path}:"* ]]; then
-  # Add the path if it's not already there
-  export PATH="${my_script_path}:${PATH}"
-  echo "Added ${my_script_path} to PATH"
-else
-  echo "${my_script_path} is already in PATH"
-fi
-##########################################
-# [END] Add my custom scripts to the PATH
-##########################################
-
-# initialize PYENV &/|| CONDA
-if [ -z ${TERMUX_VERSION} ]; then
-  #source init.conda
-  source init.pyenv
-fi
-
-if [ -d ${HOME}/.cargo/env ]; then
-  source ${HOME}/.cargo/env
-fi
-export PATH="/home/haysfamily/dev/dotfiles/scripts/programs/lua-5.4.7/bin:${PATH}"
-export PATH="/home/haysfamily/apps/lua-5.4.7/bin:${PATH}"
-export PATH="/home/haysfamily/apps/luarocks-3.11.1/bin:${PATH}"
-
-# Make nvim the default text editor
-export EDITOR=nvim
-export VISUAL=nvim
-
-# Make VI the default terminal navigation mode (options: -v, -e)
-#
+# Make EMACS the default terminal navigation mode (options: -v, -e)
+bindkey -e
+bindkey '^R' history-incremental-search-backward
 #  Emacs Mode (Default)
 #
 #  Ctrl + A → Move to the beginning of the line
@@ -210,41 +148,9 @@ export VISUAL=nvim
 #  b / w → Move back / forward one word
 #  0 / $ → Jump to the start / end of the line
 #  i → Switch to insert mode (to type normally)
-#
-bindkey -e
-bindkey '^R' history-incremental-search-backward
 
-###############
-alias l='ls -CF'
-alias ls="ls --color"
-alias ll='ls -alF'
-alias la='ls -A'
-#alias ll="ls -al"
-alias turbo="/opt/TurboVNC/bin/vncserver -localhost"
-alias du1="du -hx --max-depth=1 | sort -h --reverse"
-alias dff="df --total -h | grep -v snap | grep -v tmpfs"
-alias rm="trash"
-alias docps="docker ps --format \"table {{.Names}}\" | grep -v NAMES"
-alias active-users="ps -eo user | sort | uniq | grep -Ev \"USER|avahi|colord|gdm|kernoops|lp|messagebus|root|rtkit|syslog|systemd|whoopsie|xrdp|_rpc|daemon\""
-###############
+##########################################
+# FzF Support
+##########################################
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
-source /home/haysfamily/.cargo/env
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-alias bat="batcat --color=always"
-alias eza="eza --icons"
-omz plugin load fzf
-
-#EDITOR="nvim"
-s() {
-  fzf --ansi --disabled \
-    --bind "change:reload:command \
-          rg --line-number --no-heading --color=always --smart-case {q} \
-          || :" \
-    --bind "enter:execute(${EDITOR:-nvim} +{2} {1})" \
-    --delimiter ":" \
-    --preview "command batcat -p --color=always {1} --highlight-line {2}" \
-    --preview-window 'up:80%,border-bottom,~3,+{2}+3/3'
-}

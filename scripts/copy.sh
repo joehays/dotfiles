@@ -11,6 +11,7 @@ cd ${SCRIPT_ABS_DIR}/..
 
 ${MAKE_SYMLINK} .profile ${HOME}/.profile
 ${MAKE_SYMLINK} .bashrc ${HOME}/.bashrc
+${MAKE_SYMLINK} .common_shrc ${HOME}/.common_shrc
 ${MAKE_SYMLINK} .zshrc ${HOME}/.zshrc
 ${MAKE_SYMLINK} .bash_profile ${HOME}/.bash_profile
 #${MAKE_SYMLINK} .config ${HOME}/.config
