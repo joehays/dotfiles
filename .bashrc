@@ -1,9 +1,12 @@
-# source all common settings
-source .common_shrc
-#source .common_home_shrc
-#source .common_work_shrc
-#source .work_bashrc
-#source .home_bashrc
+# Only run these commands in interactive shells
+if [[ $- == *i* ]]; then
+  # source all common settings
+  source ${HOME}/.common_shrc
+  #source .common_home_shrc
+  #source .common_work_shrc
+  #source .work_bashrc
+  #source .home_bashrc
+fi
 
 # History control (append to the history file instead of overwrite)
 shopt -s histappend
@@ -23,7 +26,7 @@ set -o emacs
 #  Alt + F → Move forward one word
 #
 #  Vi Mode
-#  
+#
 #  Press Esc to enter command mode
 #  h / l → Move left / right
 #  b / w → Move back / forward one word
@@ -106,9 +109,7 @@ export PS1="${pathC}\u@\h${nameC}:\w ${gitC}\$(gitBranch)${pointerC}\$${normalC}
 # change terminal colors
 # xrdb -merge -I$HOME ~/.Xresources
 
-
 ##########################################
 # FzF Support
 ##########################################
 [[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
-

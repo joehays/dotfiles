@@ -1,9 +1,12 @@
-# source all common settings
-source .common_shrc
-#source .common_home_shrc
-#source .common_work_shrc
-#source .work_zshrc
-#source .home_zshrc
+# Only run these commands in interactive shells
+if [[ -o interactive ]]; then
+  # source all common settings
+  source ${HOME}/.common_shrc
+  #source .common_home_shrc
+  #source .common_work_shrc
+  #source .work_zshrc
+  #source .home_zshrc
+fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH

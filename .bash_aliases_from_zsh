@@ -78,6 +78,7 @@ alias gc!='git commit --verbose --amend'
 alias gcn='git commit --verbose --no-edit'
 alias gcn!='git commit --verbose --no-edit --amend'
 alias gcf='git config --list'
+alias gcfu='git commit --fixup'
 alias gdct='git describe --tags $(git rev-list --tags --max-count=1)'
 alias gd='git diff'
 alias gdca='git diff --cached'
@@ -666,6 +667,7 @@ alias dst='docker container start'
 alias drs='docker container restart'
 alias dsta='docker stop $(docker ps -q)'
 alias dstp='docker container stop'
+alias dsts='docker stats'
 alias dtop='docker top'
 alias dvi='docker volume inspect'
 alias dvls='docker volume ls'
@@ -787,7 +789,6 @@ alias prcrf='pre-commit run --files'
 # Aliases from ubuntu plugin
 alias acs='apt-cache search'
 alias afs='apt-file search --regexp'
-alias ags="$APT source"
 alias acp='apt-cache policy'
 alias agli='apt list --installed'
 alias aglu='apt list --upgradable'
@@ -1165,6 +1166,7 @@ alias mv='mv -i'
 # Functions from git-auto-fetch plugin
 
 # Aliases from uv plugin
+alias uv="noglob uv"
 alias uva='uv add'
 alias uvexp='uv export --format requirements-txt --no-hashes --output-file requirements.txt --quiet'
 alias uvl='uv lock'

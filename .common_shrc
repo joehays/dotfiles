@@ -1,3 +1,41 @@
+## Universal interactive shell detector (for both Bash and Zsh)
+#is_interactive_shell() {
+#    case "$-" in
+#        *i*) return 0 ;; # Bash style
+#        *)
+#            if [ -n "$ZSH_VERSION" ]; then
+#                [[ -o interactive ]] && return 0  # Zsh style
+#            fi
+#            return 1 ;;
+#    esac
+#}
+#
+#if is_interactive_shell; then
+#    if command -v add_to_path >/dev/null 2>&1; then
+#        add_to_path /some/path
+#    else
+#        export PATH="/some/path:$PATH"
+#    fi
+#fi
+
+# Non-interactive shell configuration goes here (outside the if block)
+# This will run for both interactive and non-interactive shells
+# Keep this section minimal and focused on environment variables
+# that are needed for all commands
+
+# Function to safely add to PATH
+add_to_path() {
+    # Check if directory exists and path is not already in PATH
+    if [[ -d "$1" ]] && [[ ":$PATH:" != *":$1:"* ]]; then
+        export PATH="$1:$PATH"
+        echo "Added $1 to PATH"
+    #elif [[ ":$PATH:" == *":$1:"* ]]; then
+        #echo "$1 already in PATH"
+    #else
+        #echo "Directory $1 does not exist"
+    fi
+}
+
 # Add my custom scripts to the PATH
 my_script_path="${HOME}/dev/dotfiles/scripts"
 add_to_path "${my_script_path}"
@@ -5,8 +43,9 @@ add_to_path "${my_script_path}"
 ##########################################
 # Mapping `oh-my-zsh` enabled plugin aliases to bash
 ##########################################
-${my_script_path}/generate_bash_aliases.sh
+#${my_script_path}/generate_bash_aliases.sh
 # Add to your .bashrc
+
 if [ -f ~/.bash_aliases_from_zsh ]; then
     # Try to source it with error handling
     {
@@ -25,23 +64,10 @@ mkcd() {
     mkdir -pv "$1" && cd "$1"
 }
 
-
+# run 'du' with a max-depth="$1"
 dun() { 
     du -h --max-depth="${1:-1}" | sort -h --reverse
 } 
-
-# Function to safely add to PATH
-add_to_path() {
-    # Check if directory exists and path is not already in PATH
-    if [[ -d "$1" ]] && [[ ":$PATH:" != *":$1:"* ]]; then
-        export PATH="$1:$PATH"
-        echo "Added $1 to PATH"
-    #elif [[ ":$PATH:" == *":$1:"* ]]; then
-        #echo "$1 already in PATH"
-    #else
-        #echo "Directory $1 does not exist"
-    fi
-}
 
 # Markdown link check in a folder, recursive
 function mlc() {
@@ -155,6 +181,7 @@ export JAVA_HOME="/usr/local/openjdk-17"
 export LD_LIBRARY_PATH="/usr/local/cuda-12.4/lib64:${LD_LIBRARY_PATH}"
 export MANPATH="/usr/local/texlive/texmf-dist/doc/man:${MANPATH}"
 export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+export FZF_DEFAULT_COMMAND="find -type f"
 
 # Use it for all your paths
 add_to_path "/opt/nvim-linux64/bin"
