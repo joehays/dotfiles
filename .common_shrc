@@ -185,6 +185,10 @@ export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 export FZF_DEFAULT_COMMAND="find -type f"
 
 # Use it for all your paths
+add_to_path "/usr/bin"
+add_to_path "/usr/local/bin"
+add_to_path "${HOME}/.vscode-server/cli/servers/*/server/bin/remote-cli"
+add_to_path "/home/joehays/.local/bin"
 add_to_path "/opt/nvim-linux64/bin"
 add_to_path "/opt/nvim-linux-x86_64/bin"
 add_to_path "${HOME}/.local/kitty.app/bin"
@@ -195,7 +199,6 @@ add_to_path "${JAVA_HOME}/bin"
 add_to_path "/usr/local/cuda-12.4/bin"
 add_to_path "/usr/local/texlive/bin/x86_64-linux"
 #add_to_path "${HOME}/.local/kitty.app/bin"
-
 
 ##########################################
 # RUST Support

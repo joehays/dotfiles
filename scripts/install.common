@@ -32,6 +32,7 @@ sudo ln -s "$(which batcat)" "$(dirname $(which batcat))/bat"
 
 ${APT_INSTALL} curl
 ${APT_INSTALL} htop
+${APT_INSTALL} mc
 ${APT_INSTALL} screen
 ${APT_INSTALL} software-properties-common
 ${APT_INSTALL} terminator
@@ -105,6 +106,7 @@ echo '------------------------------'
 echo "Installing Apps through 'cargo'"
 echo '------------------------------'
 cargo install eza
+cargo install md-tui --locked
 ${COND_INSERT} 'alias eza="eza --icons"' "${HOME}/.bashrc"
 ${COND_INSERT} 'alias eza="eza --icons"' "${HOME}/.zshrc"
 
