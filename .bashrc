@@ -113,3 +113,9 @@ export PS1="${pathC}\u@\h${nameC}:\w ${gitC}\$(gitBranch)${pointerC}\$${normalC}
 # FzF Support
 ##########################################
 [[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
+alias rm=trash
+export PS1='\u@\h:\w$ '
+alias duf=~/apps/duf/duf
+alias rm=trash
+export PS1='\u@\h:\w$ '
+alias duf=~/apps/duf/duf

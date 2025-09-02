@@ -121,6 +121,7 @@ export LANG=en_US.UTF-8
 #alias firewood='for remote in `git branch -r`; do git branch --track ${remote#origin/} $remote; done'
 #alias ov=/opt/ov/omniverse-launcher-linux.AppImage
 alias active-users="ps -eo user | sort | uniq | grep -Ev \"USER|avahi|colord|gdm|kernoops|lp|messagebus|root|rtkit|syslog|systemd|whoopsie|xrdp|_rpc|daemon\""
+alias arg="alias | rg"
 alias bat="batcat --color=always"
 #alias cp='cp -Rv'
 alias dff="df --total -h | grep -v snap | grep -v tmpfs"
