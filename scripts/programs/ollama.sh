@@ -25,27 +25,28 @@ echo '------------------------------'
 
 #sys_py_version="$(python3 --version | sed 's/[^0-9.]//g')"
 #py_version=sys_py_version
-py_version="3.11"
+#py_version="3.11"
 
-if command -v pyenv >/dev/null 2>&1; then
-  echo "pyenv already installed..."
-else
-  ./python3.sh
-fi
-
-if pyenv versions | grep -q "${py_version}"; then
-  echo "python ${py_version} is already installed..."
-else
-  pyenv install ${py_version}
-fi
-
-if pyenv versions | grep -q "ollama"; then
-  echo "ollama virtualenv already exists..."
-else
-  pyenv virtualenv ${py_version} ollama
-fi
-
-export PYENV_VERSION="ollama"
+#if command -v pyenv >/dev/null 2>&1; then
+#  echo "pyenv already installed..."
+#else
+#  ./python3.sh
+#fi
+#
+#if pyenv versions | grep -q "${py_version}"; then
+#  echo "python ${py_version} is already installed..."
+#else
+#  pyenv install ${py_version}
+#fi
+#
+#if pyenv versions | grep -q "ollama"; then
+#  echo "ollama virtualenv already exists..."
+#else
+#  pyenv virtualenv ${py_version} ollama
+#fi
+#
+#export PYENV_VERSION="ollama"
+export PYENV_VERSION="mars"
 echo "PYENV_VERSION = $PYENV_VERSION"
 pip install -U pip
 pip install fastapi uvicorn streamlit chromadb ollama langchain
@@ -69,16 +70,16 @@ fi
 #sudo systemctl start ollama
 #systemctl status ollama
 
-echo
-echo '------------------------------'
-echo '🐍 Installing Open-WebUI
-echo '------------------------------'
-
-pip install open-webui
-
-# NOTE: need to update this to get a newer version of docker compose
-sudo apt install docker.io docker-compose -y
-sudo systemctl enable --now docker
+#echo
+#echo '------------------------------'
+#echo '🐍 Installing Open-WebUI
+#echo '------------------------------'
+#
+#pip install open-webui
+#
+## NOTE: need to update this to get a newer version of docker compose
+#sudo apt install docker.io docker-compose -y
+#sudo systemctl enable --now docker
 
 
 unset PYENV_VERSION

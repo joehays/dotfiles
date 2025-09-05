@@ -119,3 +119,7 @@ alias duf=~/apps/duf/duf
 alias rm=trash
 export PS1='\u@\h:\w$ '
 alias duf=~/apps/duf/duf
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

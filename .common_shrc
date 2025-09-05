@@ -128,6 +128,8 @@ alias ccodex='codex --provider openai --model gpt-4o'
 alias cgem='genai chat --model gemini-2.5-pro'
 alias dff="df --total -h | grep -v snap | grep -v tmpfs"
 alias dirs="dirs -p"
+alias s2dh-root="export DOCKER_HOST=unix:///var/run/docker.sock"
+alias s2dh-rootless="export DOCKER_HOST=unix:///run/user/${UID}/docker.sock"
 alias docker-root="DOCKER_HOST=unix:///var/run/docker.sock docker"
 alias docker-rootless="DOCKER_HOST=unix:///run/user/${UID}/docker.sock docker"
 alias docps="docker ps --format \"table {{.Names}}\" | grep -v NAMES"
@@ -227,6 +229,33 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+##########################################
+# AVANTE LLM Configs
+##########################################
+## Choose default provider for Avante
+#export AVANTE_PROVIDER="claude"          # or "openai"
+#
+## Anthropic (Claude)
+#export ANTHROPIC_API_KEY="sk-..."        # real key
+#export CLAUDE_SONNET_37_MODEL="claude-3-7-sonnet-latest"
+#export CLAUDE_SONNET_40_MODEL="claude-4-0-sonnet-latest"
+#export ANTHROPIC_API_BASE="???"
+## Optionally pick which Claude profile to use when provider=claude
+## export AVANTE_CLAUDE_PROFILE="sonnet40"   # or omit for 3.7
+#
+## OpenAI (for chat or embeddings)
+#export OPENAI_API_KEY="sk-..."
+#export OPENAI_CHAT_MODEL="gpt-4o-mini"
+#export OPENAI_EMBED_MODEL="text-embedding-3-large"
+#
+## Optional: non-default endpoints
+## export OPENAI_API_BASE="https://api.openai.com/v1"
+## export ANTHROPIC_API_BASE="https://api.anthropic.com"
+#
+## RAG host mount override (if you need a specific path)
+## export AVANTE_RAG_MOUNT="$HOME/dev/your-repo"
 
 
 ##########################################

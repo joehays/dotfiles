@@ -46,11 +46,21 @@ APT_INSTALL="${SCRIPT_ABS_DIR}/../cond-apt-install"
 #
 ##sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 
-if ! command -v npm &>/dev/null; then
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-  nvm install --lts
-else
-  echo "Already installed: NPM"
-fi
+#<<<<<<< Updated upstream
+#if ! command -v npm &>/dev/null; then
+#  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+#  nvm install --lts
+#else
+#  echo "Already installed: NPM"
+#fi
+#=======
+#echo "TODO: need to automate the conditional insertion of the follwoing into .basrch/.zshrc..."
+#echo "export NVM_DIR=\"$HOME/.nvm\"
+#echo "[ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"  # This loads nvm"
+#echo "[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion"
+#
+#curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+#nvm install --lts
+#>>>>>>> Stashed changes
 
 cd ${CDW}
