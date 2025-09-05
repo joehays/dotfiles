@@ -7,7 +7,7 @@ echo '============================================================'
 CDW=$(pwd)
 
 # get my own absolute path
-SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"; ));
+SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"))
 APT_INSTALL="${SCRIPT_ABS_DIR}/../cond-apt-install"
 
 #### From: https://github.com/nodesource/distributions/blob/master/README.md
@@ -16,7 +16,7 @@ APT_INSTALL="${SCRIPT_ABS_DIR}/../cond-apt-install"
 #    sudo apt-get update
 #    sudo apt-get install -y ca-certificates curl gnupg
 #    sudo mkdir -p /etc/apt/keyrings
-#    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg 
+#    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
 #    echo "added /etc/apt/keyrings/nodesource.gpg"
 #fi
 #
@@ -34,7 +34,7 @@ APT_INSTALL="${SCRIPT_ABS_DIR}/../cond-apt-install"
 #echo "Installing APT packages"
 #echo '------------------------------'
 #${APT_INSTALL} nodejs
-#${APT_INSTALL} npm 
+#${APT_INSTALL} npm
 #
 #
 ## Now make a sym link...
@@ -46,7 +46,11 @@ APT_INSTALL="${SCRIPT_ABS_DIR}/../cond-apt-install"
 #
 ##sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-nvm install --lts
+if ! command -v npm &>/dev/null; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+  nvm install --lts
+else
+  echo "Already installed: NPM"
+fi
 
 cd ${CDW}

@@ -124,6 +124,8 @@ alias active-users="ps -eo user | sort | uniq | grep -Ev \"USER|avahi|colord|gdm
 alias arg="alias | rg"
 alias bat="batcat --color=always"
 #alias cp='cp -Rv'
+alias ccodex='codex --provider openai --model gpt-4o'
+alias cgem='genai chat --model gemini-2.5-pro'
 alias dff="df --total -h | grep -v snap | grep -v tmpfs"
 alias dirs="dirs -p"
 alias docker-root="DOCKER_HOST=unix:///var/run/docker.sock docker"
@@ -183,6 +185,9 @@ export LD_LIBRARY_PATH="/usr/local/cuda-12.4/lib64:${LD_LIBRARY_PATH}"
 export MANPATH="/usr/local/texlive/texmf-dist/doc/man:${MANPATH}"
 export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 export FZF_DEFAULT_COMMAND="find -type f"
+
+# export OPENAI_API_KEY="your_api_key_here"
+# export GOOGLE_API_KEY="your_api_key_here"
 
 # Use it for all your paths
 add_to_path "/usr/bin"
