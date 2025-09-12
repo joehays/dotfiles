@@ -59,6 +59,11 @@ fi
 # Custom Functions
 ##########################################
 
+# Finds package files with the given name in the apt eco-system
+apt-file-find() {
+  apt-file find -x "(?:^|/)(?<![a-zA-Z0-9\-_.])${1}$"
+}
+
 # makedir and cd
 mkcd() {
     mkdir -pv "$1" && cd "$1"

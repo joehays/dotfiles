@@ -27,6 +27,7 @@ sudo update-locale LANG=en_US.UTF-8
 
 # Basics
 echo 'BASICS'
+${APT_INSTALL} apt-file
 ${APT_INSTALL} bat
 sudo ln -s "$(which batcat)" "$(dirname $(which batcat))/bat"
 

@@ -193,7 +193,7 @@
 [merge]
     #conflictStyle = zdiff3
 [oh-my-zsh]
-	git-commit-alias = 680298e920069b313650c1e1e413197c251c9cde
+	git-commit-alias = 9e23925b8581d22033f07f1983587412d3761494
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [filter "lfs"]
