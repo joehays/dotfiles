@@ -28,6 +28,8 @@ echo '------------------------------'
 
 # Basics
 echo 'BASICS'
+${APT_INSTALL} zathura # epub reader
+${COND_INSERT} "alias epub=zathura" ${HOME}/.common_shrc
 
 # Development
 echo 'Development'

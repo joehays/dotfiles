@@ -82,12 +82,10 @@ echo
 
 #sudo npm install -g neovim
 
-echo '${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.bashrc && .zshrc'
-${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.bashrc
-${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.zshrc
+echo '${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.common_shrc'
+${COND_INSERT} "alias lzv=\"nvim\"" ${HOME}/.common_shrc
 
 #echo '${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.bashrc && .zshrc'
-#${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.bashrc
-#${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.zshrc
+#${COND_INSERT} "alias fd=\"fdfind\"" ${HOME}/.common_shrc
 
 cd ${CWD}

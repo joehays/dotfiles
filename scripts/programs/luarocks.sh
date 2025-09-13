@@ -6,7 +6,7 @@ echo 'PROGRAMS/luarocks.SH'
 echo '============================================================'
 
 # get my own absolute path
-SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"; ));
+SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"))
 echo "SCRIPT_ABS_DIR = ${SCRIPT_ABS_DIR} "
 
 COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
@@ -17,7 +17,6 @@ echo "COND_INSERT = ${COND_INSERT} "
 
 CWD=$(pwd)
 cd ${HOME}/apps
-
 
 echo
 echo '------------------------------'
@@ -42,16 +41,14 @@ make install
 #  #else
 #  #  ./configure --with-lua-include=/usr/local/include
 #  #fi
-#  make . 
+#  make .
 #  #make install .
 #fi
 
-echo "${COND_INSERT} 'export PATH=\"${PWD}/bin:\${PATH}\"' \${HOME}/.zshrc"
-${COND_INSERT} "export PATH=\"${PWD}/bin:\${PATH}\"" ${HOME}/.zshrc
+echo "\${COND_INSERT} 'export PATH=\"\${PWD}/bin:\${PATH}\"'  \${HOME}/.common_shrc"
+${COND_INSERT} 'export PATH=\"${PWD}/bin:\${PATH}\"' ${HOME}/.common_shrc
 
-echo "${COND_INSERT} 'export PATH=\"${PWD}/bin:\${PATH}\"' \${HOME}/.bashrc"
-${COND_INSERT} "export PATH=\"${PWD}/bin:\${PATH}\"" ${HOME}/.bashrc
-
+echo "\${COND_INSERT} 'export PATH=\"\${PWD}/bin:\${PATH}\"' \${HOME}/.common_shrc"
+${COND_INSERT} 'export PATH=\"${PWD}/bin:\${PATH}\"' ${HOME}/.common_shrc
 
 cd ${CWD}
-

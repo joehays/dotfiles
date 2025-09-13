@@ -51,10 +51,8 @@ tar xf ./lazygit.tar.gz --directory=${HOME}/apps
 
 echo "sudo install \${HOME}/apps/lazygit /usr/local/bin"
 #sudo install ${HOME}/apps/lazygit /usr/local/bin
-${COND_INSERT} "alias PATH=\${HOME}/apps:$PATH" ${HOME}/.bashrc
-
-${COND_INSERT} "alias lzg=\"lazygit\"" ${HOME}/.bashrc
-
+${COND_INSERT} "alias PATH=\${HOME}/apps:$PATH" ${HOME}/.common_shrc
+${COND_INSERT} "alias lzg=\"lazygit\"" ${HOME}/.common_shrc
 # TODO: delete downloaded files
 
 cd ${CWD}

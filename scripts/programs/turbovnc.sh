@@ -6,7 +6,7 @@ echo 'PROGRAMS/TURBUVNC.SH'
 echo '============================================================'
 
 # get my own absolute path
-SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"; ));
+SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"))
 echo "SCRIPT_ABS_DIR = ${SCRIPT_ABS_DIR} "
 
 COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
@@ -25,10 +25,10 @@ filename="turbovnc_${version}_amd64.deb"
 url="https://github.com/TurboVNC/turbovnc/releases/download/${version}/${filename}"
 
 if [ ! -f "${HOME}/Downloads/${filename}" ]; then
-    wget ${url}
-    chmod +x turbovnc_3.1.1_amd64.deb
+  wget ${url}
+  chmod +x turbovnc_3.1.1_amd64.deb
 else
-    echo "ALREADY DOWNLOADED: ${url}" 
+  echo "ALREADY DOWNLOADED: ${url}"
 fi
 
 echo
@@ -37,14 +37,13 @@ echo 'Installing TurboVNC'
 echo '------------------------------'
 
 if [ ! -f "/opt/TurboVNC/bin/vncserver" ]; then
-    sudo dpkg -i ${filename}
-    sudo apt install -f
+  sudo dpkg -i ${filename}
+  sudo apt install -f
 else
-    echo "ALREADY INSTALLED: /opt/TurboVNC/bin/vncserver "
+  echo "ALREADY INSTALLED: /opt/TurboVNC/bin/vncserver "
 fi
 cmd="/opt/TurboVNC/bin/vncserver -localhost"
-${COND_INSERT} "alias turbo=\"${cmd}\"" ${HOME}/.bashrc
-
+${COND_INSERT} "alias turbo=\"${cmd}\"" ${HOME}/.common_shrc
 echo
 echo '------------------------------'
 echo 'Configure TurboVNC as an automatic startup application'
@@ -54,9 +53,12 @@ echo '------------------------------'
 
 #EDITOR=$(which vim) crontab -e
 if [[ ! "$(crontab -l)" == *"${cmd}"* ]]; then
-    (crontab -l ; echo "@reboot sh /opt/TurboVNC/bin/vncserver -localhost :1") | crontab -
+  (
+    crontab -l
+    echo "@reboot sh /opt/TurboVNC/bin/vncserver -localhost :1"
+  ) | crontab -
 else
-    echo 'ALREADY CONFIGURED AS CRON TASK: "@reboot sh /opt/TurboVNC/bin/vncserver -localhost '
+  echo 'ALREADY CONFIGURED AS CRON TASK: "@reboot sh /opt/TurboVNC/bin/vncserver -localhost '
 fi
 
 ${cmd} :1

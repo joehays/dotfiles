@@ -6,7 +6,7 @@ echo 'PROGRAMS/WEZTERM.SH'
 echo '============================================================'
 
 # get my own absolute path
-SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"; ));
+SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"))
 echo "SCRIPT_ABS_DIR = ${SCRIPT_ABS_DIR} "
 
 COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
@@ -30,8 +30,7 @@ sudo apt update
 
 sudo apt install wezterm
 
-${COND_INSERT} "alias wt=\"wezterm\"" ${HOME}/.bashrc
-
+${COND_INSERT} "alias wt=\"wezterm\"" ${HOME}/.common_shrc
 ## TODO: delete downloaded files
 
 cd ${CWD}

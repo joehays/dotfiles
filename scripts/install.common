@@ -37,7 +37,7 @@ ${APT_INSTALL} mc
 ${APT_INSTALL} screen
 ${APT_INSTALL} software-properties-common
 ${APT_INSTALL} terminator
-${APT_INSTALL} trash-cli && ${COND_INSERT} "alias rm=trash" "${HOME}/.bashrc" && ${COND_INSERT} "alias rm=trash" "${HOME}/.zshrc"
+${APT_INSTALL} trash-cli && ${COND_INSERT} "alias rm=trash" ${HOME}/.common_shrc
 ${APT_INSTALL} tree
 ${APT_INSTALL} vim
 ${APT_INSTALL} zsh
@@ -107,9 +107,7 @@ echo '------------------------------'
 echo "Installing Apps through 'cargo'"
 echo '------------------------------'
 cargo install eza
-cargo install md-tui --locked
-${COND_INSERT} 'alias eza="eza --icons"' "${HOME}/.bashrc"
-${COND_INSERT} 'alias eza="eza --icons"' "${HOME}/.zshrc"
+cargo install md-tui --locked && ${COND_INSERT} 'alias eza="eza --icons"' ${HOME}/.common_shrc
 
 # Documents & Editing
 echo 'Documents & Editing'
@@ -120,8 +118,7 @@ ${APT_INSTALL} fzf # https://github.com/junegunn/fzf
 omz plugin enable fzf cp docker history pip node podman python conda pyenv poetry pre-commit ubuntu zsh-navigation-tools vscode ufw systemadmin repo man gitignore aliases conda-env systemd ssh ros npm helm eza fig command-not-found sudo rsync nvm git-lfs git-commit common-aliases git-auto-fetch uv tldr pylint copypath
 omz plugin load fzf cp docker history pip node podman python conda pyenv poetry pre-commit ubuntu zsh-navigation-tools vscode ufw systemadmin repo man gitignore aliases conda-env systemd ssh ros npm helm eza fig command-not-found sudo rsync nvm git-lfs git-commit common-aliases git-auto-fetch uv tldr pylint copypath
 
-${COND_INSERT} 'omz plugin load fzf' "${HOME}/.bashrc"
-${COND_INSERT} 'omz plugin load fzf' "${HOME}/.zshrc"
+${COND_INSERT} 'omz plugin load fzf' ${HOME}/.common_shrc
 
 ${APT_INSTALL} ripgrep # https://github.com/BurntSushi/ripgrep
 ${APT_INSTALL} fd-find # https://github.com/sharkdp/fd

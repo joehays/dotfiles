@@ -6,7 +6,7 @@ echo 'PROGRAMS/NVIM.SH'
 echo '============================================================'
 
 # get my own absolute path
-SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"; ));
+SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"))
 echo "SCRIPT_ABS_DIR = ${SCRIPT_ABS_DIR} "
 
 COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
@@ -27,9 +27,9 @@ filename="${dirname}.tar.gz"
 url="https://github.com/neovim/neovim/releases/latest/download"
 
 if [ ! -f "./${filename}" ]; then
-    curl -LO "${url}/${filename}"
+  curl -LO "${url}/${filename}"
 else
-    echo "ALREADY DOWNLOADED: ${url}/${filename}" 
+  echo "ALREADY DOWNLOADED: ${url}/${filename}"
 fi
 
 echo
@@ -43,15 +43,11 @@ sudo rm -rf /opt/nvim
 echo "sudo tar -C /opt -xzf ${filename}"
 sudo tar -C /opt -xzf ${filename}
 
-echo '${COND_INSERT} "export PATH=\"\${PATH}:/opt/${dirname}/bin\"" ${HOME}/.bashrc'
-${COND_INSERT} "export PATH=\"\${PATH}:/opt/${dirname}/bin\"" ${HOME}/.bashrc
-${COND_INSERT} "export PATH=\"\${PATH}:/opt/${dirname}/bin\"" ${HOME}/.zshrc
+echo '\${COND_INSERT} "export PATH=\"\${PATH}:/opt/${dirname}/bin\"" ${HOME}/.common_shrc'
+${COND_INSERT} "export PATH=\"\${PATH}:/opt/${dirname}/bin\"" ${HOME}/.common_shrc
 
-echo '${COND_INSERT} "alias nv=\"nvim\"" ${HOME}/.bashrc'
-${COND_INSERT} "alias nv=\"nvim\"" ${HOME}/.bashrc
-${COND_INSERT} "alias nv=\"nvim\"" ${HOME}/.zshrc
-
-
+echo '\${COND_INSERT} "alias nv=\"nvim\"" ${HOME}/.common_shrc'
+${COND_INSERT} "alias nv=\"nvim\"" ${HOME}/.common_shrc
 # TODO: delete downloaded files
 
 cd ${CWD}

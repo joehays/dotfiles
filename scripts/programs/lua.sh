@@ -6,7 +6,7 @@ echo 'PROGRAMS/LUA.SH'
 echo '============================================================'
 
 # get my own absolute path
-SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"; ));
+SCRIPT_ABS_DIR=$(dirname $(readlink -f -- "$0"))
 echo "SCRIPT_ABS_DIR = ${SCRIPT_ABS_DIR} "
 
 COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
@@ -22,7 +22,7 @@ if command -v termux-info >/dev/null 2>&1; then
   pkg install binutils clang -y
 else
   sudo ${APT_INSTALL} binutils
-  sudo ${APT_INSTALL} clang 
+  sudo ${APT_INSTALL} clang
 fi
 
 echo
@@ -40,10 +40,9 @@ install_top=${PWD}
 make CC="clang" CFLAGS="-O2 -fPIC -DLUA_USE_POSIX -DLUA_USE_DLOPEN" MYCFLAGS="-fno-stack-protector"
 make install INSTALL_TOP=${install_top}
 
-
 #if [ ! -d "${HOME}/apps/lua" ]; then
 #  mkdir -p ${HOME}/apps
-#  git clone git@github.com:lua/lua.git 
+#  git clone git@github.com:lua/lua.git
 #  cd lua
 #  install_top=${HOME}/apps/lua
 #
@@ -56,14 +55,8 @@ make install INSTALL_TOP=${install_top}
 #fi
 #
 #make install INSTALL_TOP=${install_top}
-  
-echo "${COND_INSERT} 'export PATH=\"${install_top}/bin:\${PATH}\"' \${HOME}/.zshrc"
-${COND_INSERT} "export PATH=\"${install_top}/bin:\${PATH}\"" ${HOME}/.zshrc
 
-echo "${COND_INSERT} 'export PATH=\"${install_top}/bin:\${PATH}\"' \${HOME}/.bashrc"
-${COND_INSERT} "export PATH=\"${install_top}/bin:\${PATH}\"" ${HOME}/.bashrc
-
+echo "${COND_INSERT} 'export PATH=\"\${install_top}/bin:\${PATH}\"' \${HOME}/.common_shrc"
+${COND_INSERT} "export PATH=\"${install_top}/bin:\${PATH}\"" ${HOME}/.common_shrc
 
 cd ${CWD}
-
-
