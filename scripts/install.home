@@ -28,8 +28,10 @@ echo '------------------------------'
 
 # Basics
 echo 'BASICS'
-${APT_INSTALL} zathura # epub reader
-${COND_INSERT} "alias epub=zathura" ${HOME}/.common_shrc
+#${APT_INSTALL} zathura # epub reader
+#${COND_INSERT} "alias epub=zathura" ${HOME}/.common_shrc
+${APT_INSTALL} foliate # epub reader
+${COND_INSERT} "alias epub=foliate" ${HOME}/.common_shrc
 
 # Development
 echo 'Development'
@@ -49,6 +51,7 @@ ${APT_INSTALL} imagemagick
 ${APT_INSTALL} libmagickwand-dev
 ${APT_INSTALL} pngcrush
 ${APT_INSTALL} jpegoptim
+programs/imgcat.sh
 
 # Media processing
 #echo 'Media Processing'

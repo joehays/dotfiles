@@ -21,6 +21,7 @@ winget install "Oracle.JavaRuntimeEnvironment" --accept-package-agreements --dis
 winget install "VideoLAN.VLC" --accept-package-agreements --disable-interactivity
 winget install "WinSCP.WinSCP" --accept-package-agreements --disable-interactivity
 winget install "Zoom.Zoom" --accept-package-agreements --disable-interactivity
+winget install "calibre.calibre" --accept-package-agreements --disable-interactivity
 winget install "marha.VcXsrv" --accept-package-agreements --disable-interactivity
 winget install "vim.vim" --accept-package-agreements --disable-interactivity
 
