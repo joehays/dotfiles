@@ -203,6 +203,7 @@ add_to_path "${HOME}/.vscode-server/cli/servers/*/server/bin/remote-cli"
 add_to_path "/home/joehays/.local/bin"
 add_to_path "/opt/nvim-linux64/bin"
 add_to_path "/opt/nvim-linux-x86_64/bin"
+add_to_path "${HOME}/.local/bin"
 add_to_path "${HOME}/.local/kitty.app/bin"
 add_to_path "${HOME}/apps/lua-5.4.7/bin"
 add_to_path "${HOME}/apps/luarocks-3.11.1/bin"
@@ -210,7 +211,6 @@ add_to_path "${HOME}/dev/dotfiles/scripts/programs/lua-5.4.7/bin"
 add_to_path "${JAVA_HOME}/bin"
 add_to_path "/usr/local/cuda-12.4/bin"
 add_to_path "/usr/local/texlive/bin/x86_64-linux"
-#add_to_path "${HOME}/.local/kitty.app/bin"
 
 ##########################################
 # RUST Support

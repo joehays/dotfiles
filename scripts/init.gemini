@@ -1,0 +1,1 @@
+export GEMINI_API_KEY="$(cat ${HOME}/dev/joe-docs/dev-ops/gemini-api-key)"
