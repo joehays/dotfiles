@@ -13,14 +13,18 @@ COND_INSERT="${SCRIPT_ABS_DIR}/../cond-insert-string-into-file"
 echo "COND_INSERT = ${COND_INSERT} "
 
 CWD=$(pwd)
-cd ${HOME}/Downloads
+cd ${HOME}/apps
 
 echo
 echo '------------------------------'
 echo 'Installing DELTA'
 echo '------------------------------'
 
-sudo apt install git-delta
+#sudo apt install git-delta
+./rust.sh
+git clone https://github.com/dandavison/delta.git
+cd delta
+cargo install --path .
 
 git config --global core.pager delta
 git config --global interactive.diffFilter 'delta --color-only'

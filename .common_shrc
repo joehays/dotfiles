@@ -122,7 +122,7 @@ export LANG=en_US.UTF-8
 #######################################
 
 #alias dirs="dirs -p"
-#alias fd="fdfind"
+unalias fd && alias fd="fdfind"
 #alias firewood='for remote in `git branch -r`; do git branch --track ${remote#origin/} $remote; done'
 #alias ov=/opt/ov/omniverse-launcher-linux.AppImage
 alias active-users="ps -eo user | sort | uniq | grep -Ev \"USER|avahi|colord|gdm|kernoops|lp|messagebus|root|rtkit|syslog|systemd|whoopsie|xrdp|_rpc|daemon\""
@@ -192,6 +192,9 @@ export LD_LIBRARY_PATH="/usr/local/cuda-12.4/lib64:${LD_LIBRARY_PATH}"
 export MANPATH="/usr/local/texlive/texmf-dist/doc/man:${MANPATH}"
 export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 export FZF_DEFAULT_COMMAND="find -type f"
+if [ -f "${HOME}/dev/joe-docs/dev-ops/get_capra_access_token.sh" ]; then
+    export CAPRA_API_TOKEN="$( ${HOME}/dev/joe-docs/dev-ops/get_capra_access_token.sh )"
+fi
 
 # export OPENAI_API_KEY="your_api_key_here"
 # export GOOGLE_API_KEY="your_api_key_here"
@@ -199,6 +202,8 @@ export FZF_DEFAULT_COMMAND="find -type f"
 # Use it for all your paths
 add_to_path "/usr/bin"
 add_to_path "/usr/local/bin"
+add_to_path "${HOME}/bin"
+add_to_path "${HOME}/.local/bin"
 add_to_path "${HOME}/.vscode-server/cli/servers/*/server/bin/remote-cli"
 add_to_path "/home/joehays/.local/bin"
 add_to_path "/opt/nvim-linux64/bin"
@@ -209,6 +214,8 @@ add_to_path "${HOME}/apps/lua-5.4.7/bin"
 add_to_path "${HOME}/apps/luarocks-3.11.1/bin"
 add_to_path "${HOME}/dev/dotfiles/scripts/programs/lua-5.4.7/bin"
 add_to_path "${JAVA_HOME}/bin"
+add_to_path "/opt/nvim-linux64/bin"
+add_to_path "/opt/nvim-linux-x86_64/bin"
 add_to_path "/usr/local/cuda-12.4/bin"
 add_to_path "/usr/local/texlive/bin/x86_64-linux"
 

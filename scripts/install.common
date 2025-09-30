@@ -33,7 +33,8 @@ sudo ln -s "$(which batcat)" "$(dirname $(which batcat))/bat"
 
 ${APT_INSTALL} curl
 ${APT_INSTALL} htop
-${APT_INSTALL} mc
+#${APT_INSTALL} mc
+${APT_INSTALL} moreutils
 ${APT_INSTALL} screen
 ${APT_INSTALL} software-properties-common
 ${APT_INSTALL} terminator

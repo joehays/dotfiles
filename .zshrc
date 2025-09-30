@@ -157,3 +157,5 @@ bindkey '^R' history-incremental-search-backward
 ##########################################
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
+# need to remove the .oh-my-zsh "common-commands" alias first
+unalias fd && alias fd="fdfind"
