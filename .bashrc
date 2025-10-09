@@ -121,7 +121,7 @@ export PS1='\u@\h:\w$ '
 alias duf=~/apps/duf/duf
 
 # need to remove the .oh-my-zsh "common-commands" alias first
-unalias fd && alias fd="fdfind"
+unalias fd 2> /dev/null; alias fd="fdfind"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
